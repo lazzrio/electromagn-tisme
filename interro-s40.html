@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Interro semaine 40 — Électromagnétisme</title>
+<meta name="description" content="Tout ce qu'il faut savoir pour l'interro surprise de la semaine 40 : Ch0, TD0, Ch1 partie A, TD1, avec entraînement corrigé.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#1d5fc4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#080d18" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta property="og:title" content="Interro semaine 40 — Électromagnétisme">
+<meta property="og:description" content="Tout ce qu'il faut savoir pour l'interro surprise de la semaine 40 : Ch0, TD0, Ch1 partie A, TD1, avec entraînement corrigé.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,500;0,600;0,700;0,800;1,600;1,700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+</head>
+<body class="cx-page s40-page">
+
+<div class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="index.html" aria-label="Accueil du site">
+      <span class="chip-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M13 2 L5 13 h6 l-1.5 9 L19 10 h-6 z"/></svg></span>
+      Électromagnétisme
+    </a>
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="interro-s40.html" class="nav-hot active" aria-current="page">🚨 Interro S40</a>
+      <a href="cours.html">📚 Cours</a>
+      <a href="formules.html">📘 Formules</a>
+      <a href="corriges.html">✅ TD corrigés</a>
+      <a href="quiz.html">🧠 Quiz</a>
+    </nav>
+    <button class="theme-btn" id="themeBtn" aria-label="Changer de thème" title="Thème clair / sombre">
+      <svg id="thIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"></svg>
+    </button>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+  </div>
+</div>
+
+<main>
+<div class="hero hero-sm">
+  <div class="hero-grid"></div>
+  <div class="hero-in">
+    <div>
+      <span class="eyebrow">🚨 Interro surprise · semaine 40 · en séance de TD</span>
+      <h1>Interro d'électromag : <em>tout ce qu'il faut savoir</em>.</h1>
+      <p class="lead">Programme annoncé : tout ce qui a été vu en amphi et en TD depuis la rentrée, c'est-à-dire Ch0, TD0, Ch1 partie A et TD1. L'essentiel, les exercices des TD résolus, les pièges et un entraînement corrigé.</p>
+      <div class="s4-prog"><span>Ch0 Outils mathématiques</span><span>TD0 Coordonnées, gradient, flux</span><span>Ch1 A Charges</span><span>TD1 Calculs de charges</span></div>
+    </div>
+  </div>
+</div>
+<div class="wrap s40">
+<nav class="s4-toc" aria-label="Sections de la fiche">
+  <a href="#essentiel">L'essentiel</a>
+  <a href="#ch0">Ch0 Outils</a>
+  <a href="#td0">TD0</a>
+  <a href="#ch1">Ch1 Charges</a>
+  <a href="#td1">TD1</a>
+  <a href="#pieges">Pièges</a>
+  <a href="#entrainement">Entraînement</a>
+  <a href="#formulaire">Formulaire</a>
+</nav>
+
+<!-- ================= ESSENTIEL ================= -->
+<section id="essentiel">
+  <h2>L'essentiel</h2>
+  <p class="s4-sub">Tout le programme tient en une compétence : <b>choisir le bon système de coordonnées, écrire le bon élément différentiel, poser les bonnes bornes, intégrer</b>. Le reste (gradient, flux, circulation, charge totale) n'est que de l'application.</p>
+  <div class="s4-must"><ol>
+    <li><b>Les 3 systèmes</b> : cartésien \((x,y,z)\), cylindrique \((r,\theta,z)\), sphérique \((r,\theta,\varphi)\). En sphérique, \(\theta\) se mesure <b>depuis l'axe \(Oz\)</b> (\(0\) à \(\pi\)) et \(\varphi\) dans le plan \(xOy\) depuis \(Ox\) (\(0\) à \(2\pi\)).</li>
+    <li><b>Déplacements élémentaires</b> : \(\mathrm{d}\vec l=\mathrm{d}x\,\vec e_x+\mathrm{d}y\,\vec e_y+\mathrm{d}z\,\vec e_z\) ; \(\mathrm{d}\vec l=\mathrm{d}r\,\vec e_r+r\,\mathrm{d}\theta\,\vec e_\theta+\mathrm{d}z\,\vec e_z\) ; \(\mathrm{d}\vec l=\mathrm{d}r\,\vec e_r+r\,\mathrm{d}\theta\,\vec e_\theta+r\sin\theta\,\mathrm{d}\varphi\,\vec e_\varphi\).</li>
+    <li><b>Volumes élémentaires</b> : \(\mathrm{d}\tau=\mathrm{d}x\,\mathrm{d}y\,\mathrm{d}z\) ; \(\mathrm{d}\tau=r\,\mathrm{d}r\,\mathrm{d}\theta\,\mathrm{d}z\) ; \(\mathrm{d}\tau=r^2\sin\theta\,\mathrm{d}r\,\mathrm{d}\theta\,\mathrm{d}\varphi\). Oublier le \(r\) ou le \(r^2\sin\theta\) est l'erreur n° 1.</li>
+    <li><b>Surfaces élémentaires</b> : produit des deux déplacements qui restent sur la surface ; le vecteur \(\mathrm{d}\vec S\) est porté par la normale (vers l'extérieur pour une surface fermée).</li>
+    <li><b>Résultats à connaître</b> : cylindre \(V=\pi R^2h\), \(S_{lat}=2\pi Rh\) ; sphère \(V=\frac43\pi R^3\), \(S=4\pi R^2\) ; disque \(S=\pi R^2\).</li>
+    <li><b>Gradient</b> : \(\overrightarrow{\mathrm{grad}}\,f=\frac{\partial f}{\partial r}\vec e_r+\frac1r\frac{\partial f}{\partial\theta}\vec e_\theta+\frac{\partial f}{\partial z}\vec e_z\) (cyl.) et \(\frac{\partial f}{\partial r}\vec e_r+\frac1r\frac{\partial f}{\partial\theta}\vec e_\theta+\frac{1}{r\sin\theta}\frac{\partial f}{\partial\varphi}\vec e_\varphi\) (sph.). En électrostatique \(\vec E=-\overrightarrow{\mathrm{grad}}\,V\), en V/m.</li>
+    <li><b>Flux</b> \(\Phi=\iint\vec A\cdot\mathrm{d}\vec S\) (un scalaire) et <b>circulation</b> \(C=\int\vec A\cdot\mathrm{d}\vec l\). Toujours faire le produit scalaire <b>avant</b> d'intégrer : beaucoup de termes valent 0.</li>
+    <li><b>Charges</b> : \(\mathrm{d}q=\lambda\,\mathrm{d}l\) (C/m), \(\mathrm{d}q=\sigma\,\mathrm{d}S\) (C/m²), \(\mathrm{d}q=\rho\,\mathrm{d}\tau\) (C/m³), et \(Q=\int\mathrm{d}q\). Uniforme : \(Q=\lambda L\), \(\sigma S\), \(\rho V\).</li>
+    <li><b>Intégrales qui reviennent</b> : \(\int_0^{\pi}\sin\theta\,\mathrm{d}\theta=2\) ; \(\int_0^{2\pi}\cos\theta\,\mathrm{d}\theta=\int_0^{2\pi}\sin\theta\,\mathrm{d}\theta=0\) ; \(\int_0^{2\pi}\sin^2\theta\,\mathrm{d}\theta=\int_0^{2\pi}\cos^2\theta\,\mathrm{d}\theta=\pi\) ; \(\int\sin\theta\cos\theta\,\mathrm{d}\theta=\frac{\sin^2\theta}{2}\).</li>
+    <li><b>Densité non uniforme</b> : son expression dépend de l'origine du repère. Déplacer l'origine change la distribution, donc la charge (TD1 ex. 2 et 7). Une densité uniforme, elle, donne la même charge partout.</li>
+  </ol></div>
+
+  <h3>Plan sur 3 jours</h3>
+  <div class="s4-plan">
+    <div><b>J-3 · Ch0 + TD0</b><ul><li>Refaire la figure de chaque repère et retrouver \(\mathrm{d}\vec l\), \(\mathrm{d}\vec S\), \(\mathrm{d}\tau\) sans regarder.</li><li>Retrouver \(\pi R^2h\), \(2\pi R(R+h)\), \(4\pi R^2\), \(\frac43\pi R^3\) par intégration.</li><li>Gradients du TD0 (ex. 2).</li></ul></div>
+    <div><b>J-2 · Flux, circulation, TD1</b><ul><li>TD0 ex. 3 : flux et circulation.</li><li>TD1 ex. 1 à 5 en cachant la correction.</li><li>Les DM (ex. 6 et 7) : ce sont les plus proches d'une question d'interro « difficile ».</li></ul></div>
+    <div><b>J-1 · Entraînement</b><ul><li>Faire l'<a href="#entrainement">entraînement</a> en temps limité.</li><li>Relire les <a href="#pieges">pièges</a> et le <a href="#formulaire">formulaire</a>.</li><li>Vérifier les unités de chaque résultat.</li></ul></div>
+  </div>
+  <div class="s4-tip"><span class="s4-lbl">Sur le programme</span>Tout est détaillé sur les pages <a href="cours.html">Cours</a> et <a href="corriges.html">TD corrigés</a>. Le poly de cours du Ch1 n'est pas dans ton dossier : la partie « Ch1 » ci-dessous est construite à partir du TD1 (calculs de charges), qui en est l'application directe. Compare-la avec tes notes d'amphi. Si la Partie A allait jusqu'à la loi de Coulomb et au champ, un résumé est donné en fin de section.</div>
+</section>
+
+<!-- ================= CH0 ================= -->
+<section id="ch0">
+  <h2>Ch0 · Outils mathématiques <span class="s4-tag">cours + TD0</span></h2>
+  <p class="s4-sub">Choisir le repère selon la symétrie du problème : un pavé → cartésien ; un fil, un disque, un cylindre → cylindrique ; une boule, une coquille → sphérique.</p>
+
+  <figure class="s4-fig">
+    <svg viewBox="0 0 300 235" role="img" aria-label="Coordonnées sphériques : r = OM, theta angle entre Oz et OM, phi angle entre Ox et la projection de OM dans le plan xOy.">
+      <path class="w" d="M110 150 V18 M110 150 H285 M110 150 L32 215"/>
+      <path class="cur" d="M110 150 L200 62"/><path class="w dash" d="M200 62 V178 M110 150 L200 178"/>
+      <path class="cur" d="M110 112 A38 38 0 0 1 137 123"/>
+      <path class="cur" d="M86 170 A32 32 0 0 0 140 159"/>
+      <circle class="dot" cx="200" cy="62" r="4"/><circle class="dot" cx="200" cy="178" r="3"/>
+      <text class="t" x="115" y="20">z</text><text class="t" x="275" y="142">y</text><text class="t" x="22" y="212">x</text>
+      <text class="t" x="96" y="166">O</text><text class="tn" x="208" y="58">M</text><text class="t" x="206" y="196">m</text>
+      <text class="ti" x="150" y="96">r</text><text class="ti" x="116" y="104">θ</text><text class="ti" x="100" y="196">φ</text>
+    </svg>
+    <figcaption>Sphérique : \(r=OM\) ; \(\theta\) entre \(Oz\) et \(\overrightarrow{OM}\) ; \(\varphi\) entre \(Ox\) et \(\overrightarrow{Om}\), où \(m\) est le projeté de \(M\) sur \(xOy\). En cylindrique, \(r=Om\) et l'angle \(\theta\) est celui que le sphérique appelle \(\varphi\).</figcaption>
+  </figure>
+
+  <div class="tbl-wrap s4-stack"><table>
+    <tr><th>Repère</th><th>Variables et domaines</th><th>\(\overrightarrow{OM}\) et \(\mathrm{d}\vec l\)</th><th>\(\mathrm{d}\tau\)</th></tr>
+    <tr><td data-l="Repère">Cartésien</td><td data-l="Variables et domaines">\(x,y,z\in\mathbb R\) (m)</td><td data-l="OM et dl">\(x\vec e_x+y\vec e_y+z\vec e_z\) ; \(\mathrm{d}x\,\vec e_x+\mathrm{d}y\,\vec e_y+\mathrm{d}z\,\vec e_z\)</td><td data-l="dτ">\(\mathrm{d}x\,\mathrm{d}y\,\mathrm{d}z\)</td></tr>
+    <tr><td data-l="Repère">Cylindrique</td><td data-l="Variables et domaines">\(r\ge0\) (m), \(\theta\in[0,2\pi[\) (rad), \(z\in\mathbb R\)</td><td data-l="OM et dl">\(r\vec e_r+z\vec e_z\) ; \(\mathrm{d}r\,\vec e_r+r\,\mathrm{d}\theta\,\vec e_\theta+\mathrm{d}z\,\vec e_z\)</td><td data-l="dτ">\(r\,\mathrm{d}r\,\mathrm{d}\theta\,\mathrm{d}z\)</td></tr>
+    <tr><td data-l="Repère">Sphérique</td><td data-l="Variables et domaines">\(r\ge0\) (m), \(\theta\in[0,\pi]\), \(\varphi\in[0,2\pi[\)</td><td data-l="OM et dl">\(r\vec e_r\) ; \(\mathrm{d}r\,\vec e_r+r\,\mathrm{d}\theta\,\vec e_\theta+r\sin\theta\,\mathrm{d}\varphi\,\vec e_\varphi\)</td><td data-l="dτ">\(r^2\sin\theta\,\mathrm{d}r\,\mathrm{d}\theta\,\mathrm{d}\varphi\)</td></tr>
+  </table></div>
+  <div class="s4-trap"><span class="s4-lbl">Piège</span>\(\overrightarrow{OM}=r\vec e_r+z\vec e_z\) en cylindrique et \(\overrightarrow{OM}=r\vec e_r\) en sphérique : il n'y a <b>pas</b> de composante en \(\vec e_\theta\), l'angle est « caché » dans la direction de \(\vec e_r\), qui dépend du point.</div>
+
+  <h3>Éléments de surface vectoriels</h3>
+  <p>On garde les deux déplacements qui restent dans la surface ; la normale est le troisième vecteur de base.</p>
+  <div class="tbl-wrap s4-stack"><table>
+    <tr><th>Repère</th><th>Les 3 éléments \(\mathrm{d}\vec S\)</th><th>Utilisé pour</th></tr>
+    <tr><td data-l="Repère">Cartésien</td><td data-l="Les 3 éléments dS">\(\mathrm{d}y\,\mathrm{d}z\,\vec e_x\) ; \(\mathrm{d}x\,\mathrm{d}z\,\vec e_y\) ; \(\mathrm{d}x\,\mathrm{d}y\,\vec e_z\)</td><td data-l="Utilisé pour">faces d'un pavé</td></tr>
+    <tr><td data-l="Repère">Cylindrique</td><td data-l="Les 3 éléments dS">\(r\,\mathrm{d}\theta\,\mathrm{d}z\,\vec e_r\) ; \(\mathrm{d}r\,\mathrm{d}z\,\vec e_\theta\) ; \(r\,\mathrm{d}r\,\mathrm{d}\theta\,\vec e_z\)</td><td data-l="Utilisé pour">surface latérale (\(r=R\)) ; demi-plan ; disque, fond, couvercle</td></tr>
+    <tr><td data-l="Repère">Sphérique</td><td data-l="Les 3 éléments dS">\(r^2\sin\theta\,\mathrm{d}\theta\,\mathrm{d}\varphi\,\vec e_r\) ; \(r\sin\theta\,\mathrm{d}r\,\mathrm{d}\varphi\,\vec e_\theta\) ; \(r\,\mathrm{d}r\,\mathrm{d}\theta\,\vec e_\varphi\)</td><td data-l="Utilisé pour">sphère (\(r=R\)) ; cône ; demi-plan méridien</td></tr>
+  </table></div>
+
+  <h3>Passage entre repères</h3>
+  <div class="mq">\[\begin{gathered}x=r\cos\theta,\quad y=r\sin\theta,\quad r=\sqrt{x^2+y^2},\quad\tan\theta=\frac yx\\[4pt] \vec e_r=\cos\theta\,\vec e_x+\sin\theta\,\vec e_y\qquad\vec e_\theta=-\sin\theta\,\vec e_x+\cos\theta\,\vec e_y\end{gathered}\]</div>
+  <p>En sphérique : \(x=r\sin\theta\cos\varphi\), \(y=r\sin\theta\sin\varphi\), \(z=r\cos\theta\).</p>
+
+  <h3>Gradient</h3>
+  <p>Le gradient transforme un champ <b>scalaire</b> en champ <b>vectoriel</b>. Il vient de la différentielle : \(\mathrm{d}f=\overrightarrow{\mathrm{grad}}\,f\cdot\mathrm{d}\vec l\). C'est pour ça que le \(r\) de \(r\,\mathrm{d}\theta\) devient un \(\frac1r\) devant \(\frac{\partial f}{\partial\theta}\).</p>
+  <div class="s4-key"><span class="s4-lbl">Les 3 expressions à savoir</span>
+    <div class="mq">\[\begin{gathered}\overrightarrow{\mathrm{grad}}\,f=\frac{\partial f}{\partial x}\vec e_x+\frac{\partial f}{\partial y}\vec e_y+\frac{\partial f}{\partial z}\vec e_z\\[6pt] \overrightarrow{\mathrm{grad}}\,f=\frac{\partial f}{\partial r}\vec e_r+\frac1r\frac{\partial f}{\partial\theta}\vec e_\theta+\frac{\partial f}{\partial z}\vec e_z\\[6pt] \overrightarrow{\mathrm{grad}}\,f=\frac{\partial f}{\partial r}\vec e_r+\frac1r\frac{\partial f}{\partial\theta}\vec e_\theta+\frac{1}{r\sin\theta}\frac{\partial f}{\partial\varphi}\vec e_\varphi\end{gathered}\]</div>
+    <p class="s4-small">L'opérateur gradient a pour unité m⁻¹ : \(\overrightarrow{\mathrm{grad}}\,V\) est en V/m, comme \(\vec E=-\overrightarrow{\mathrm{grad}}\,V\). Le gradient est normal aux surfaces \(f=\) cste et dirigé vers les \(f\) croissants.</p>
+  </div>
+
+  <h3>Flux et circulation</h3>
+  <div class="s4-grid">
+    <div class="s4-card"><h4>Flux</h4>
+      <div class="mq">\[\Phi=\iint_\Sigma\vec A\cdot\mathrm{d}\vec S\]</div>
+      <p class="s4-small">Surface fermée : \(\mathrm{d}\vec S\) orienté de l'intérieur vers l'extérieur (flux « sortant »). Flux « entrant » = l'opposé. Surface ouverte s'appuyant sur un contour : orientation par la règle du tire-bouchon.</p></div>
+    <div class="s4-card"><h4>Circulation</h4>
+      <div class="mq">\[C_{M_1\to M_2}=\int_{M_1}^{M_2}\vec A\cdot\mathrm{d}\vec l\]</div>
+      <p class="s4-small">Contour fermé : \(\oint\). Sur un cercle d'axe \(Oz\) de rayon \(R\) parcouru dans le sens trigonométrique : \(\mathrm{d}\vec l=R\,\mathrm{d}\theta\,\vec e_\theta\). Un champ de gradient a une circulation indépendante du chemin (nulle sur un contour fermé).</p></div>
+  </div>
+</section>
+
+<!-- ================= TD0 ================= -->
+<section id="td0">
+  <h2>TD0 · Outils mathématiques <span class="s4-tag">poly p. 1 à 3</span></h2>
+
+  <h3>Ex 1 · Coordonnées, surfaces et volumes</h3>
+  <p>Réponses de cours ci-dessus. Les calculs à savoir refaire :</p>
+  <div class="mq">\[V_{pavé}=\int_{-a/2}^{a/2}\!\mathrm{d}x\int_{-b/2}^{b/2}\!\mathrm{d}y\int_{-c/2}^{c/2}\!\mathrm{d}z=abc\ \ (\text{m}^3)\]</div>
+  <div class="mq">\[\begin{gathered}S_{cyl}=\underbrace{\int_0^{2\pi}\!\!\int_0^{h}R\,\mathrm{d}\theta\,\mathrm{d}z}_{\text{latérale}}+2\underbrace{\int_0^{R}\!\!\int_0^{2\pi}r\,\mathrm{d}r\,\mathrm{d}\theta}_{\text{un disque}}\\[4pt] S_{cyl}=2\pi Rh+2\pi R^2=2\pi R(R+h)\ \ (\text{m}^2)\end{gathered}\]</div>
+  <div class="mq">\[V_{cyl}=\int_0^R r\,\mathrm{d}r\int_0^{2\pi}\mathrm{d}\theta\int_{-h/2}^{h/2}\mathrm{d}z=\frac{R^2}{2}\cdot2\pi\cdot h=\pi R^2h\]</div>
+  <div class="mq">\[\begin{aligned}S_{sph}&=\int_0^{\pi}\!\!\int_0^{2\pi}R^2\sin\theta\,\mathrm{d}\theta\,\mathrm{d}\varphi\\&=R^2\cdot2\cdot2\pi=4\pi R^2\\[6pt] V_{sph}&=\int_0^R r^2\,\mathrm{d}r\int_0^{\pi}\sin\theta\,\mathrm{d}\theta\int_0^{2\pi}\mathrm{d}\varphi\\&=\frac{R^3}{3}\cdot2\cdot2\pi=\frac43\pi R^3\end{aligned}\]</div>
+  <div class="s4-tip"><span class="s4-lbl">Réflexe</span>Quand les bornes sont constantes et l'intégrande un produit de fonctions d'une seule variable chacune, l'intégrale triple est le <b>produit</b> de trois intégrales simples.</div>
+
+  <h3>Ex 2 · Gradients et unités</h3>
+  <p><b>Partie B.</b> Unité de l'opérateur gradient : m⁻¹.</p>
+  <div class="mq">\[\begin{gathered}f=x^2+\ln\!\left(\frac xA\right)yz\\[4pt] \overrightarrow{\mathrm{grad}}\,f=\left(2x+\frac{yz}{x}\right)\vec e_x+z\ln\!\left(\frac xA\right)\vec e_y+y\ln\!\left(\frac xA\right)\vec e_z\end{gathered}\]</div>
+  <div class="mq">\[\begin{gathered}g=r^2(1+\tan\theta)+Bz\\[4pt] \overrightarrow{\mathrm{grad}}\,g=2r(1+\tan\theta)\,\vec e_r+\frac{r}{\cos^2\theta}\,\vec e_\theta+B\,\vec e_z\end{gathered}\]</div>
+  <div class="mq">\[\begin{aligned}k&=r^2(\sin\theta+\varphi\cos\theta)\\[4pt] \overrightarrow{\mathrm{grad}}\,k&=2r(\sin\theta+\varphi\cos\theta)\,\vec e_r\\&\quad+r(\cos\theta-\varphi\sin\theta)\,\vec e_\theta\\&\quad+\frac{r\cos\theta}{\sin\theta}\,\vec e_\varphi\end{aligned}\]</div>
+  <p>Unités et domaines : \(x,y,z\) en m, \(x>0\) et \(A\) en m (l'argument d'un logarithme est sans dimension), \(f\) en m². \(r\ge0\) en m, angles en rad ; pour \(g\), \(\theta\neq\frac\pi2,\frac{3\pi}2\) (tangente), \(B\) en m, \(g\) en m². Pour \(k\) : \(\theta\in[0,\pi]\), \(\varphi\in[0,2\pi[\), \(k\) en m².</p>
+  <p><b>Partie C.</b> \(\vec E=-\overrightarrow{\mathrm{grad}}\,V\) :</p>
+  <div class="mq">\[\vec E_1=-\frac{2E_0}{R}\left(xy^2z^2\,\vec e_x+x^2yz^2\,\vec e_y+x^2y^2z\,\vec e_z\right)\]</div>
+  <div class="mq">\[\vec E_2=\frac{V_0}{A}\left(-(1+\cos\theta)\,\vec e_r+\sin\theta\,\vec e_\theta-\vec e_z\right)\]</div>
+  <div class="mq">\[\begin{aligned}\vec E_3=-\frac{E_0}{B}\Big(&2r(\sin\theta+\varphi\cos\theta)\,\vec e_r\\&+r(\cos\theta-\varphi\sin\theta)\,\vec e_\theta\\&+\frac{r\cos\theta}{\sin\theta}\,\vec e_\varphi\Big)\end{aligned}\]</div>
+  <p>Unités : \(\vec E\) en V/m. \(V_0\) est un potentiel (V), donc \(A\) en m. En prenant \(E_0\) comme un champ (V/m, ce que suggère son nom) : \(\frac{E_0\,x^2y^2z^2}{R}\) en V impose \(R\) en m⁵, et \(\frac{E_0r^2}{B}\) en V impose \(B\) en m.</p>
+  <div class="s4-trap"><span class="s4-lbl">Piège</span>Le signe − de \(\vec E=-\overrightarrow{\mathrm{grad}}\,V\) s'applique à <b>toutes</b> les composantes : factoriser le − devant la parenthèse pour ne pas l'oublier.</div>
+
+  <h3>Ex 3 · Flux et circulation</h3>
+  <p><b>1. Cylindre</b> (axe \(Oz\), rayon \(a\), hauteur \(h\)), \(\vec A=A_0\,r\,\vec e_r\).</p>
+  <ul>
+    <li>Surface latérale (\(r=a\)) : \(\mathrm{d}\vec S=a\,\mathrm{d}\theta\,\mathrm{d}z\,\vec e_r\), donc \(\vec A\cdot\mathrm{d}\vec S=A_0a^2\,\mathrm{d}\theta\,\mathrm{d}z\) et \(\Phi_{lat}=A_0a^2\cdot2\pi\cdot h\).</li>
+    <li>Fond et couvercle : \(\mathrm{d}\vec S\) selon \(\pm\vec e_z\), perpendiculaire à \(\vec A\) : flux nul.</li>
+  </ul>
+  <div class="mq">\[\Phi=2\pi A_0\,a^2h\]</div>
+  <p><b>2. Sphère</b> de rayon \(R\), \(\vec A=A_0\,\varphi\,\vec e_r\), flux de l'extérieur vers l'intérieur : \(\mathrm{d}\vec S=-R^2\sin\theta\,\mathrm{d}\theta\,\mathrm{d}\varphi\,\vec e_r\).</p>
+  <div class="mq">\[\begin{aligned}\Phi&=-A_0R^2\int_0^{\pi}\sin\theta\,\mathrm{d}\theta\int_0^{2\pi}\varphi\,\mathrm{d}\varphi\\&=-A_0R^2\cdot2\cdot2\pi^2=-4\pi^2A_0R^2\end{aligned}\]</div>
+  <p><b>3. Cercle</b> d'axe \(Oz\), rayon \(R_1\), sens trigonométrique : \(\mathrm{d}\vec l=R_1\,\mathrm{d}\theta\,\vec e_\theta\).</p>
+  <ul>
+    <li>\(\vec A_1=A_0\sin\theta\,\vec e_r\) : \(\vec e_r\perp\vec e_\theta\), donc \(C_1=0\) (sur le cercle comme sur le demi-cercle).</li>
+    <li>\(\vec A_2=A_0\sin\theta\,\vec e_\theta\) : \(C_2=\int_0^{2\pi}A_0R_1\sin\theta\,\mathrm{d}\theta=0\).</li>
+    <li>Demi-cercle \(\theta\in[0,\pi]\) : \(C_2=A_0R_1\big[-\cos\theta\big]_0^{\pi}=2A_0R_1\) (et \(-2A_0R_1\) sur l'autre moitié : les deux s'annulent).</li>
+  </ul>
+</section>
+
+<!-- ================= CH1 ================= -->
+<section id="ch1">
+  <h2>Ch1 · Électrostatique, partie A : les charges <span class="s4-tag">cours + TD1</span></h2>
+  <h3>La charge électrique</h3>
+  <ul>
+    <li>Unité : le coulomb (C). Charge élémentaire \(e=1{,}6\times10^{-19}\) C : électron \(-e\), proton \(+e\).</li>
+    <li><b>Quantifiée</b> (\(q=\pm Ne\)) et <b>conservée</b> (un système isolé garde sa charge totale). Deux charges de même signe se repoussent, de signes opposés s'attirent.</li>
+    <li>À l'échelle macroscopique, on remplace les charges discrètes par une <b>distribution continue</b> décrite par une densité.</li>
+  </ul>
+  <div class="tbl-wrap s4-stack"><table>
+    <tr><th>Distribution</th><th>Densité et unité</th><th>Charge élémentaire</th><th>Charge totale</th></tr>
+    <tr><td data-l="Distribution">Linéique (fil)</td><td data-l="Densité et unité">\(\lambda\) en C·m⁻¹</td><td data-l="Charge élémentaire">\(\mathrm{d}q=\lambda\,\mathrm{d}l\)</td><td data-l="Charge totale">\(Q=\int_L\lambda\,\mathrm{d}l\)</td></tr>
+    <tr><td data-l="Distribution">Surfacique (plaque, disque, coquille)</td><td data-l="Densité et unité">\(\sigma\) en C·m⁻²</td><td data-l="Charge élémentaire">\(\mathrm{d}q=\sigma\,\mathrm{d}S\)</td><td data-l="Charge totale">\(Q=\iint_S\sigma\,\mathrm{d}S\)</td></tr>
+    <tr><td data-l="Distribution">Volumique (boule, cylindre plein)</td><td data-l="Densité et unité">\(\rho\) en C·m⁻³</td><td data-l="Charge élémentaire">\(\mathrm{d}q=\rho\,\mathrm{d}\tau\)</td><td data-l="Charge totale">\(Q=\iiint_V\rho\,\mathrm{d}\tau\)</td></tr>
+  </table></div>
+  <div class="s4-key"><span class="s4-lbl">Méthode pour toute question « calculer la charge »</span>
+    <ol style="margin:4px 0">
+      <li>Identifier la dimension de l'objet : fil → \(\lambda\), surface → \(\sigma\), volume → \(\rho\). Donner l'unité de la constante.</li>
+      <li>Choisir le repère adapté à la <b>forme</b> (et à la densité donnée : si elle dépend de \(r,\theta,\varphi\), c'est du sphérique).</li>
+      <li>Écrire l'élément \(\mathrm{d}l\), \(\mathrm{d}S\) ou \(\mathrm{d}\tau\) <b>avec ses facteurs</b> (\(r\), \(r^2\sin\theta\)).</li>
+      <li>Poser les bornes d'après la figure (où est l'origine ? quelle portion d'angle ?).</li>
+      <li>Séparer en intégrales simples, calculer, vérifier l'unité (des coulombs) et le signe.</li>
+    </ol></div>
+  <p>Cas uniforme : \(Q=\lambda L=\sigma S=\rho V\), il suffit de connaître la longueur, l'aire ou le volume. Le calcul intégral ne sert que si la densité varie.</p>
+  <details><summary>Si l'amphi est allé plus loin : Coulomb, champ, potentiel</summary><div class="s4-ans">
+    <div class="mq">\[\begin{gathered}\vec F_{1\to2}=\frac{1}{4\pi\varepsilon_0}\frac{q_1q_2}{r^2}\,\vec u_{12}\\[4pt] \vec E=\frac{\vec F}{q}=\frac{1}{4\pi\varepsilon_0}\frac{q}{r^2}\,\vec e_r\\[4pt] V=\frac{1}{4\pi\varepsilon_0}\frac qr\qquad\vec E=-\overrightarrow{\mathrm{grad}}\,V\\[4pt] \varepsilon_0=8{,}85\times10^{-12}\ \text{F/m}\end{gathered}\]</div>
+    <p>\(\frac{1}{4\pi\varepsilon_0}\approx9\times10^9\) SI. Principe de superposition : le champ de plusieurs charges est la somme vectorielle des champs de chacune ; pour une distribution continue, \(\mathrm{d}\vec E=\frac{1}{4\pi\varepsilon_0}\frac{\mathrm{d}q}{r^2}\vec u\) avec le \(\mathrm{d}q\) ci-dessus. Vérification rapide : \(\frac{\mathrm{d}}{\mathrm{d}r}\left(\frac1r\right)=-\frac1{r^2}\), donc \(-\overrightarrow{\mathrm{grad}}\left(\frac{q}{4\pi\varepsilon_0r}\right)=\frac{q}{4\pi\varepsilon_0r^2}\vec e_r\).</p>
+  </div></details>
+</section>
+
+<!-- ================= TD1 ================= -->
+<section id="td1">
+  <h2>TD1 · Calculs de charges <span class="s4-tag">poly p. 1 à 3</span></h2>
+
+  <h3>Ex 1 · Fil fini</h3>
+  <p>Droit : \(Q=\int_{-a}^{a}\lambda_0\,\mathrm{d}x=2a\lambda_0\). Plié à angle droit : deux segments de longueur \(a\), \(Q=a\lambda_0+a\lambda_0=2a\lambda_0\). <b>Conclusion</b> : la charge est une grandeur <b>additive</b> ; pour une densité uniforme elle ne dépend que de la longueur, pas de la forme.</p>
+
+  <h3>Ex 2 · Pavé chargé</h3>
+  <p><b>Uniforme</b> : \(\rho_0\) en C·m⁻³, \(Q=\rho_0abc\), que l'origine soit au centre ou à un coin.</p>
+  <p><b>Non uniforme</b> \(\rho=A\left[\frac{2x}{a}-1\right]\cos\!\left(\frac{\pi y}{b}\right)\frac{z^2}{c^2}\) : les trois facteurs sont sans dimension, donc \(A\) en C·m⁻³. Centre en \(O\) (bornes \(\pm\frac a2\), \(\pm\frac b2\), \(\pm\frac c2\)) :</p>
+  <div class="mq">\[\begin{gathered}\int_{-a/2}^{a/2}\!\left(\frac{2x}{a}-1\right)\mathrm{d}x=\left[\frac{x^2}{a}-x\right]_{-a/2}^{a/2}=-a\\[4pt] \int_{-b/2}^{b/2}\!\cos\frac{\pi y}{b}\,\mathrm{d}y=\frac b\pi\left[\sin\frac{\pi y}{b}\right]_{-b/2}^{b/2}=\frac{2b}{\pi}\\[4pt] \int_{-c/2}^{c/2}\frac{z^2}{c^2}\,\mathrm{d}z=\frac{1}{c^2}\left[\frac{z^3}{3}\right]_{-c/2}^{c/2}=\frac{c}{12}\end{gathered}\]</div>
+  <div class="mq">\[Q=A\cdot(-a)\cdot\frac{2b}{\pi}\cdot\frac{c}{12}=-\frac{A\,abc}{6\pi}\]</div>
+  <p>Origine à un coin (bornes \([0,a]\), \([0,b]\), \([0,c]\)) : \(\int_0^a\left(\frac{2x}a-1\right)\mathrm{d}x=[\frac{x^2}{a}-x]_0^a=0\), donc \(Q=0\). <b>Conclusion</b> : une densité non uniforme est attachée à son repère ; changer d'origine avec la même formule décrit une <b>autre</b> distribution, d'où une autre charge.</p>
+
+  <h3>Ex 3 · Disque</h3>
+  <p>\(\mathrm{d}S=r\,\mathrm{d}r\,\mathrm{d}\theta\), \(r\in[0,a]\), \(\theta\in[0,2\pi]\). \(\sigma_0\) en C·m⁻².</p>
+  <p>1. Uniforme : \(Q=\sigma_0\pi a^2\) (densité × aire).</p>
+  <p>2. \(\sigma=\sigma_0\frac ar\) :</p>
+  <div class="mq">\[\begin{aligned}Q&=\int_0^{2\pi}\!\!\int_0^{a}\sigma_0\frac ar\,r\,\mathrm{d}r\,\mathrm{d}\theta\\&=\sigma_0a\cdot a\cdot2\pi=2\pi\sigma_0a^2\end{aligned}\]</div>
+  <p>3. \(\sigma=\sigma_0\sin^2\theta\) :</p>
+  <div class="mq">\[\begin{aligned}Q&=\sigma_0\int_0^a r\,\mathrm{d}r\int_0^{2\pi}\sin^2\theta\,\mathrm{d}\theta\\&=\sigma_0\frac{a^2}{2}\,\pi=\frac{\pi\sigma_0a^2}{2}\end{aligned}\]</div>
+  <p class="s4-small">Pour \(\sigma_0\frac ar\), la densité est infinie au centre, mais le \(r\) de \(\mathrm{d}S\) compense : la charge reste finie. Pour \(\sin^2\theta\) : \(\sin^2\theta=\frac{1-\cos2\theta}{2}\), d'où \(\pi\) sur un tour.</p>
+
+  <h3>Ex 4 · Cylindre plein</h3>
+  <div class="mq">\[\begin{gathered}\text{Surface : }Q=\sigma_0\left(2\pi Rh+2\pi R^2\right)\\ \Rightarrow\ \sigma_0=\frac{Q}{2\pi R(R+h)}\ \ (\text{C·m}^{-2})\\[8pt] \text{Volume : }Q=\rho_0\pi R^2h\\ \Rightarrow\ \rho_0=\frac{Q}{\pi R^2h}\ \ (\text{C·m}^{-3})\end{gathered}\]</div>
+
+  <h3>Ex 5 · Sphères concentriques</h3>
+  <p><b>A.</b> Deux coquilles creuses : \(Q=\sigma_1\,4\pi R_1^2-\sigma_1\,4\pi R_2^2=4\pi\sigma_1(R_1^2-R_2^2)\), négative si \(\sigma_1>0\) car la sphère extérieure est plus grande.</p>
+  <p><b>B.</b> \(\rho=\rho_0\frac{R_1}{r}\) pour \(r&lt;R_1\) et \(\rho_0\) pour \(R_1&lt;r&lt;R_2\). Densité à symétrie sphérique : \(\mathrm{d}\tau\) intégré sur les angles donne \(4\pi r^2\,\mathrm{d}r\).</p>
+  <div class="mq">\[\begin{gathered}Q_1=\int_0^{R_1}\rho_0\frac{R_1}{r}\,4\pi r^2\,\mathrm{d}r=2\pi\rho_0R_1^3\\[4pt] Q_2=\frac43\pi\rho_0\left(R_2^3-R_1^3\right)\\[4pt] Q=Q_1+Q_2=\frac{2\pi\rho_0}{3}\left(R_1^3+2R_2^3\right)\end{gathered}\]</div>
+  <p class="s4-small">Variante cylindres coaxiaux (hauteur \(h\)) : A : \(2\pi\sigma_1h(R_1-R_2)\) (surfaces latérales) ; B : \(Q=\pi\rho_0h\left(R_1^2+R_2^2\right)\).</p>
+
+  <h3>Ex 6 (DM) · Demi-sphère</h3>
+  <p>La figure montre la moitié <b>sous</b> le plan \(xOy\) : \(\theta\in[\frac\pi2,\pi]\). \(\rho=\rho_0\frac{r}{R_0}\cos\theta\,\frac\varphi\pi\).</p>
+  <div class="mq">\[\begin{gathered}Q=\frac{\rho_0}{\pi R_0}\int_0^{R_0}r^3\,\mathrm{d}r\int_{\pi/2}^{\pi}\cos\theta\sin\theta\,\mathrm{d}\theta\int_0^{2\pi}\varphi\,\mathrm{d}\varphi\\[4pt] Q=\frac{\rho_0}{\pi R_0}\cdot\frac{R_0^4}{4}\cdot\left(-\frac12\right)\cdot2\pi^2=-\frac{\pi\rho_0R_0^3}{4}\end{gathered}\]</div>
+  <p class="s4-small">Pour la demi-sphère du haut (\(\theta\in[0,\frac\pi2]\)), on trouve \(+\frac{\pi\rho_0R_0^3}{4}\) : \(\cos\theta\) change de signe.</p>
+
+  <h3>Ex 7 (DM) · Quart de cylindre</h3>
+  <p>Premier quadrant \(\theta\in[0,\frac\pi2]\), origine à mi-hauteur : \(z\in[-\frac h2,\frac h2]\). \(\rho=\rho_0\frac{r}{R_0}\cos\theta\,\frac zh\).</p>
+  <div class="mq">\[Q=\frac{\rho_0}{R_0h}\int_0^{R_0}r^2\,\mathrm{d}r\int_0^{\pi/2}\cos\theta\,\mathrm{d}\theta\int_{-h/2}^{h/2}z\,\mathrm{d}z=0\]</div>
+  <p>car \(z\) est impaire sur un intervalle symétrique (la moitié du haut est positive, celle du bas négative). Origine en bas, \(z\in[0,h]\) :</p>
+  <div class="mq">\[Q=\frac{\rho_0}{R_0h}\cdot\frac{R_0^3}{3}\cdot1\cdot\frac{h^2}{2}=\frac{\rho_0R_0^2h}{6}\]</div>
+</section>
+
+<!-- ================= PIEGES ================= -->
+<section id="pieges">
+  <h2>Pièges</h2>
+  <div class="s4-grid">
+    <div class="s4-trap"><span class="s4-lbl">Jacobien oublié</span>\(\mathrm{d}\tau=r\,\mathrm{d}r\,\mathrm{d}\theta\,\mathrm{d}z\) et \(r^2\sin\theta\,\mathrm{d}r\,\mathrm{d}\theta\,\mathrm{d}\varphi\), pas \(\mathrm{d}r\,\mathrm{d}\theta\,\mathrm{d}\varphi\).</div>
+    <div class="s4-trap"><span class="s4-lbl">\(\theta\) sphérique</span>De 0 à \(\pi\) (pas \(2\pi\)), mesuré depuis \(Oz\). Demi-sphère du haut : \(\theta\in[0,\frac\pi2]\).</div>
+    <div class="s4-trap"><span class="s4-lbl">Gradient</span>Les facteurs \(\frac1r\) et \(\frac{1}{r\sin\theta}\) devant les dérivées angulaires.</div>
+    <div class="s4-trap"><span class="s4-lbl">Orientation</span>Flux sortant : normale vers l'extérieur ; « de l'extérieur vers l'intérieur » : signe −. Circulation : sens trigonométrique ↔ \(\mathrm{d}\theta&gt;0\).</div>
+    <div class="s4-trap"><span class="s4-lbl">Produit scalaire</span>\(\vec e_r\cdot\vec e_\theta=0\) : un champ radial ne circule pas le long d'un cercle et ne traverse pas le fond d'un cylindre.</div>
+    <div class="s4-trap"><span class="s4-lbl">Bornes et origine</span>Lire la figure : centre ou coin, demi ou quart, mi-hauteur ou en bas. Une fonction impaire intégrée sur un intervalle symétrique donne 0.</div>
+    <div class="s4-trap"><span class="s4-lbl">Surface totale</span>Un cylindre fermé a 3 faces : \(2\pi Rh+2\pi R^2\). Ne pas oublier les deux disques.</div>
+    <div class="s4-trap"><span class="s4-lbl">Unités</span>Toujours les donner : \(\lambda\) C/m, \(\sigma\) C/m², \(\rho\) C/m³, gradient m⁻¹, \(E\) V/m. Une charge doit sortir en coulombs.</div>
+  </div>
+</section>
+
+<!-- ================= ENTRAINEMENT ================= -->
+<section id="entrainement">
+  <h2>Entraînement</h2>
+  <p class="s4-sub">Nouvelles questions dans le style du TD. Chaque résultat a été vérifié par intégration numérique.</p>
+
+  <details><summary><span class="s4-q">Q1 · fil</span>Un fil en demi-cercle de rayon \(R\) porte une densité uniforme \(\lambda_0\). Charge totale ?</summary><div class="s4-ans">
+    <p>Cylindrique, \(r=R\) fixe : \(\mathrm{d}l=R\,\mathrm{d}\theta\), \(\theta\in[0,\pi]\). \(Q=\int_0^{\pi}\lambda_0R\,\mathrm{d}\theta=\pi R\lambda_0\) (longueur \(\pi R\) × densité).</p>
+  </div></details>
+
+  <details><summary><span class="s4-q">Q2 · boule</span>Boule de rayon \(R\), \(\rho=\rho_0\frac rR\). Unité de \(\rho_0\) et charge totale ?</summary><div class="s4-ans">
+    <p>\(\rho_0\) en C·m⁻³. \(Q=\int_0^R\rho_0\frac rR\,4\pi r^2\,\mathrm{d}r=\frac{4\pi\rho_0}{R}\cdot\frac{R^4}{4}=\pi\rho_0R^3\).</p>
+  </div></details>
+
+  <details><summary><span class="s4-q">Q3 · disque</span>Disque de rayon \(a\), \(\sigma=\sigma_0\frac ra\cos^2\theta\). Charge ?</summary><div class="s4-ans">
+    <div class="mq">\[\begin{aligned}Q&=\frac{\sigma_0}{a}\int_0^a r^2\,\mathrm{d}r\int_0^{2\pi}\cos^2\theta\,\mathrm{d}\theta\\&=\frac{\sigma_0}{a}\cdot\frac{a^3}{3}\cdot\pi=\frac{\pi\sigma_0a^2}{3}\end{aligned}\]</div>
+  </div></details>
+
+  <details><summary><span class="s4-q">Q4 · cylindre</span>Cylindre plein (rayon \(R\), hauteur \(h\)), \(\rho=\rho_0\left(1-\frac rR\right)\). Charge ?</summary><div class="s4-ans">
+    <div class="mq">\[\begin{aligned}Q&=2\pi h\rho_0\int_0^R\left(r-\frac{r^2}{R}\right)\mathrm{d}r\\&=2\pi h\rho_0\left(\frac{R^2}{2}-\frac{R^2}{3}\right)=\frac{\pi\rho_0R^2h}{3}\end{aligned}\]</div>
+  </div></details>
+
+  <details><summary><span class="s4-q">Q5 · coquille</span>Coquille sphérique pleine entre \(R_1\) et \(R_2\), densité \(\rho_0\) uniforme. Charge ?</summary><div class="s4-ans">
+    <p>\(Q=\rho_0\left(\frac43\pi R_2^3-\frac43\pi R_1^3\right)=\frac43\pi\rho_0\left(R_2^3-R_1^3\right)\) : volume de la grande boule moins celui de la petite.</p>
+  </div></details>
+
+  <details><summary><span class="s4-q">Q6 · pavé</span>Carré \(0\le x,y\le a\), \(\sigma=\sigma_0\frac{xy}{a^2}\). Charge ?</summary><div class="s4-ans">
+    <p>\(Q=\frac{\sigma_0}{a^2}\int_0^a x\,\mathrm{d}x\int_0^a y\,\mathrm{d}y=\frac{\sigma_0}{a^2}\cdot\frac{a^2}{2}\cdot\frac{a^2}{2}=\frac{\sigma_0a^2}{4}\).</p>
+  </div></details>
+
+  <details><summary><span class="s4-q">Q7 · flux</span>Flux sortant de \(\vec A=A_0r^2\,\vec e_r\) à travers la sphère de rayon \(R\) ?</summary><div class="s4-ans">
+    <p>Sur la sphère \(\vec A\cdot\mathrm{d}\vec S=A_0R^2\cdot R^2\sin\theta\,\mathrm{d}\theta\,\mathrm{d}\varphi\), donc \(\Phi=A_0R^4\cdot2\cdot2\pi=4\pi A_0R^4\). Plus rapide : \(\vec A\) est radial et de norme constante sur la sphère, \(\Phi=A_0R^2\times4\pi R^2\).</p>
+  </div></details>
+
+  <details><summary><span class="s4-q">Q8 · circulation</span>Circulation de \(\vec A=A_0\,r\,\vec e_\theta\) sur le cercle d'axe \(Oz\) de rayon \(R\), sens trigonométrique ? Et de \(\vec B=A_0\,r\,\vec e_r\) ?</summary><div class="s4-ans">
+    <p>\(\vec A\cdot\mathrm{d}\vec l=A_0R\cdot R\,\mathrm{d}\theta\), donc \(C=2\pi A_0R^2\). Pour \(\vec B\), radial : \(\vec B\cdot\mathrm{d}\vec l=0\), \(C=0\).</p>
+  </div></details>
+
+  <details><summary><span class="s4-q">Q9 · gradient</span>\(V(r,\theta,\varphi)=\frac{k}{r}\) (sphérique, \(k\) constante). Calculer \(\vec E=-\overrightarrow{\mathrm{grad}}\,V\) et l'unité de \(k\).</summary><div class="s4-ans">
+    <p>\(V\) ne dépend que de \(r\) : \(\vec E=-\frac{\partial V}{\partial r}\vec e_r=\frac{k}{r^2}\vec e_r\). \(V\) en volts, donc \(k\) en V·m. C'est le potentiel d'une charge ponctuelle avec \(k=\frac{q}{4\pi\varepsilon_0}\).</p>
+  </div></details>
+
+  <details><summary><span class="s4-q">Q10 · repères</span>Coordonnées cylindriques et sphériques du point de coordonnées cartésiennes \((1,1,\sqrt2)\) ?</summary><div class="s4-ans">
+    <p>Cylindrique : \(r=\sqrt{1+1}=\sqrt2\), \(\theta=\frac\pi4\), \(z=\sqrt2\). Sphérique : \(r=\sqrt{1+1+2}=2\), \(\cos\theta=\frac{z}{r}=\frac{\sqrt2}{2}\) donc \(\theta=\frac\pi4\), \(\varphi=\frac\pi4\).</p>
+  </div></details>
+
+  <details><summary><span class="s4-q">Q11 · cours</span>Écrire \(\mathrm{d}\vec S\) sur la surface latérale d'un cylindre de rayon \(R\), sur son couvercle en \(z=h\), et sur une sphère de rayon \(R\) (normales sortantes).</summary><div class="s4-ans">
+    <p>Latérale : \(R\,\mathrm{d}\theta\,\mathrm{d}z\,\vec e_r\). Couvercle : \(r\,\mathrm{d}r\,\mathrm{d}\theta\,\vec e_z\) (et \(-\vec e_z\) pour le fond). Sphère : \(R^2\sin\theta\,\mathrm{d}\theta\,\mathrm{d}\varphi\,\vec e_r\).</p>
+  </div></details>
+</section>
+
+<!-- ================= FORMULAIRE ================= -->
+<section id="formulaire">
+  <h2>Formulaire de la veille</h2>
+  <div class="s4-grid">
+    <div class="s4-card"><h4>Éléments différentiels</h4>
+      <div class="mq">\[\begin{gathered}\mathrm{d}\tau=\mathrm{d}x\,\mathrm{d}y\,\mathrm{d}z\\[4pt] \mathrm{d}\tau=r\,\mathrm{d}r\,\mathrm{d}\theta\,\mathrm{d}z\\[4pt] \mathrm{d}\tau=r^2\sin\theta\,\mathrm{d}r\,\mathrm{d}\theta\,\mathrm{d}\varphi\end{gathered}\]</div></div>
+    <div class="s4-card"><h4>Surfaces usuelles</h4>
+      <div class="mq">\[\begin{gathered}\mathrm{d}S_{disque}=r\,\mathrm{d}r\,\mathrm{d}\theta\\[4pt] \mathrm{d}S_{lat}=R\,\mathrm{d}\theta\,\mathrm{d}z\\[4pt] \mathrm{d}S_{sph}=R^2\sin\theta\,\mathrm{d}\theta\,\mathrm{d}\varphi\end{gathered}\]</div></div>
+    <div class="s4-card"><h4>Gradient</h4>
+      <div class="mq">\[\begin{gathered}\left(\partial_r f,\ \frac1r\partial_\theta f,\ \partial_z f\right)_{cyl}\\[4pt] \left(\partial_r f,\ \frac1r\partial_\theta f,\ \frac{1}{r\sin\theta}\partial_\varphi f\right)_{sph}\\[4pt] \vec E=-\overrightarrow{\mathrm{grad}}\,V\end{gathered}\]</div></div>
+    <div class="s4-card"><h4>Charges</h4>
+      <div class="mq">\[\begin{gathered}Q=\int\lambda\,\mathrm{d}l=\iint\sigma\,\mathrm{d}S=\iiint\rho\,\mathrm{d}\tau\\[4pt] V_{boule}=\frac43\pi R^3\qquad S_{sph}=4\pi R^2\\[4pt] V_{cyl}=\pi R^2h\qquad S_{lat}=2\pi Rh\end{gathered}\]</div></div>
+  </div>
+  <p class="s4-small">Intégrales : \(\int_0^\pi\sin\theta\,\mathrm{d}\theta=2\) · \(\int_0^{2\pi}\sin^2=\int_0^{2\pi}\cos^2=\pi\) · \(\int_0^{2\pi}\cos=\int_0^{2\pi}\sin=0\) · \(\int\sin\theta\cos\theta\,\mathrm{d}\theta=\frac{\sin^2\theta}{2}\) · \(\int_0^{\pi/2}\cos\theta\,\mathrm{d}\theta=1\).</p>
+</section>
+
+<p class="s4-src">Sources : cours « Outils mathématiques » (Ch0), polys de TD0 et TD1 d'électromagnétisme ING2 2026-2027. Les 31 résultats de cette page ont été vérifiés par intégration numérique.</p>
+</div>
+</main>
+
+<div class="foot">
+  <div class="wrap">
+    <span>Électromagnétisme · ECE ING2 · S3 2026-2027</span>
+    <span><a href="index.html">Accueil</a> · <a href="interro-s40.html">Interro S40</a> · <a href="corriges.html">TD corrigés</a></span>
+  </div>
+</div>
+<a class="cx-top" href="#" aria-label="Revenir en haut de la page">↑</a>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+<script src="js/maths.js"></script>
+<script src="js/site.js"></script>
+</body>
+</html>

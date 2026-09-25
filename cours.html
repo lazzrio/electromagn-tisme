@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cours — Électromagnétisme</title>
+<meta name="description" content="Cours d'électromagnétisme ING2 : outils mathématiques (repères, gradient, flux, circulation) et électrostatique (charges).">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#1d5fc4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#080d18" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta property="og:title" content="Cours — Électromagnétisme">
+<meta property="og:description" content="Cours d'électromagnétisme ING2 : outils mathématiques (repères, gradient, flux, circulation) et électrostatique (charges).">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,500;0,600;0,700;0,800;1,600;1,700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="index.html" aria-label="Accueil du site">
+      <span class="chip-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M13 2 L5 13 h6 l-1.5 9 L19 10 h-6 z"/></svg></span>
+      Électromagnétisme
+    </a>
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="interro-s40.html" class="nav-hot">🚨 Interro S40</a>
+      <a href="cours.html" class="active" aria-current="page">📚 Cours</a>
+      <a href="formules.html">📘 Formules</a>
+      <a href="corriges.html">✅ TD corrigés</a>
+      <a href="quiz.html">🧠 Quiz</a>
+    </nav>
+    <button class="theme-btn" id="themeBtn" aria-label="Changer de thème" title="Thème clair / sombre">
+      <svg id="thIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"></svg>
+    </button>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+  </div>
+</div>
+
+<main>
+<div class="wrap">
+  <div class="page-head">
+    <span class="eyebrow">📚 Le cours</span>
+    <h1>Cours d'électromagnétisme</h1>
+    <p>Les chapitres vus en amphi, réécrits pas à pas : définitions, formules écrites comme sur une copie, méthodes et exemples. Coche chaque chapitre quand tu le maîtrises (mémorisé sur cet appareil).</p>
+  </div>
+  <div class="course-layout">
+    <aside class="toc" id="toc">
+      <div class="toc-title">Chapitres</div>
+      <a href="#ch0">0 · Outils mathématiques</a>
+      <a href="#ch0-coord">↳ Systèmes de coordonnées</a>
+      <a href="#ch0-grad">↳ Champs et gradient</a>
+      <a href="#ch0-flux">↳ Flux et circulation</a>
+      <a href="#ch1">1 · Électrostatique (A)</a>
+      <a href="#ch1-dist">↳ Distributions de charges</a>
+      <a href="#ch1-calc">↳ Calculer une charge</a>
+      <a href="#ch1-suite">↳ Suite : champ et potentiel</a>
+    </aside>
+    <div class="course-content">
+
+<!-- ============ CH 0 ============ -->
+<article class="chapter" id="ch0">
+  <div class="chapter-hd">
+    <span class="cn">CH 0</span>
+    <h2>Outils mathématiques</h2>
+    <label class="chap-check"><input type="checkbox" data-chk="0"> validé</label>
+  </div>
+  <div class="prose">
+    <p>L'électromagnétisme décrit des grandeurs qui dépendent du point de l'espace : un <span class="term">champ scalaire</span> associe un nombre à chaque point (température, potentiel \(V\)), un <span class="term">champ vectoriel</span> associe un vecteur (champ électrique \(\vec E\), champ magnétique \(\vec B\), pesanteur \(\vec g\)). Ce chapitre donne les outils pour les manipuler : repérer un point, écrire les éléments de longueur, de surface et de volume, dériver (gradient) et intégrer (flux, circulation).</p>
+    <div class="box def"><div class="bt">◆ Champ</div><p>Attacher à chaque point d'une région de l'espace une grandeur scalaire ou vectorielle, c'est définir un champ. Il faut aussi préciser la région et les valeurs sur ses bords : ce sont les <b>conditions aux limites</b>, qui jouent un rôle essentiel dans la détermination du champ.</p></div>
+
+    <h3 id="ch0-coord">Les systèmes de coordonnées</h3>
+    <p>On choisit le repère selon la <b>symétrie</b> du problème : il doit rendre les bornes d'intégration constantes et les expressions simples.</p>
+    <ul>
+      <li>pavé, plan, plaque rectangulaire → <b>cartésien</b> ;</li>
+      <li>fil rectiligne, disque, cylindre, tube → <b>cylindrique</b> ;</li>
+      <li>boule, sphère creuse, coquille → <b>sphérique</b>.</li>
+    </ul>
+
+    <h4>Coordonnées cartésiennes \((x,y,z)\)</h4>
+    <p>Base fixe \((\vec e_x,\vec e_y,\vec e_z)\), orthonormée directe ; \(x,y,z\in\mathbb R\), en mètres.</p>
+    <div class="mq">\[\begin{gathered}\overrightarrow{OM}=x\,\vec e_x+y\,\vec e_y+z\,\vec e_z\\[4pt] \mathrm{d}\vec l=\mathrm{d}x\,\vec e_x+\mathrm{d}y\,\vec e_y+\mathrm{d}z\,\vec e_z\\[4pt] \mathrm{d}\tau=\mathrm{d}x\,\mathrm{d}y\,\mathrm{d}z\end{gathered}\]</div>
+    <p>Éléments de surface vectoriels (une face de pavé perpendiculaire à chaque axe) : \(\mathrm{d}y\,\mathrm{d}z\,\vec e_x\), \(\mathrm{d}x\,\mathrm{d}z\,\vec e_y\), \(\mathrm{d}x\,\mathrm{d}y\,\vec e_z\).</p>
+
+    <h4>Coordonnées cylindriques \((r,\theta,z)\)</h4>
+    <p>\(r\ge0\) est la distance à l'axe \(Oz\), \(\theta\in[0,2\pi[\) l'angle entre \(Ox\) et la projection de \(\overrightarrow{OM}\) sur \(xOy\), \(z\) la hauteur. La base \((\vec e_r,\vec e_\theta,\vec e_z)\) est <b>locale</b> : elle tourne avec le point.</p>
+    <div class="mq">\[\begin{gathered}\overrightarrow{OM}=r\,\vec e_r+z\,\vec e_z\\[4pt] \mathrm{d}\vec l=\mathrm{d}r\,\vec e_r+r\,\mathrm{d}\theta\,\vec e_\theta+\mathrm{d}z\,\vec e_z\\[4pt] \mathrm{d}\tau=r\,\mathrm{d}r\,\mathrm{d}\theta\,\mathrm{d}z\end{gathered}\]</div>
+    <p>Quand \(\theta\) varie de \(\mathrm{d}\theta\), le point parcourt un arc de longueur \(r\,\mathrm{d}\theta\) (et non \(\mathrm{d}\theta\), qui est un angle sans dimension) : c'est l'origine du facteur \(r\).</p>
+    <p>Éléments de surface : \(r\,\mathrm{d}\theta\,\mathrm{d}z\,\vec e_r\) (surface latérale \(r=\) cste), \(\mathrm{d}r\,\mathrm{d}z\,\vec e_\theta\) (demi-plan \(\theta=\) cste), \(r\,\mathrm{d}r\,\mathrm{d}\theta\,\vec e_z\) (disque \(z=\) cste).</p>
+
+    <h4>Coordonnées sphériques \((r,\theta,\varphi)\)</h4>
+    <p>\(r=OM\ge0\) ; \(\theta\in[0,\pi]\) est l'angle entre \(Oz\) et \(\overrightarrow{OM}\) ; \(\varphi\in[0,2\pi[\) l'angle entre \(Ox\) et la projection de \(\overrightarrow{OM}\) sur \(xOy\).</p>
+    <div class="mq">\[\begin{gathered}\overrightarrow{OM}=r\,\vec e_r\\[4pt] \mathrm{d}\vec l=\mathrm{d}r\,\vec e_r+r\,\mathrm{d}\theta\,\vec e_\theta+r\sin\theta\,\mathrm{d}\varphi\,\vec e_\varphi\\[4pt] \mathrm{d}\tau=r^2\sin\theta\,\mathrm{d}r\,\mathrm{d}\theta\,\mathrm{d}\varphi\end{gathered}\]</div>
+    <p>Quand \(\varphi\) varie, le point décrit un cercle de rayon \(r\sin\theta\) (sa distance à l'axe \(Oz\)) : d'où \(r\sin\theta\,\mathrm{d}\varphi\).</p>
+    <p>Éléments de surface : \(r^2\sin\theta\,\mathrm{d}\theta\,\mathrm{d}\varphi\,\vec e_r\) (sphère \(r=\) cste), \(r\sin\theta\,\mathrm{d}r\,\mathrm{d}\varphi\,\vec e_\theta\) (cône \(\theta=\) cste), \(r\,\mathrm{d}r\,\mathrm{d}\theta\,\vec e_\varphi\) (demi-plan \(\varphi=\) cste).</p>
+    <div class="box warn"><div class="bt">⚠ À ne pas confondre</div><p>Le \(\theta\) cylindrique (dans le plan \(xOy\), de 0 à \(2\pi\)) correspond au \(\varphi\) sphérique. Le \(\theta\) sphérique part de \(Oz\) et va de 0 à \(\pi\). Et \(\overrightarrow{OM}\) n'a jamais de composante sur \(\vec e_\theta\) ou \(\vec e_\varphi\).</p></div>
+
+    <h4>Relations entre repères (vu en ING1)</h4>
+    <div class="mq">\[\begin{gathered}x=r\cos\theta\qquad y=r\sin\theta\\[4pt] r=\sqrt{x^2+y^2}\qquad\tan\theta=\frac yx\\[6pt] \vec e_r=\cos\theta\,\vec e_x+\sin\theta\,\vec e_y\\[4pt] \vec e_\theta=-\sin\theta\,\vec e_x+\cos\theta\,\vec e_y\\[6pt] \vec e_x=\cos\theta\,\vec e_r-\sin\theta\,\vec e_\theta\\[4pt] \vec e_y=\sin\theta\,\vec e_r+\cos\theta\,\vec e_\theta\end{gathered}\]</div>
+    <p>En sphérique : \(x=r\sin\theta\cos\varphi\), \(y=r\sin\theta\sin\varphi\), \(z=r\cos\theta\).</p>
+
+    <h4>Surfaces et volumes par intégration</h4>
+    <div class="box method"><div class="bt">▹ Méthode</div><p>1) Écrire l'élément (\(\mathrm{d}S\) ou \(\mathrm{d}\tau\)) dans le repère adapté. 2) Poser les bornes, constantes si le repère est bien choisi. 3) Si l'intégrande est un produit de fonctions d'une seule variable, l'intégrale multiple est le <b>produit</b> des intégrales simples.</p></div>
+    <div class="mq">\[\begin{aligned}V_{cyl}&=\int_0^R r\,\mathrm{d}r\int_0^{2\pi}\mathrm{d}\theta\int_0^h\mathrm{d}z=\pi R^2h\\[4pt] S_{sph}&=\int_0^{\pi}\sin\theta\,\mathrm{d}\theta\int_0^{2\pi}R^2\,\mathrm{d}\varphi=4\pi R^2\\[4pt] V_{sph}&=\int_0^R r^2\,\mathrm{d}r\int_0^{\pi}\sin\theta\,\mathrm{d}\theta\int_0^{2\pi}\mathrm{d}\varphi=\frac43\pi R^3\end{aligned}\]</div>
+    <p>Et la surface totale d'un cylindre fermé : \(2\pi Rh\) (latérale) \(+\,2\pi R^2\) (deux disques).</p>
+
+    <h3 id="ch0-grad">L'opérateur nabla et le gradient</h3>
+    <p>L'opérateur <span class="term">nabla</span> \(\vec\nabla\) a pour composantes cartésiennes \(\left(\frac{\partial}{\partial x},\frac{\partial}{\partial y},\frac{\partial}{\partial z}\right)\). Selon ce sur quoi il agit, il prend le nom de gradient, divergence, rotationnel ou laplacien. Ce chapitre ne traite que le <b>gradient</b>, qui agit sur un champ scalaire et renvoie un champ vectoriel.</p>
+    <div class="box thm"><div class="bt">★ Gradient en cartésien</div>
+      <div class="mq">\[\vec\nabla f=\overrightarrow{\mathrm{grad}}\,f=\frac{\partial f}{\partial x}\vec e_x+\frac{\partial f}{\partial y}\vec e_y+\frac{\partial f}{\partial z}\vec e_z\]</div></div>
+    <h4>Pourquoi des \(\frac1r\) dans les autres repères</h4>
+    <p>Le gradient est défini de façon intrinsèque par la différentielle : \(\mathrm{d}f=\overrightarrow{\mathrm{grad}}\,f\cdot\mathrm{d}\vec l\). En cylindrique, \(\mathrm{d}f=\frac{\partial f}{\partial r}\mathrm{d}r+\frac{\partial f}{\partial\theta}\mathrm{d}\theta+\frac{\partial f}{\partial z}\mathrm{d}z\) et \(\mathrm{d}\vec l=(\mathrm{d}r,\ r\,\mathrm{d}\theta,\ \mathrm{d}z)\). En identifiant :</p>
+    <div class="mq">\[\begin{gathered}(\overrightarrow{\mathrm{grad}}\,f)_\theta\cdot r\,\mathrm{d}\theta=\frac{\partial f}{\partial\theta}\mathrm{d}\theta\\[4pt] \Longrightarrow\ (\overrightarrow{\mathrm{grad}}\,f)_\theta=\frac1r\frac{\partial f}{\partial\theta}\end{gathered}\]</div>
+    <div class="box thm"><div class="bt">★ Gradient en cylindrique et en sphérique</div>
+      <div class="mq">\[\begin{gathered}\overrightarrow{\mathrm{grad}}\,f=\frac{\partial f}{\partial r}\vec e_r+\frac1r\frac{\partial f}{\partial\theta}\vec e_\theta+\frac{\partial f}{\partial z}\vec e_z\\[6pt] \overrightarrow{\mathrm{grad}}\,f=\frac{\partial f}{\partial r}\vec e_r+\frac1r\frac{\partial f}{\partial\theta}\vec e_\theta+\frac{1}{r\sin\theta}\frac{\partial f}{\partial\varphi}\vec e_\varphi\end{gathered}\]</div></div>
+    <ul>
+      <li><b>Unité</b> : l'opérateur gradient est en m⁻¹ ; \(\overrightarrow{\mathrm{grad}}\,V\) est en V·m⁻¹.</li>
+      <li><b>Propriété géométrique</b> : \(\overrightarrow{\mathrm{grad}}\,F\) est normal aux surfaces \(F(x,y,z)=k\) et dirigé vers les \(F\) croissants.</li>
+      <li><b>Champ de gradient</b> : \(\vec A\) s'écrit \(\overrightarrow{\mathrm{grad}}\,F\) si et seulement si \(\vec A\cdot\mathrm{d}\vec l\) est une différentielle totale, c'est-à-dire si la circulation de \(\vec A\) entre deux points <b>ne dépend pas du chemin</b> (elle vaut \(F(B)-F(A)\), et 0 sur un contour fermé).</li>
+      <li><b>En électrostatique</b>, le champ dérive d'un potentiel : \(\vec E=-\overrightarrow{\mathrm{grad}}\,V\), donc \(\vec E\) pointe vers les potentiels décroissants.</li>
+    </ul>
+    <div class="box ex"><div class="bt">Exemple</div><p>\(V=\frac{V_0}{A}\left(r(1+\cos\theta)+z\right)\) en cylindrique : \(\frac{\partial V}{\partial r}=\frac{V_0}{A}(1+\cos\theta)\), \(\frac1r\frac{\partial V}{\partial\theta}=-\frac{V_0}{A}\sin\theta\), \(\frac{\partial V}{\partial z}=\frac{V_0}{A}\), d'où \(\vec E=\frac{V_0}{A}\left(-(1+\cos\theta)\vec e_r+\sin\theta\,\vec e_\theta-\vec e_z\right)\) (TD0, ex. 2).</p></div>
+
+    <h3 id="ch0-flux">Flux et circulation d'un champ de vecteurs</h3>
+    <h4>Flux</h4>
+    <p>\(\mathrm{d}\vec S\) est un vecteur de norme \(\mathrm{d}S\), perpendiculaire à l'élément de surface. Le <span class="term">flux élémentaire</span> de \(\vec A\) à travers \(\mathrm{d}\vec S\) centré en \(P\) est \(\mathrm{d}\Phi=\vec A(P)\cdot\mathrm{d}\vec S\).</p>
+    <div class="box thm"><div class="bt">★ Flux à travers une surface</div>
+      <div class="mq">\[\begin{gathered}\Phi=\iint_\Sigma\vec A(P)\cdot\mathrm{d}\vec S\\[4pt] \Phi=\oiint_\Sigma\vec A(P)\cdot\mathrm{d}\vec S\ \ (\text{surface fermée})\end{gathered}\]</div></div>
+    <ul>
+      <li><b>Surface ouverte</b> : orientée arbitrairement mais de façon continue. Si elle s'appuie sur un contour orienté \(\Gamma\), on l'oriente par la règle du <b>tire-bouchon</b>.</li>
+      <li><b>Surface fermée</b> : elle délimite un intérieur et un extérieur ; on l'oriente <b>de l'intérieur vers l'extérieur</b> (flux sortant). Un flux « entrant » est l'opposé.</li>
+      <li>Le flux est un <b>scalaire</b>. On calcule d'abord le produit scalaire \(\vec A\cdot\mathrm{d}\vec S\), qui est souvent nul sur certaines faces.</li>
+    </ul>
+    <div class="box ex"><div class="bt">Exemple</div><p>\(\vec A=A_0\,r\,\vec e_r\) à travers un cylindre fermé (rayon \(a\), hauteur \(h\)) : sur la face latérale \(\vec A\cdot\mathrm{d}\vec S=A_0a\cdot a\,\mathrm{d}\theta\,\mathrm{d}z\) ; sur les deux disques \(\vec e_r\perp\vec e_z\), flux nul. Donc \(\Phi=2\pi A_0a^2h\).</p></div>
+    <h4>Circulation</h4>
+    <div class="box thm"><div class="bt">★ Circulation le long d'une courbe</div>
+      <div class="mq">\[\begin{gathered}\mathrm{d}C=\vec A\cdot\mathrm{d}\vec l\\[4pt] C_{M_1\to M_2}=\int_{M_1}^{M_2}\vec A(P)\cdot\mathrm{d}\vec l\qquad C=\oint_\Gamma\vec A\cdot\mathrm{d}\vec l\end{gathered}\]</div></div>
+    <p>Sur un cercle d'axe \(Oz\) de rayon \(R\), parcouru dans le sens trigonométrique : \(\mathrm{d}\vec l=R\,\mathrm{d}\theta\,\vec e_\theta\). Seule la composante orthoradiale \(A_\theta\) contribue.</p>
+    <div class="box ex corr-link"><div class="bt">✅ S'entraîner</div><p>Le TD0 est corrigé en détail : <a href="corriges.html#td0">voir les corrigés du TD0</a>.</p></div>
+    <details class="soon"><summary><b>Pour la suite du semestre</b> : divergence, rotationnel, laplacien</summary>
+      <p>Hors programme de l'interro de la semaine 40. En cartésien : \(\operatorname{div}\vec A=\frac{\partial A_x}{\partial x}+\frac{\partial A_y}{\partial y}+\frac{\partial A_z}{\partial z}\), \(\overrightarrow{\mathrm{rot}}\,\vec A=\vec\nabla\wedge\vec A\), \(\Delta f=\operatorname{div}(\overrightarrow{\mathrm{grad}}\,f)\). Théorème d'Ostrogradski : \(\oiint\vec A\cdot\mathrm{d}\vec S=\iiint\operatorname{div}\vec A\,\mathrm{d}\tau\) (le flux du cylindre ci-dessus se retrouve avec \(\operatorname{div}(A_0r\,\vec e_r)=2A_0\)). Théorème de Stokes : \(\oint\vec A\cdot\mathrm{d}\vec l=\iint\overrightarrow{\mathrm{rot}}\,\vec A\cdot\mathrm{d}\vec S\). Ces outils sont aussi au programme d'Analyse 3.</p>
+    </details>
+  </div>
+</article>
+
+<!-- ============ CH 1 ============ -->
+<article class="chapter" id="ch1">
+  <div class="chapter-hd">
+    <span class="cn">CH 1</span>
+    <h2>Électrostatique · partie A : les charges</h2>
+    <label class="chap-check"><input type="checkbox" data-chk="1"> validé</label>
+  </div>
+  <div class="prose">
+    <div class="soon"><b>Source</b> : le poly de cours du Ch1 n'était pas dans le dossier au moment de la rédaction. Cette partie est construite à partir du TD1 (« Calculs de charges »), qui en est l'application directe. Compare-la avec tes notes d'amphi.</div>
+    <p>L'<span class="term">électrostatique</span> étudie les charges immobiles et les champs qu'elles créent. Avant de calculer un champ, il faut savoir décrire comment la charge est répartie et calculer la charge totale d'un objet.</p>
+
+    <h3>La charge électrique</h3>
+    <ul>
+      <li>Unité : le <b>coulomb</b> (C). Charge élémentaire \(e=1{,}6\times10^{-19}\ \text{C}\) : électron \(-e\), proton \(+e\).</li>
+      <li>La charge est <b>quantifiée</b> (toute charge vaut \(\pm Ne\)), <b>conservée</b> (la charge totale d'un système isolé est constante) et <b>additive</b> (la charge d'un ensemble est la somme des charges de ses parties).</li>
+      <li>Deux charges de même signe se repoussent, deux charges de signes opposés s'attirent.</li>
+    </ul>
+
+    <h3 id="ch1-dist">Distributions de charges</h3>
+    <p>À l'échelle macroscopique, les charges sont si nombreuses et si proches qu'on les décrit par une <b>densité</b> continue. On découpe l'objet en éléments assez petits pour que la densité y soit constante, mais assez grands pour contenir beaucoup de charges.</p>
+    <div class="box def"><div class="bt">◆ Les trois densités</div>
+      <div class="mq">\[\begin{gathered}\lambda=\frac{\mathrm{d}q}{\mathrm{d}l}\ \ (\text{C·m}^{-1})\\[4pt] \sigma=\frac{\mathrm{d}q}{\mathrm{d}S}\ \ (\text{C·m}^{-2})\\[4pt] \rho=\frac{\mathrm{d}q}{\mathrm{d}\tau}\ \ (\text{C·m}^{-3})\end{gathered}\]</div>
+      <p>Linéique pour un fil, surfacique pour une plaque, un disque, une sphère creuse, volumique pour un objet plein. On parle aussi de charge <b>ponctuelle</b> \(q\) quand les dimensions de l'objet sont négligeables.</p></div>
+    <div class="box thm"><div class="bt">★ Charge totale</div>
+      <div class="mq">\[\begin{gathered}Q=\int_L\lambda\,\mathrm{d}l\\[4pt] Q=\iint_S\sigma\,\mathrm{d}S\\[4pt] Q=\iiint_V\rho\,\mathrm{d}\tau\end{gathered}\]</div>
+      <p>Distribution <b>uniforme</b> (densité constante) : \(Q=\lambda L\), \(Q=\sigma S\), \(Q=\rho V\).</p></div>
+
+    <h3 id="ch1-calc">Calculer une charge : la méthode</h3>
+    <div class="box method"><div class="bt">▹ En 5 étapes</div><ol>
+      <li><b>Nature</b> de la distribution (fil, surface, volume) → \(\lambda\), \(\sigma\) ou \(\rho\), et unité de la constante (les autres facteurs de la densité sont souvent sans dimension).</li>
+      <li><b>Repère</b> adapté à la forme ; si la densité est donnée en \((r,\theta,\varphi)\), le repère est imposé.</li>
+      <li><b>Élément</b> \(\mathrm{d}l\), \(\mathrm{d}S\) ou \(\mathrm{d}\tau\) avec ses facteurs \(r\) ou \(r^2\sin\theta\).</li>
+      <li><b>Bornes</b> lues sur la figure : où est l'origine ? demi, quart, portion d'angle ?</li>
+      <li><b>Calcul</b> en séparant les variables, puis contrôle : unité (C), signe, cas particulier uniforme.</li>
+    </ol></div>
+    <div class="box ex"><div class="bt">Exemple</div><p>Disque de rayon \(a\), \(\sigma=\sigma_0\frac ar\) : \(Q=\int_0^{2\pi}\!\int_0^a\sigma_0\frac ar\,r\,\mathrm{d}r\,\mathrm{d}\theta=2\pi\sigma_0a^2\). La densité est infinie au centre, mais le facteur \(r\) de \(\mathrm{d}S\) la compense : la charge est finie.</p></div>
+    <div class="box warn"><div class="bt">⚠ Densité et repère</div><p>Une densité non uniforme est écrite dans un repère donné. Garder la même formule en déplaçant l'origine décrit une <b>autre</b> distribution : la charge change (TD1, ex. 2 et 7). Une densité uniforme donne la même charge quel que soit le repère.</p></div>
+    <div class="box ex corr-link"><div class="bt">✅ S'entraîner</div><p>Les 7 exercices du TD1 sont corrigés : <a href="corriges.html#td1">voir les corrigés du TD1</a>.</p></div>
+
+    <h3 id="ch1-suite">Suite du chapitre : force, champ et potentiel</h3>
+    <p class="soon">Si ces notions ont déjà été vues en amphi, elles peuvent tomber ; sinon elles viendront avec la partie B.</p>
+    <div class="box thm"><div class="bt">★ Loi de Coulomb, champ et potentiel d'une charge ponctuelle</div>
+      <div class="mq">\[\begin{gathered}\vec F_{1\to2}=\frac{1}{4\pi\varepsilon_0}\frac{q_1q_2}{r^2}\,\vec u_{1\to2}\\[4pt] \vec E=\frac{\vec F}{q}=\frac{1}{4\pi\varepsilon_0}\frac{q}{r^2}\,\vec e_r\\[4pt] V=\frac{1}{4\pi\varepsilon_0}\frac{q}{r}\\[4pt] \varepsilon_0=8{,}85\times10^{-12}\ \text{F·m}^{-1}\\[4pt] \frac{1}{4\pi\varepsilon_0}\approx9\times10^9\ \text{SI}\end{gathered}\]</div></div>
+    <p>Principe de superposition : le champ créé par plusieurs charges est la somme vectorielle des champs de chacune. Pour une distribution continue, chaque élément \(\mathrm{d}q\) (\(\lambda\,\mathrm{d}l\), \(\sigma\,\mathrm{d}S\), \(\rho\,\mathrm{d}\tau\)) crée \(\mathrm{d}\vec E=\frac{1}{4\pi\varepsilon_0}\frac{\mathrm{d}q}{r^2}\vec u\), et on intègre. On vérifie la cohérence avec le Ch0 : \(-\overrightarrow{\mathrm{grad}}\left(\frac{q}{4\pi\varepsilon_0r}\right)=\frac{q}{4\pi\varepsilon_0r^2}\vec e_r\).</p>
+  </div>
+</article>
+
+    </div>
+  </div>
+</div>
+</main>
+
+<div class="foot">
+  <div class="wrap">
+    <span>Électromagnétisme · ECE ING2 · S3 2026-2027</span>
+    <span><a href="index.html">Accueil</a> · <a href="interro-s40.html">Interro S40</a> · <a href="corriges.html">TD corrigés</a></span>
+  </div>
+</div>
+<a class="cx-top" href="#" aria-label="Revenir en haut de la page">↑</a>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+<script src="js/maths.js"></script>
+<script src="js/site.js"></script>
+</body>
+</html>

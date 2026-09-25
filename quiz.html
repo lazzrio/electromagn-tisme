@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz — Électromagnétisme</title>
+<meta name="description" content="Quiz d'entraînement d'électromagnétisme : 20 questions à choix unique avec explications.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#1d5fc4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#080d18" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta property="og:title" content="Quiz — Électromagnétisme">
+<meta property="og:description" content="Quiz d'entraînement d'électromagnétisme : 20 questions à choix unique avec explications.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,500;0,600;0,700;0,800;1,600;1,700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="index.html" aria-label="Accueil du site">
+      <span class="chip-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M13 2 L5 13 h6 l-1.5 9 L19 10 h-6 z"/></svg></span>
+      Électromagnétisme
+    </a>
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="interro-s40.html" class="nav-hot">🚨 Interro S40</a>
+      <a href="cours.html">📚 Cours</a>
+      <a href="formules.html">📘 Formules</a>
+      <a href="corriges.html">✅ TD corrigés</a>
+      <a href="quiz.html" class="active" aria-current="page">🧠 Quiz</a>
+    </nav>
+    <button class="theme-btn" id="themeBtn" aria-label="Changer de thème" title="Thème clair / sombre">
+      <svg id="thIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"></svg>
+    </button>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+  </div>
+</div>
+
+<main>
+<div class="wrap">
+  <div class="page-head">
+    <span class="eyebrow">🧠 Quiz</span>
+    <h1>Quiz d'entraînement</h1>
+    <p>20 questions à choix unique sur le programme de l'interro. Réponds, lis l'explication, passe à la suivante. Les questions et les réponses sont mélangées à chaque partie.</p>
+  </div>
+  <div class="qz" id="qz">
+    <div class="qz-bar" id="qzBar">
+      <button type="button" data-n="10" class="on">10 questions</button>
+      <button type="button" data-n="20">Les 20</button>
+      <button type="button" id="qzRestart">Recommencer</button>
+    </div>
+    <div class="qz-card" id="qzCard" aria-live="polite"></div>
+  </div>
+
+  <ol id="qzData" hidden>
+    <li data-c="0" data-exp="Le point parcourt \(\mathrm{d}r\), \(r\,\mathrm{d}\theta\) et \(r\sin\theta\,\mathrm{d}\varphi\) : le volume élémentaire est leur produit."><p>Élément de volume en coordonnées sphériques ?</p><ul><li>\(r^2\sin\theta\,\mathrm{d}r\,\mathrm{d}\theta\,\mathrm{d}\varphi\)</li><li>\(r\,\mathrm{d}r\,\mathrm{d}\theta\,\mathrm{d}\varphi\)</li><li>\(r^2\,\mathrm{d}r\,\mathrm{d}\theta\,\mathrm{d}\varphi\)</li><li>\(\sin\theta\,\mathrm{d}r\,\mathrm{d}\theta\,\mathrm{d}\varphi\)</li></ul></li>
+    <li data-c="0" data-exp="\(\theta\) se mesure depuis \(Oz\) : de 0 (pôle nord) à \(\pi\) (pôle sud). C'est \(\varphi\) qui fait le tour complet."><p>En coordonnées sphériques, l'angle \(\theta\) varie dans :</p><ul><li>\([0,\pi]\)</li><li>\([0,2\pi[\)</li><li>\([-\frac\pi2,\frac\pi2]\)</li><li>\([0,\frac\pi2]\)</li></ul></li>
+    <li data-c="0" data-exp="Par identification dans \(\mathrm{d}f=\overrightarrow{\mathrm{grad}}\,f\cdot\mathrm{d}\vec l\) avec \(\mathrm{d}l_\theta=r\,\mathrm{d}\theta\)."><p>Composante selon \(\vec e_\theta\) du gradient en cylindrique ?</p><ul><li>\(\frac1r\frac{\partial f}{\partial\theta}\)</li><li>\(\frac{\partial f}{\partial\theta}\)</li><li>\(r\frac{\partial f}{\partial\theta}\)</li><li>\(\frac{1}{r\sin\theta}\frac{\partial f}{\partial\theta}\)</li></ul></li>
+    <li data-c="0" data-exp="L'angle est contenu dans la direction de \(\vec e_r\), qui dépend du point : pas de composante sur \(\vec e_\theta\)."><p>Vecteur position \(\overrightarrow{OM}\) en cylindrique ?</p><ul><li>\(r\,\vec e_r+z\,\vec e_z\)</li><li>\(r\,\vec e_r+\theta\,\vec e_\theta+z\,\vec e_z\)</li><li>\(r\,\vec e_r+r\theta\,\vec e_\theta+z\,\vec e_z\)</li><li>\(x\,\vec e_r+y\,\vec e_\theta+z\,\vec e_z\)</li></ul></li>
+    <li data-c="0" data-exp="Sur la surface \(r=R\), on se déplace de \(R\,\mathrm{d}\theta\) et \(\mathrm{d}z\) ; la normale est \(\vec e_r\)."><p>Élément de surface sur la face latérale d'un cylindre de rayon \(R\) ?</p><ul><li>\(R\,\mathrm{d}\theta\,\mathrm{d}z\,\vec e_r\)</li><li>\(\mathrm{d}r\,\mathrm{d}z\,\vec e_\theta\)</li><li>\(r\,\mathrm{d}r\,\mathrm{d}\theta\,\vec e_z\)</li><li>\(R^2\,\mathrm{d}\theta\,\mathrm{d}z\,\vec e_r\)</li></ul></li>
+    <li data-c="0" data-exp="\(\sigma=\frac{\mathrm{d}q}{\mathrm{d}S}\) : des coulombs par mètre carré."><p>Unité d'une densité surfacique de charge \(\sigma\) ?</p><ul><li>C·m⁻²</li><li>C·m⁻¹</li><li>C·m⁻³</li><li>C</li></ul></li>
+    <li data-c="0" data-exp="Densité uniforme : \(Q=\rho_0V\) avec \(V=\frac43\pi R^3\)."><p>Charge d'une boule de rayon \(R\) uniformément chargée en volume \(\rho_0\) ?</p><ul><li>\(\frac43\pi R^3\rho_0\)</li><li>\(4\pi R^2\rho_0\)</li><li>\(\pi R^2\rho_0\)</li><li>\(2\pi R^3\rho_0\)</li></ul></li>
+    <li data-c="0" data-exp="\(\vec E=-\overrightarrow{\mathrm{grad}}\,V\) : des volts divisés par des mètres."><p>Unité du champ électrique ?</p><ul><li>V·m⁻¹</li><li>V</li><li>V·m</li><li>C·m⁻²</li></ul></li>
+    <li data-c="0" data-exp="Le gradient pointe vers les \(V\) croissants ; le signe − retourne le sens."><p>\(\vec E=-\overrightarrow{\mathrm{grad}}\,V\) est dirigé vers :</p><ul><li>les potentiels décroissants</li><li>les potentiels croissants</li><li>une direction perpendiculaire au gradient</li><li>toujours l'extérieur, radialement</li></ul></li>
+    <li data-c="0" data-exp="Sur le couvercle, \(\mathrm{d}\vec S\) est selon \(\vec e_z\), perpendiculaire à \(\vec e_r\)."><p>Flux de \(\vec A=A_0\,r\,\vec e_r\) à travers le couvercle d'un cylindre d'axe \(Oz\) (rayon \(a\)) ?</p><ul><li>0</li><li>\(\pi a^2A_0\)</li><li>\(A_0a\)</li><li>\(2\pi A_0a^2\)</li></ul></li>
+    <li data-c="0" data-exp="Sur un cercle, \(\mathrm{d}\vec l\) est selon \(\vec e_\theta\), perpendiculaire à \(\vec e_r\)."><p>Circulation de \(\vec A=A_0\,\vec e_r\) sur un cercle d'axe \(Oz\) ?</p><ul><li>0</li><li>\(2\pi RA_0\)</li><li>\(\pi R^2A_0\)</li><li>\(A_0R\)</li></ul></li>
+    <li data-c="0" data-exp="\(\sin^2\theta=\frac{1-\cos2\theta}{2}\) : la moyenne vaut \(\frac12\) sur une période de longueur \(2\pi\)."><p>\(\int_0^{2\pi}\sin^2\theta\,\mathrm{d}\theta=\)</p><ul><li>\(\pi\)</li><li>0</li><li>\(2\pi\)</li><li>\(\frac\pi2\)</li></ul></li>
+    <li data-c="0" data-exp="Surface latérale \(2\pi Rh\) plus deux disques \(2\pi R^2\)."><p>Surface totale d'un cylindre fermé de rayon \(R\) et de hauteur \(h\) ?</p><ul><li>\(2\pi R(R+h)\)</li><li>\(2\pi Rh\)</li><li>\(\pi R^2h\)</li><li>\(2\pi R^2+\pi Rh\)</li></ul></li>
+    <li data-c="0" data-exp="\(\int_0^{2\pi}\!\int_0^a\sigma_0\frac ar\,r\,\mathrm{d}r\,\mathrm{d}\theta\) : le \(r\) de \(\mathrm{d}S\) compense le \(\frac1r\)."><p>Disque de rayon \(a\), \(\sigma=\sigma_0\frac ar\). Charge totale ?</p><ul><li>\(2\pi\sigma_0a^2\)</li><li>infinie (la densité diverge au centre)</li><li>\(\pi\sigma_0a^2\)</li><li>\(\sigma_0a\)</li></ul></li>
+    <li data-c="0" data-exp="\(\vec e_r\) pointe dans la direction de l'angle \(\theta\) mesuré depuis \(Ox\)."><p>En cylindrique, \(\vec e_r=\)</p><ul><li>\(\cos\theta\,\vec e_x+\sin\theta\,\vec e_y\)</li><li>\(-\sin\theta\,\vec e_x+\cos\theta\,\vec e_y\)</li><li>\(\sin\theta\,\vec e_x+\cos\theta\,\vec e_y\)</li><li>\(\cos\theta\,\vec e_x-\sin\theta\,\vec e_y\)</li></ul></li>
+    <li data-c="0" data-exp="La formule d'une densité non uniforme est écrite dans un repère : garder la formule et déplacer l'origine décrit une autre distribution (TD1, ex. 2 et 7)."><p>On garde l'expression d'une densité non uniforme mais on déplace l'origine du repère. La charge totale :</p><ul><li>peut changer</li><li>reste toujours la même</li><li>double toujours</li><li>devient toujours nulle</li></ul></li>
+    <li data-c="0" data-exp="Le point est sur l'axe \(Oz\), côté positif : \(r=2\) et \(\theta=0\) (\(\varphi\) quelconque)."><p>Coordonnées sphériques du point cartésien \((0,0,2)\) ?</p><ul><li>\(r=2,\ \theta=0\)</li><li>\(r=2,\ \theta=\frac\pi2\)</li><li>\(r=2,\ \theta=\pi\)</li><li>\(r=0,\ \theta=0\)</li></ul></li>
+    <li data-c="0" data-exp="Il dérive par rapport à une longueur (\(\frac{\partial}{\partial x}\), \(\frac1r\frac{\partial}{\partial\theta}\))."><p>Unité de l'opérateur gradient ?</p><ul><li>m⁻¹</li><li>m</li><li>sans unité</li><li>m²</li></ul></li>
+    <li data-c="0" data-exp="Champ radial de norme constante sur la sphère : \(\Phi=A_0\times4\pi R^2\)."><p>Flux sortant de \(\vec A=A_0\,\vec e_r\) (\(A_0\) constante) à travers la sphère de rayon \(R\) ?</p><ul><li>\(4\pi R^2A_0\)</li><li>0</li><li>\(\frac43\pi R^3A_0\)</li><li>\(2\pi RA_0\)</li></ul></li>
+    <li data-c="0" data-exp="\(9{,}1\times10^{-31}\) kg est la masse de l'électron et \(8{,}85\times10^{-12}\) F/m la permittivité du vide."><p>Valeur de la charge élémentaire ?</p><ul><li>\(1{,}6\times10^{-19}\) C</li><li>\(9{,}1\times10^{-31}\) C</li><li>\(8{,}85\times10^{-12}\) C</li><li>\(6{,}02\times10^{23}\) C</li></ul></li>
+  </ol>
+</div>
+</main>
+
+<div class="foot">
+  <div class="wrap">
+    <span>Électromagnétisme · ECE ING2 · S3 2026-2027</span>
+    <span><a href="index.html">Accueil</a> · <a href="interro-s40.html">Interro S40</a> · <a href="corriges.html">TD corrigés</a></span>
+  </div>
+</div>
+<a class="cx-top" href="#" aria-label="Revenir en haut de la page">↑</a>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+<script src="js/maths.js"></script>
+<script src="js/quiz.js"></script>
+<script src="js/site.js"></script>
+</body>
+</html>

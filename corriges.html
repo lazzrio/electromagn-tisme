@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TD corrigés — Électromagnétisme</title>
+<meta name="description" content="TD0 et TD1 d'électromagnétisme ING2 corrigés pas à pas : méthode et correction détaillée.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#1d5fc4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#080d18" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta property="og:title" content="TD corrigés — Électromagnétisme">
+<meta property="og:description" content="TD0 et TD1 d'électromagnétisme ING2 corrigés pas à pas : méthode et correction détaillée.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,500;0,600;0,700;0,800;1,600;1,700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+</head>
+<body class="cx-page">
+
+<div class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="index.html" aria-label="Accueil du site">
+      <span class="chip-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M13 2 L5 13 h6 l-1.5 9 L19 10 h-6 z"/></svg></span>
+      Électromagnétisme
+    </a>
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="interro-s40.html" class="nav-hot">🚨 Interro S40</a>
+      <a href="cours.html">📚 Cours</a>
+      <a href="formules.html">📘 Formules</a>
+      <a href="corriges.html" class="active" aria-current="page">✅ TD corrigés</a>
+      <a href="quiz.html">🧠 Quiz</a>
+    </nav>
+    <button class="theme-btn" id="themeBtn" aria-label="Changer de thème" title="Thème clair / sombre">
+      <svg id="thIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"></svg>
+    </button>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+  </div>
+</div>
+
+<main>
+<div class="wrap">
+  <div class="page-head">
+    <span class="eyebrow">✅ TD corrigés</span>
+    <h1>TD0 et TD1 corrigés pas à pas</h1>
+    <p>Pour chaque exercice : la méthode (quel outil, pourquoi) puis la correction détaillée avec les calculs complets et les unités. Cherche d'abord, ouvre ensuite. Tous les résultats ont été vérifiés par intégration numérique.</p>
+  </div>
+  <nav class="cx-index" aria-label="TD">
+    <a class="cx-card" href="#td0"><span class="n">TD 0 · 3 pages · 8 fiches</span><span class="t">Outils mathématiques</span><span class="d">Repères, surfaces et volumes, gradients, flux, circulation.</span><span class="cnt"></span><span class="bar"><i></i></span></a>
+    <a class="cx-card" href="#td1"><span class="n">TD 1 · 3 pages · 7 fiches</span><span class="t">Calculs de charges</span><span class="d">Fil, pavé, disque, cylindre, sphères, demi-sphère, quart de cylindre.</span><span class="cnt"></span><span class="bar"><i></i></span></a>
+  </nav>
+  <div class="cx-toolbar">
+    <button type="button" class="cx-btn" id="cxExpand">Tout déplier</button>
+    <span class="cx-progress" id="cxProgress" aria-live="polite"></span>
+  </div>
+
+<!-- ======================= TD0 ======================= -->
+<section class="cx-chap" id="td0">
+  <div class="cx-chap-hd">
+    <span class="cx-chap-n">TD 0 · Outils mathématiques</span>
+    <h2>Coordonnées, gradient, flux et circulation</h2>
+    <p>Tout le TD repose sur les éléments différentiels \(\mathrm{d}\vec l\), \(\mathrm{d}\vec S\), \(\mathrm{d}\tau\) de chaque repère et sur la relation \(\mathrm{d}f=\overrightarrow{\mathrm{grad}}\,f\cdot\mathrm{d}\vec l\). <a href="cours.html#ch0">Revoir le cours (Ch0)</a></p>
+  </div>
+
+  <article class="cx" id="td0-1a">
+    <header class="cx-hd"><span class="cx-num">Ex 1 A</span><h3>Coordonnées cartésiennes : base, éléments, volume d'un pavé</h3><span class="cx-tag td">TD</span></header>
+    <div class="cx-enonce">Représenter la base cartésienne ; exprimer \(\overrightarrow{OM}\), \(\mathrm{d}\vec l\), les trois éléments de surface et le volume élémentaire ; en déduire le volume d'un pavé de côtés \(a\), \(b\), \(c\). Unités ?</div>
+    <details class="cx-meth"><summary>💡 Méthode et raisonnement</summary><div>
+      <p>En cartésien la base est <b>fixe</b> : les vecteurs \(\vec e_x,\vec e_y,\vec e_z\) sont les mêmes en tout point. Un déplacement élémentaire est la somme des petits déplacements le long de chaque axe. Une surface élémentaire est le produit de deux de ces longueurs, orientée par le troisième vecteur (la normale).</p>
+    </div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <ol class="steps">
+        <li class="step"><span class="sn"></span><div><div class="st">Base et vecteurs</div><div class="sd">
+          <p>Base orthonormée directe \((\vec e_x,\vec e_y,\vec e_z)\), sans unité.</p>
+          <div class="mq">\[\overrightarrow{OM}=x\,\vec e_x+y\,\vec e_y+z\,\vec e_z\qquad\mathrm{d}\vec l=\mathrm{d}x\,\vec e_x+\mathrm{d}y\,\vec e_y+\mathrm{d}z\,\vec e_z\]</div>
+          <p>Tous deux en mètres.</p></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Surfaces et volume élémentaires</div><div class="sd">
+          <div class="mq">\[\mathrm{d}\vec S_x=\mathrm{d}y\,\mathrm{d}z\,\vec e_x\qquad\mathrm{d}\vec S_y=\mathrm{d}x\,\mathrm{d}z\,\vec e_y\qquad\mathrm{d}\vec S_z=\mathrm{d}x\,\mathrm{d}y\,\vec e_z\]</div>
+          <p>en m², et \(\mathrm{d}\tau=\mathrm{d}x\,\mathrm{d}y\,\mathrm{d}z\) en m³.</p></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Volume du pavé</div><div class="sd">
+          <div class="mq">\[V=\int_{-a/2}^{a/2}\!\mathrm{d}x\int_{-b/2}^{b/2}\!\mathrm{d}y\int_{-c/2}^{c/2}\!\mathrm{d}z=abc\]</div>
+          <p>Le résultat ne dépend pas de la position du repère (on trouve aussi \(abc\) avec les bornes \([0,a]\), \([0,b]\), \([0,c]\)).</p></div></div></li>
+      </ol>
+      <div class="answer"><b class="lab">Réponse</b>\(V=abc\) (m³).</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="td0-1b">
+    <header class="cx-hd"><span class="cx-num">Ex 1 B</span><h3>Coordonnées cylindriques : surface et volume d'un cylindre</h3><span class="cx-tag td">TD</span></header>
+    <div class="cx-enonce">Base cylindrique, \(\overrightarrow{OM}\), \(\mathrm{d}\vec l\), éléments de surface ; surface totale \(S\) et volume \(V\) d'un cylindre de rayon \(R\) et de hauteur \(h\) centré sur l'origine.</div>
+    <details class="cx-meth"><summary>💡 Méthode et raisonnement</summary><div>
+      <p>La base \((\vec e_r,\vec e_\theta,\vec e_z)\) est <b>locale</b> : \(\vec e_r\) pointe de l'axe vers le point. Quand \(\theta\) varie de \(\mathrm{d}\theta\), le point parcourt un arc \(r\,\mathrm{d}\theta\) : c'est ce facteur \(r\) qu'on retrouve dans les surfaces et le volume. Pour la surface totale, il y a <b>trois</b> morceaux : la face latérale et les deux disques.</p>
+    </div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <ol class="steps">
+        <li class="step"><span class="sn"></span><div><div class="st">Vecteurs et éléments</div><div class="sd">
+          <div class="mq">\[\begin{gathered}\overrightarrow{OM}=r\,\vec e_r+z\,\vec e_z\\[4pt] \mathrm{d}\vec l=\mathrm{d}r\,\vec e_r+r\,\mathrm{d}\theta\,\vec e_\theta+\mathrm{d}z\,\vec e_z\\[6pt] \mathrm{d}\vec S_r=r\,\mathrm{d}\theta\,\mathrm{d}z\,\vec e_r\\[4pt] \mathrm{d}\vec S_\theta=\mathrm{d}r\,\mathrm{d}z\,\vec e_\theta\\[4pt] \mathrm{d}\vec S_z=r\,\mathrm{d}r\,\mathrm{d}\theta\,\vec e_z\end{gathered}\]</div>
+          <p>\(r\) en m, \(\theta\) en rad (sans dimension), \(z\) en m.</p></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Surface totale</div><div class="sd">
+          <div class="mq">\[\begin{aligned}S_{lat}&=\int_0^{2\pi}\!\!\int_{-h/2}^{h/2}R\,\mathrm{d}\theta\,\mathrm{d}z=2\pi Rh\\[4pt] S_{disque}&=\int_0^{R}\!\!\int_0^{2\pi}r\,\mathrm{d}r\,\mathrm{d}\theta=\pi R^2\\[4pt] S&=2\pi Rh+2\pi R^2=2\pi R(R+h)\end{aligned}\]</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Volume</div><div class="sd">
+          <div class="mq">\[V=\int_0^R r\,\mathrm{d}r\int_0^{2\pi}\mathrm{d}\theta\int_{-h/2}^{h/2}\mathrm{d}z=\frac{R^2}{2}\cdot2\pi\cdot h=\pi R^2h\]</div></div></div></li>
+      </ol>
+      <div class="answer"><b class="lab">Réponse</b>\(S=2\pi R(R+h)\) (m²), \(V=\pi R^2h\) (m³).</div>
+      <div class="why"><b class="lab">Piège</b>Oublier les deux disques dans la surface totale, ou oublier le \(r\) dans \(\mathrm{d}\tau\) (on trouverait \(2\pi Rh\), qui n'a pas la dimension d'un volume).</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="td0-1c">
+    <header class="cx-hd"><span class="cx-num">Ex 1 C</span><h3>Coordonnées sphériques : surface et volume d'une sphère</h3><span class="cx-tag td">TD</span></header>
+    <div class="cx-enonce">Base sphérique, \(\overrightarrow{OM}\), \(\mathrm{d}\vec l\), éléments de surface ; surface \(S\) et volume \(V\) d'une sphère de centre \(O\) et de rayon \(R\).</div>
+    <details class="cx-meth"><summary>💡 Méthode et raisonnement</summary><div>
+      <p>\(\theta\) (depuis \(Oz\)) décrit un méridien de rayon \(r\) : arc \(r\,\mathrm{d}\theta\). \(\varphi\) décrit un parallèle, cercle de rayon \(r\sin\theta\) (distance à l'axe) : arc \(r\sin\theta\,\mathrm{d}\varphi\). Les bornes : \(\theta\in[0,\pi]\) suffit pour balayer toute la sphère, puisque \(\varphi\) fait le tour complet.</p>
+    </div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <ol class="steps">
+        <li class="step"><span class="sn"></span><div><div class="st">Vecteurs et éléments</div><div class="sd">
+          <div class="mq">\[\begin{gathered}\overrightarrow{OM}=r\,\vec e_r\\[4pt] \mathrm{d}\vec l=\mathrm{d}r\,\vec e_r+r\,\mathrm{d}\theta\,\vec e_\theta+r\sin\theta\,\mathrm{d}\varphi\,\vec e_\varphi\\[6pt] \mathrm{d}\vec S_r=r^2\sin\theta\,\mathrm{d}\theta\,\mathrm{d}\varphi\,\vec e_r\\[4pt] \mathrm{d}\vec S_\theta=r\sin\theta\,\mathrm{d}r\,\mathrm{d}\varphi\,\vec e_\theta\\[4pt] \mathrm{d}\vec S_\varphi=r\,\mathrm{d}r\,\mathrm{d}\theta\,\vec e_\varphi\end{gathered}\]</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Surface</div><div class="sd">
+          <div class="mq">\[\begin{aligned}S&=\int_0^{\pi}\!\!\int_0^{2\pi}R^2\sin\theta\,\mathrm{d}\theta\,\mathrm{d}\varphi\\&=R^2\cdot\big[-\cos\theta\big]_0^{\pi}\cdot2\pi=4\pi R^2\end{aligned}\]</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Volume</div><div class="sd">
+          <div class="mq">\[V=\int_0^R r^2\,\mathrm{d}r\int_0^{\pi}\sin\theta\,\mathrm{d}\theta\int_0^{2\pi}\mathrm{d}\varphi=\frac{R^3}{3}\cdot2\cdot2\pi=\frac43\pi R^3\]</div></div></div></li>
+      </ol>
+      <div class="answer"><b class="lab">Réponse</b>\(S=4\pi R^2\) (m²), \(V=\frac43\pi R^3\) (m³).</div>
+      <div class="why"><b class="lab">Contrôle</b>\(\frac{\mathrm{d}V}{\mathrm{d}R}=4\pi R^2=S\) : ajouter une fine couche \(\mathrm{d}R\) à la boule ajoute un volume \(S\,\mathrm{d}R\).</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="td0-2a">
+    <header class="cx-hd"><span class="cx-num">Ex 2 A-B</span><h3>Expressions du gradient et gradients de trois fonctions</h3><span class="cx-tag td">TD</span></header>
+    <div class="cx-enonce">Écrire le gradient dans les 3 repères ; unité de l'opérateur. Calculer les gradients de \(f=x^2+\ln\!\left(\frac xA\right)yz\), \(g=r^2(1+\tan\theta)+Bz\) (cylindrique), \(k=r^2(\sin\theta+\varphi\cos\theta)\) (sphérique). Unités et domaines des variables ?</div>
+    <details class="cx-meth"><summary>💡 Méthode et raisonnement</summary><div>
+      <p>Identifier le repère d'après les variables, écrire l'expression du gradient <b>avant</b> de dériver, puis dériver composante par composante en traitant les autres variables comme des constantes. Ne pas oublier les facteurs \(\frac1r\) et \(\frac{1}{r\sin\theta}\).</p>
+    </div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <ol class="steps">
+        <li class="step"><span class="sn"></span><div><div class="st">Partie A</div><div class="sd">
+          <p>Expressions du <a href="formules.html#f-grad">formulaire</a>. L'opérateur contient \(\frac{\partial}{\partial x}\) ou \(\frac1r\frac{\partial}{\partial\theta}\) : il est en <b>m⁻¹</b>.</p></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Fonction \(f\) (cartésien)</div><div class="sd">
+          <div class="mq">\[\overrightarrow{\mathrm{grad}}\,f=\left(2x+\frac{yz}{x}\right)\vec e_x+z\ln\!\left(\frac xA\right)\vec e_y+y\ln\!\left(\frac xA\right)\vec e_z\]</div>
+          <p>car \(\frac{\partial}{\partial x}\ln\frac xA=\frac1x\).</p></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Fonction \(g\) (cylindrique)</div><div class="sd">
+          <div class="mq">\[\begin{aligned}\overrightarrow{\mathrm{grad}}\,g&=2r(1+\tan\theta)\,\vec e_r+\frac1r\cdot\frac{r^2}{\cos^2\theta}\,\vec e_\theta+B\,\vec e_z\\&=2r(1+\tan\theta)\,\vec e_r+\frac{r}{\cos^2\theta}\,\vec e_\theta+B\,\vec e_z\end{aligned}\]</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Fonction \(k\) (sphérique)</div><div class="sd">
+          <div class="mq">\[\begin{aligned}\overrightarrow{\mathrm{grad}}\,k&=2r(\sin\theta+\varphi\cos\theta)\,\vec e_r\\&\quad+r(\cos\theta-\varphi\sin\theta)\,\vec e_\theta\\&\quad+\frac{1}{r\sin\theta}\,r^2\cos\theta\,\vec e_\varphi\end{aligned}\]</div>
+          <p>La dernière composante se simplifie en \(\frac{r\cos\theta}{\sin\theta}\).</p></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Unités et domaines</div><div class="sd">
+          <p>\(x,y,z\) en m, \(x>0\) (logarithme) et \(A\) en m (l'argument d'un logarithme est sans dimension) ; \(f\) en m². \(r\ge0\) en m, \(\theta\in[0,2\pi[\) avec \(\theta\neq\frac\pi2,\frac{3\pi}2\) pour la tangente, \(z\in\mathbb R\) ; \(B\) en m, \(g\) en m². En sphérique \(\theta\in[0,\pi]\), \(\varphi\in[0,2\pi[\), \(k\) en m².</p></div></div></li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="cx" id="td0-2c">
+    <header class="cx-hd"><span class="cx-num">Ex 2 C</span><h3>Champ électrique dérivant d'un potentiel</h3><span class="cx-tag td">TD</span></header>
+    <div class="cx-enonce">Calculer \(\vec E=-\overrightarrow{\mathrm{grad}}\,V\) pour \(V=E_0\frac{x^2y^2z^2}{R}\), \(V=V_0\frac{r(1+\cos\theta)+z}{A}\) (cylindrique), \(V=E_0\frac{r^2(\sin\theta+\varphi\cos\theta)}{B}\) (sphérique). Unités de \(\vec E\) et des constantes ?</div>
+    <details class="cx-meth"><summary>💡 Méthode et raisonnement</summary><div>
+      <p>Même calcul que la partie B, avec un signe − devant tout. Factoriser la constante et le signe dès le début évite les erreurs. Pour les unités : \(V\) est en volts, \(\vec E\) en V/m ; chaque constante est fixée par l'homogénéité de l'expression de \(V\).</p>
+    </div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <ol class="steps">
+        <li class="step"><span class="sn"></span><div><div class="st">Cartésien</div><div class="sd">
+          <div class="mq">\[\vec E_1=-\frac{2E_0}{R}\left(xy^2z^2\,\vec e_x+x^2yz^2\,\vec e_y+x^2y^2z\,\vec e_z\right)\]</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Cylindrique</div><div class="sd">
+          <p>\(\frac{\partial V}{\partial r}=\frac{V_0}{A}(1+\cos\theta)\), \(\frac1r\frac{\partial V}{\partial\theta}=-\frac{V_0}{A}\sin\theta\), \(\frac{\partial V}{\partial z}=\frac{V_0}{A}\) :</p>
+          <div class="mq">\[\vec E_2=\frac{V_0}{A}\left(-(1+\cos\theta)\,\vec e_r+\sin\theta\,\vec e_\theta-\vec e_z\right)\]</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Sphérique</div><div class="sd">
+          <div class="mq">\[\begin{aligned}\vec E_3=-\frac{E_0}{B}\Big(&2r(\sin\theta+\varphi\cos\theta)\,\vec e_r\\&+r(\cos\theta-\varphi\sin\theta)\,\vec e_\theta+\frac{r\cos\theta}{\sin\theta}\,\vec e_\varphi\Big)\end{aligned}\]</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Unités</div><div class="sd">
+          <p>\(\vec E\) en V·m⁻¹. \(V_0\) est un potentiel (V), donc \(A\) en m. En prenant \(E_0\) homogène à un champ (V·m⁻¹, comme son nom l'indique) : \(\frac{E_0\,x^2y^2z^2}{R}\) en volts impose \(R\) en m⁵, et \(\frac{E_0r^2}{B}\) en volts impose \(B\) en m.</p></div></div></li>
+      </ol>
+      <div class="why"><b class="lab">À savoir</b>L'énoncé seul ne fixe que les rapports \(\frac{E_0}{R}\) (V·m⁻⁶) et \(\frac{E_0}{B}\) (V·m⁻²) : il faut une hypothèse sur \(E_0\). Le dire sur la copie rapporte des points.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="td0-3a">
+    <header class="cx-hd"><span class="cx-num">Ex 3 A</span><h3>Flux à travers un cylindre et une sphère</h3><span class="cx-tag td">TD</span></header>
+    <div class="cx-enonce">1. Cylindre d'axe \(Oz\), rayon \(a\), hauteur \(h\), \(\vec A=A_0\,r\,\vec u_r\) : flux à travers chaque face, puis flux sortant total. 2. Sphère de centre \(O\), rayon \(R\), \(\vec A=A_0\,\varphi\,\vec u_r\) : flux de l'extérieur vers l'intérieur.</div>
+    <details class="cx-meth"><summary>💡 Méthode et raisonnement</summary><div>
+      <p>Pour chaque face : écrire \(\mathrm{d}\vec S\) (normale sortante), faire le produit scalaire avec \(\vec A\) <b>sur cette face</b> (on y remplace \(r\) par sa valeur), puis intégrer. Un champ radial \(\vec u_r\) ne traverse pas les faces dont la normale est \(\pm\vec u_z\). « De l'extérieur vers l'intérieur » : normale rentrante, donc un signe −.</p>
+    </div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <ol class="steps">
+        <li class="step"><span class="sn"></span><div><div class="st">Face latérale (\(r=a\))</div><div class="sd">
+          <div class="mq">\[\Phi_{lat}=\int_0^{2\pi}\!\!\int_0^{h}A_0\,a\cdot a\,\mathrm{d}\theta\,\mathrm{d}z=2\pi A_0a^2h\]</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Fond et couvercle</div><div class="sd">
+          <p>\(\mathrm{d}\vec S=\pm r\,\mathrm{d}r\,\mathrm{d}\theta\,\vec u_z\) et \(\vec u_r\cdot\vec u_z=0\) : \(\Phi_{haut}=\Phi_{bas}=0\).</p></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Flux total sortant</div><div class="sd">
+          <div class="mq">\[\Phi=2\pi A_0a^2h\]</div>
+          <p class="s4-small">Contrôle : \(\operatorname{div}(A_0r\,\vec u_r)=\frac1r\frac{\partial(r\cdot A_0r)}{\partial r}=2A_0\), et \(2A_0\times\pi a^2h\) redonne le même flux (théorème d'Ostrogradski, vu plus tard).</p></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Sphère, flux entrant</div><div class="sd">
+          <div class="mq">\[\begin{aligned}\Phi&=-\int_0^{\pi}\!\!\int_0^{2\pi}A_0\,\varphi\,R^2\sin\theta\,\mathrm{d}\theta\,\mathrm{d}\varphi\\&=-A_0R^2\cdot2\cdot\frac{(2\pi)^2}{2}=-4\pi^2A_0R^2\end{aligned}\]</div></div></div></li>
+      </ol>
+      <div class="answer"><b class="lab">Réponses</b>Cylindre : \(2\pi A_0a^2h\) (tout par la face latérale). Sphère, flux entrant : \(-4\pi^2A_0R^2\).</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="td0-3b">
+    <header class="cx-hd"><span class="cx-num">Ex 3 B</span><h3>Circulation sur un cercle et un demi-cercle</h3><span class="cx-tag td">TD</span></header>
+    <div class="cx-enonce">Cercle d'axe \(Oz\), rayon \(R_1\), sens trigonométrique. Circulation de \(\vec A_1=A_0\sin\theta\,\vec u_r\) puis de \(\vec A_2=A_0\sin\theta\,\vec u_\theta\). Et sur un demi-cercle ?</div>
+    <details class="cx-meth"><summary>💡 Méthode et raisonnement</summary><div>
+      <p>Sur le cercle, \(r=R_1\) et \(z\) sont fixes : \(\mathrm{d}\vec l=R_1\,\mathrm{d}\theta\,\vec u_\theta\). Seule la composante selon \(\vec u_\theta\) circule.</p>
+    </div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <ol class="steps">
+        <li class="step"><span class="sn"></span><div><div class="st">Champ radial</div><div class="sd">
+          <p>\(\vec A_1\cdot\mathrm{d}\vec l=0\) en tout point : \(C_1=0\), sur le cercle comme sur n'importe quelle portion.</p></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Champ orthoradial, cercle complet</div><div class="sd">
+          <div class="mq">\[C_2=\int_0^{2\pi}A_0\sin\theta\,R_1\,\mathrm{d}\theta=A_0R_1\big[-\cos\theta\big]_0^{2\pi}=0\]</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Demi-cercle \(\theta\in[0,\pi]\)</div><div class="sd">
+          <div class="mq">\[C_2=A_0R_1\big[-\cos\theta\big]_0^{\pi}=2A_0R_1\]</div>
+          <p>Sur l'autre moitié (\(\theta\in[\pi,2\pi]\)) on trouve \(-2A_0R_1\) : les deux se compensent, d'où 0 sur le tour complet.</p></div></div></li>
+      </ol>
+      <div class="answer"><b class="lab">Réponse</b>\(C_1=0\) ; \(C_2=0\) sur le cercle, \(\pm2A_0R_1\) sur un demi-cercle.</div>
+    </div></details>
+  </article>
+</section>
+
+<!-- ======================= TD1 ======================= -->
+<section class="cx-chap" id="td1">
+  <div class="cx-chap-hd">
+    <span class="cx-chap-n">TD 1 · Électrostatique</span>
+    <h2>Calculs de charges</h2>
+    <p>Une seule méthode : \(Q=\int\lambda\,\mathrm{d}l\), \(\iint\sigma\,\mathrm{d}S\) ou \(\iiint\rho\,\mathrm{d}\tau\) dans le repère adapté, avec les bonnes bornes. <a href="cours.html#ch1">Revoir le cours (Ch1)</a></p>
+  </div>
+
+  <article class="cx" id="td1-1">
+    <header class="cx-hd"><span class="cx-num">Ex 1</span><h3>Charge d'un fil fini, droit puis plié</h3><span class="cx-tag td">TD</span></header>
+    <div class="cx-enonce">Fil de longueur \(2a\), densité linéique uniforme \(\lambda_0\) (C·m⁻¹). Charge s'il est rectiligne ? plié à angle droit en son milieu ? Conclusion ?</div>
+    <details class="cx-meth"><summary>💡 Méthode et raisonnement</summary><div><p>Densité uniforme : \(Q=\lambda_0\times\) longueur. La forme n'intervient pas.</p></div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="mq">\[\begin{gathered}Q_{droit}=\int_{-a}^{a}\lambda_0\,\mathrm{d}x=2a\lambda_0\\[4pt] Q_{plié}=\int_0^a\lambda_0\,\mathrm{d}x+\int_0^a\lambda_0\,\mathrm{d}y=2a\lambda_0\end{gathered}\]</div>
+      <div class="answer"><b class="lab">Conclusion</b>La charge est additive : pour une densité uniforme, elle ne dépend que de la longueur totale, pas de la forme du fil.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="td1-2">
+    <header class="cx-hd"><span class="cx-num">Ex 2</span><h3>Pavé chargé : densité uniforme et non uniforme</h3><span class="cx-tag td">TD</span></header>
+    <div class="cx-enonce">Pavé de côtés \(a,b,c\) centré en \(O\). Densités \(\rho=\rho_0\) puis \(\rho=A\left[\frac{2x}{a}-1\right]\cos\!\left(\frac{\pi y}{b}\right)\frac{z^2}{c^2}\). Unité de la constante, charge totale, puis charge si l'origine est à un coin. Conclusion ?</div>
+    <details class="cx-meth"><summary>💡 Méthode et raisonnement</summary><div>
+      <p>Cartésien, bornes \(\pm\frac a2\), \(\pm\frac b2\), \(\pm\frac c2\). La densité est un produit \(f(x)g(y)h(z)\) : l'intégrale triple est le produit de trois intégrales simples. Pour l'unité de \(A\), remarquer que les trois facteurs sont sans dimension.</p>
+    </div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <ol class="steps">
+        <li class="step"><span class="sn"></span><div><div class="st">Densité uniforme</div><div class="sd">
+          <p>\(\rho_0\) en C·m⁻³ ; \(Q=\rho_0abc\), identique si l'origine est à un coin.</p></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Densité non uniforme, origine au centre</div><div class="sd">
+          <p>\(A\) en C·m⁻³.</p>
+          <div class="mq">\[\begin{gathered}\int_{-a/2}^{a/2}\!\left(\frac{2x}{a}-1\right)\mathrm{d}x=\left[\frac{x^2}{a}-x\right]_{-a/2}^{a/2}=-a\\[4pt] \int_{-b/2}^{b/2}\!\cos\frac{\pi y}{b}\,\mathrm{d}y=\frac b\pi\left[\sin\frac{\pi y}{b}\right]_{-b/2}^{b/2}=\frac{2b}{\pi}\\[4pt] \int_{-c/2}^{c/2}\frac{z^2}{c^2}\,\mathrm{d}z=\frac{1}{c^2}\left[\frac{z^3}{3}\right]_{-c/2}^{c/2}=\frac{c}{12}\end{gathered}\]</div>
+          <div class="mq">\[Q=A\cdot(-a)\cdot\frac{2b}{\pi}\cdot\frac{c}{12}=-\frac{A\,abc}{6\pi}\]</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Origine à un coin</div><div class="sd">
+          <p>\(\int_0^a\left(\frac{2x}{a}-1\right)\mathrm{d}x=\left[\frac{x^2}{a}-x\right]_0^a=0\) (et aussi \(\int_0^b\cos\frac{\pi y}{b}\,\mathrm{d}y=0\)) : \(Q=0\).</p></div></div></li>
+      </ol>
+      <div class="answer"><b class="lab">Conclusion</b>Uniforme : \(\rho_0abc\) quel que soit le repère. Non uniforme : \(-\frac{Aabc}{6\pi}\) au centre, 0 au coin. Une densité non uniforme est attachée à son repère : déplacer l'origine en gardant la formule, c'est décrire une autre distribution.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="td1-3">
+    <header class="cx-hd"><span class="cx-num">Ex 3</span><h3>Disque chargé : trois densités surfaciques</h3><span class="cx-tag td">TD</span></header>
+    <div class="cx-enonce">Disque d'axe \(Oz\), rayon \(a\), centre \(O\). Charge pour \(\sigma=\sigma_0\), \(\sigma=\sigma_0\frac ar\), \(\sigma=\sigma_0\sin^2\theta\).</div>
+    <details class="cx-meth"><summary>💡 Méthode et raisonnement</summary><div><p>Cylindrique : \(\mathrm{d}S=r\,\mathrm{d}r\,\mathrm{d}\theta\), \(r\in[0,a]\), \(\theta\in[0,2\pi]\). \(\sigma_0\) en C·m⁻².</p></div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <ol class="steps">
+        <li class="step"><span class="sn"></span><div><div class="st">Uniforme</div><div class="sd"><p>\(Q=\sigma_0\pi a^2\).</p></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">\(\sigma=\sigma_0\frac ar\)</div><div class="sd">
+          <div class="mq">\[Q=\int_0^{2\pi}\!\!\int_0^{a}\sigma_0\frac ar\,r\,\mathrm{d}r\,\mathrm{d}\theta=\sigma_0a\cdot a\cdot2\pi=2\pi\sigma_0a^2\]</div>
+          <p>Densité infinie au centre, mais le \(r\) de \(\mathrm{d}S\) la compense.</p></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">\(\sigma=\sigma_0\sin^2\theta\)</div><div class="sd">
+          <div class="mq">\[Q=\sigma_0\int_0^a r\,\mathrm{d}r\int_0^{2\pi}\sin^2\theta\,\mathrm{d}\theta=\sigma_0\frac{a^2}{2}\,\pi=\frac{\pi\sigma_0a^2}{2}\]</div>
+          <p>avec \(\sin^2\theta=\frac{1-\cos2\theta}{2}\), dont l'intégrale sur \([0,2\pi]\) vaut \(\pi\).</p></div></div></li>
+      </ol>
+      <div class="answer"><b class="lab">Réponses</b>\(\pi\sigma_0a^2\) ; \(2\pi\sigma_0a^2\) ; \(\frac{\pi\sigma_0a^2}{2}\).</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="td1-4">
+    <header class="cx-hd"><span class="cx-num">Ex 4</span><h3>Cylindre plein : modèle surfacique ou volumique</h3><span class="cx-tag td">TD</span></header>
+    <div class="cx-enonce">Cylindre plein (rayon \(R\), hauteur \(h\)) de charge mesurée \(Q\). Exprimer la densité si la charge est répartie uniformément en surface (\(\sigma_0\)), puis en volume (\(\rho_0\)). Unités ?</div>
+    <details class="cx-meth"><summary>💡 Méthode et raisonnement</summary><div><p>Uniforme : \(Q=\sigma_0S\) ou \(Q=\rho_0V\), puis on isole la densité. La surface est la surface <b>totale</b> (latérale + deux disques).</p></div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="mq">\[\begin{gathered}Q=\sigma_0\left(2\pi Rh+2\pi R^2\right)\\ \Rightarrow\ \sigma_0=\frac{Q}{2\pi R(R+h)}\ \ (\text{C·m}^{-2})\\[8pt] Q=\rho_0\pi R^2h\\ \Rightarrow\ \rho_0=\frac{Q}{\pi R^2h}\ \ (\text{C·m}^{-3})\end{gathered}\]</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="td1-5">
+    <header class="cx-hd"><span class="cx-num">Ex 5</span><h3>Deux sphères concentriques</h3><span class="cx-tag td">TD</span></header>
+    <div class="cx-enonce">Sphères de rayons \(R_1&lt;R_2\). A : creuses, densités surfaciques \(\sigma_1\) et \(-\sigma_1\). B : pleines, \(\rho=\rho_0\frac{R_1}{r}\) pour \(r&lt;R_1\) et \(\rho=\rho_0\) entre \(R_1\) et \(R_2\). Charge totale ? Même question pour deux cylindres coaxiaux de hauteur \(h\).</div>
+    <details class="cx-meth"><summary>💡 Méthode et raisonnement</summary><div><p>A : deux surfaces uniformes, \(Q=\sigma S\) pour chacune. B : densité qui ne dépend que de \(r\) → on intègre d'abord sur les angles, ce qui donne \(4\pi r^2\,\mathrm{d}r\) (sphère) ou \(2\pi rh\,\mathrm{d}r\) (cylindre), puis on découpe en deux zones.</p></div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <ol class="steps">
+        <li class="step"><span class="sn"></span><div><div class="st">A · Sphères creuses</div><div class="sd">
+          <div class="mq">\[Q=\sigma_1\cdot4\pi R_1^2-\sigma_1\cdot4\pi R_2^2=4\pi\sigma_1\left(R_1^2-R_2^2\right)\]</div>
+          <p>Négative si \(\sigma_1>0\) : la sphère extérieure, plus grande, porte plus de charge.</p></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">B · Sphères pleines</div><div class="sd">
+          <div class="mq">\[\begin{gathered}Q_1=\int_0^{R_1}\rho_0\frac{R_1}{r}\,4\pi r^2\,\mathrm{d}r=2\pi\rho_0R_1^3\\[4pt] Q_2=\int_{R_1}^{R_2}\rho_0\,4\pi r^2\,\mathrm{d}r=\frac43\pi\rho_0\left(R_2^3-R_1^3\right)\\[4pt] Q=\frac{2\pi\rho_0}{3}\left(R_1^3+2R_2^3\right)\end{gathered}\]</div></div></div></li>
+        <li class="step"><span class="sn"></span><div><div class="st">Variante cylindres coaxiaux</div><div class="sd">
+          <p>A (surfaces latérales) : \(2\pi\sigma_1h(R_1-R_2)\). B :</p>
+          <div class="mq">\[\begin{aligned}Q&=\int_0^{R_1}\rho_0\frac{R_1}{r}\,2\pi rh\,\mathrm{d}r+\rho_0\pi\left(R_2^2-R_1^2\right)h\\&=2\pi\rho_0R_1^2h+\pi\rho_0\left(R_2^2-R_1^2\right)h=\pi\rho_0h\left(R_1^2+R_2^2\right)\end{aligned}\]</div></div></div></li>
+      </ol>
+    </div></details>
+  </article>
+
+  <article class="cx" id="td1-6">
+    <header class="cx-hd"><span class="cx-num">Ex 6</span><h3>Demi-sphère chargée</h3><span class="cx-tag es">DM</span></header>
+    <div class="cx-enonce">Demi-sphère de centre \(O\), rayon \(R_0\) (moitié sous le plan \(xOy\) sur la figure), \(\rho=\rho_0\frac{r}{R_0}\cos\theta\,\frac{\varphi}{\pi}\). Charge totale ?</div>
+    <details class="cx-meth"><summary>💡 Méthode et raisonnement</summary><div><p>Sphérique. La moitié du bas correspond à \(\theta\in[\frac\pi2,\pi]\) (\(z=r\cos\theta&lt;0\)). La densité est un produit : trois intégrales simples. \(\cos\theta\sin\theta\) s'intègre en \(\frac{\sin^2\theta}{2}\).</p></div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="mq">\[\begin{aligned}Q&=\frac{\rho_0}{\pi R_0}\int_0^{R_0}r^3\,\mathrm{d}r\int_{\pi/2}^{\pi}\cos\theta\sin\theta\,\mathrm{d}\theta\int_0^{2\pi}\varphi\,\mathrm{d}\varphi\\&=\frac{\rho_0}{\pi R_0}\cdot\frac{R_0^4}{4}\cdot\left(-\frac12\right)\cdot2\pi^2=-\frac{\pi\rho_0R_0^3}{4}\end{aligned}\]</div>
+      <div class="why"><b class="lab">Attention</b>Pour la demi-sphère du haut (\(\theta\in[0,\frac\pi2]\)), \(\cos\theta>0\) et \(Q=+\frac{\pi\rho_0R_0^3}{4}\). Toujours lire la figure pour les bornes.</div>
+    </div></details>
+  </article>
+
+  <article class="cx" id="td1-7">
+    <header class="cx-hd"><span class="cx-num">Ex 7</span><h3>Quart de cylindre chargé</h3><span class="cx-tag es">DM</span></header>
+    <div class="cx-enonce">Quart de cylindre d'axe \(Oz\), rayon \(R_0\), hauteur \(h\) (premier quadrant, origine à mi-hauteur sur la figure), \(\rho=\rho_0\frac{r}{R_0}\cos\theta\,\frac zh\). Charge totale ? Et si l'origine est en bas ?</div>
+    <details class="cx-meth"><summary>💡 Méthode et raisonnement</summary><div><p>Cylindrique : \(r\in[0,R_0]\), \(\theta\in[0,\frac\pi2]\) (quart), \(z\in[-\frac h2,\frac h2]\) puis \([0,h]\). Le facteur \(z\) est impair : sur un intervalle symétrique, son intégrale est nulle.</p></div></details>
+    <details class="cx-corr"><summary>✅ Correction détaillée</summary><div>
+      <div class="mq">\[\begin{aligned}Q&=\frac{\rho_0}{R_0h}\int_0^{R_0}r^2\,\mathrm{d}r\int_0^{\pi/2}\cos\theta\,\mathrm{d}\theta\int z\,\mathrm{d}z\\ Q_{milieu}&=\frac{\rho_0}{R_0h}\cdot\frac{R_0^3}{3}\cdot1\cdot0=0\\ Q_{bas}&=\frac{\rho_0}{R_0h}\cdot\frac{R_0^3}{3}\cdot1\cdot\frac{h^2}{2}=\frac{\rho_0R_0^2h}{6}\end{aligned}\]</div>
+      <div class="answer"><b class="lab">Réponses</b>0 avec l'origine à mi-hauteur (charges positives en haut, négatives en bas, qui se compensent) ; \(\frac{\rho_0R_0^2h}{6}\) avec l'origine en bas.</div>
+    </div></details>
+  </article>
+</section>
+</div>
+</main>
+
+<div class="foot">
+  <div class="wrap">
+    <span>Électromagnétisme · ECE ING2 · S3 2026-2027</span>
+    <span><a href="index.html">Accueil</a> · <a href="interro-s40.html">Interro S40</a> · <a href="corriges.html">TD corrigés</a></span>
+  </div>
+</div>
+<a class="cx-top" href="#" aria-label="Revenir en haut de la page">↑</a>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+<script src="js/maths.js"></script>
+<script src="js/site.js"></script>
+</body>
+</html>
