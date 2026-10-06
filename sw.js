@@ -1,5 +1,5 @@
 /* Hors ligne : le réseau d'abord (contenu toujours à jour), la copie locale si pas de connexion. */
-const CACHE = "electromag-v1";
+const CACHE = "electromag-v2";
 const CORE = ["./", "index.html", "interro-s40.html", "cours.html", "formules.html", "corriges.html", "quiz.html",
   "css/style.css", "js/site.js", "js/maths.js", "js/quiz.js", "assets/favicon.svg", "assets/icon-192.png", "manifest.webmanifest"];
 

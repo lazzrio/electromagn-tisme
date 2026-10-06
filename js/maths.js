@@ -11,6 +11,7 @@
         { left: BS + "(", right: BS + ")", display: false }
       ],
       throwOnError: false,
+      ignoredTags: ["script", "noscript", "style", "textarea", "pre", "option"],
       strict: false
     });
   }

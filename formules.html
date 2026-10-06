@@ -1,173 +1,163 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Formules — Électromagnétisme</title>
-<meta name="description" content="Toutes les formules d'électromagnétisme avec leurs symboles, unités et conditions, et une version express.">
-<meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#1d5fc4" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#080d18" media="(prefers-color-scheme: dark)">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="assets/icon-192.png">
-<link rel="manifest" href="manifest.webmanifest">
-<meta property="og:title" content="Formules — Électromagnétisme">
-<meta property="og:description" content="Toutes les formules d'électromagnétisme avec leurs symboles, unités et conditions, et une version express.">
-<meta property="og:type" content="website">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,500;0,600;0,700;0,800;1,600;1,700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+<meta content="Toutes les formules d'électromagnétisme avec leurs symboles, unités et conditions, et une version express." name="description"/>
+<meta content="light dark" name="color-scheme"/>
+<meta content="#1d5fc4" media="(prefers-color-scheme: light)" name="theme-color"/>
+<meta content="#080d18" media="(prefers-color-scheme: dark)" name="theme-color"/>
+<link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="assets/icon-192.png" rel="apple-touch-icon"/>
+<link href="manifest.webmanifest" rel="manifest"/>
+<meta content="Formules — Électromagnétisme" property="og:title"/>
+<meta content="Toutes les formules d'électromagnétisme avec leurs symboles, unités et conditions, et une version express." property="og:description"/>
+<meta content="website" property="og:type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,500;0,600;0,700;0,800;1,600;1,700&amp;family=Source+Sans+3:ital,wght@0,400;0,600;1,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="css/style.css" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet"/>
 </head>
 <body class="s40-page">
-
 <div class="topbar">
-  <div class="topbar-in">
-    <a class="brand" href="index.html" aria-label="Accueil du site">
-      <span class="chip-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M13 2 L5 13 h6 l-1.5 9 L19 10 h-6 z"/></svg></span>
+<div class="topbar-in">
+<a aria-label="Accueil du site" class="brand" href="index.html">
+<span class="chip-logo"><svg fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M13 2 L5 13 h6 l-1.5 9 L19 10 h-6 z"></path></svg></span>
       Électromagnétisme
     </a>
-    <nav class="nav" id="nav" aria-label="Navigation principale">
-      <a href="index.html">Accueil</a>
-      <a href="interro-s40.html" class="nav-hot">🚨 Interro S40</a>
-      <a href="cours.html">📚 Cours</a>
-      <a href="formules.html" class="active" aria-current="page">📘 Formules</a>
-      <a href="corriges.html">✅ TD corrigés</a>
-      <a href="quiz.html">🧠 Quiz</a>
-    </nav>
-    <button class="theme-btn" id="themeBtn" aria-label="Changer de thème" title="Thème clair / sombre">
-      <svg id="thIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"></svg>
-    </button>
-    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
-  </div>
+<nav aria-label="Navigation principale" class="nav" id="nav">
+<a href="index.html">Accueil</a>
+<a class="nav-hot" href="interro-s40.html">🚨 Interro S40</a>
+<a href="cours.html">📚 Cours</a>
+<a aria-current="page" class="active" href="formules.html">📘 Formules</a>
+<a href="corriges.html">✅ TD corrigés</a>
+<a href="quiz.html">🧠 Quiz</a>
+</nav>
+<button aria-label="Changer de thème" class="theme-btn" id="themeBtn" title="Thème clair / sombre">
+<svg fill="none" id="thIcon" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"></svg>
+</button>
+<button aria-expanded="false" aria-label="Menu" class="burger" id="burger"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
 </div>
-
+</div>
 <main>
 <div class="wrap s40">
-  <div class="page-head">
-    <span class="eyebrow">📘 Formules</span>
-    <h1>Toutes les formules</h1>
-    <p>Chaque formule avec le sens de ses symboles, son unité et sa condition d'emploi. En bas de page, la version express pour vérifier vite.</p>
-  </div>
-  <nav class="s4-toc" aria-label="Groupes de formules">
-    <a href="#f-coord">Repères</a>
-    <a href="#f-surf">Surfaces et volumes</a>
-    <a href="#f-grad">Gradient</a>
-    <a href="#f-flux">Flux et circulation</a>
-    <a href="#f-charges">Charges</a>
-    <a href="#f-integ">Intégrales utiles</a>
-    <a href="#f-express">Express</a>
-  </nav>
-
-  <section class="fgroup" id="f-coord">
-    <h2>Repères et éléments différentiels</h2>
-    <div class="frow"><div class="fx">\(\mathrm{d}\vec l=\mathrm{d}x\,\vec e_x+\mathrm{d}y\,\vec e_y+\mathrm{d}z\,\vec e_z\)</div><div class="fd"><span class="nm">Déplacement élémentaire, cartésien</span>. \(x,y,z\in\mathbb R\). <span class="unit">m</span></div></div>
-    <div class="frow"><div class="fx">\(\mathrm{d}\vec l=\mathrm{d}r\,\vec e_r+r\,\mathrm{d}\theta\,\vec e_\theta+\mathrm{d}z\,\vec e_z\)</div><div class="fd"><span class="nm">Cylindrique</span>. \(r\ge0\) distance à \(Oz\), \(\theta\in[0,2\pi[\). <span class="unit">m</span> <span class="cond">base locale</span></div></div>
-    <div class="frow"><div class="fx">\(\mathrm{d}\vec l=\mathrm{d}r\,\vec e_r+r\,\mathrm{d}\theta\,\vec e_\theta+r\sin\theta\,\mathrm{d}\varphi\,\vec e_\varphi\)</div><div class="fd"><span class="nm">Sphérique</span>. \(r=OM\), \(\theta\in[0,\pi]\) depuis \(Oz\), \(\varphi\in[0,2\pi[\) depuis \(Ox\). <span class="unit">m</span></div></div>
-    <div class="frow"><div class="fx">\(\overrightarrow{OM}=r\,\vec e_r+z\,\vec e_z\quad;\quad\overrightarrow{OM}=r\,\vec e_r\)</div><div class="fd"><span class="nm">Vecteur position</span> en cylindrique ; en sphérique. <span class="cond">pas de composante angulaire</span></div></div>
-    <div class="frow"><div class="fx">\(\mathrm{d}\tau=\mathrm{d}x\,\mathrm{d}y\,\mathrm{d}z=r\,\mathrm{d}r\,\mathrm{d}\theta\,\mathrm{d}z=r^2\sin\theta\,\mathrm{d}r\,\mathrm{d}\theta\,\mathrm{d}\varphi\)</div><div class="fd"><span class="nm">Volume élémentaire</span> dans les 3 repères. <span class="unit">m³</span></div></div>
-    <div class="frow"><div class="fx">\(x=r\cos\theta,\ y=r\sin\theta,\ r=\sqrt{x^2+y^2}\)</div><div class="fd"><span class="nm">Cartésien ↔ cylindrique</span>. Et \(\vec e_r=\cos\theta\,\vec e_x+\sin\theta\,\vec e_y\), \(\vec e_\theta=-\sin\theta\,\vec e_x+\cos\theta\,\vec e_y\).</div></div>
-    <div class="frow"><div class="fx">\(x=r\sin\theta\cos\varphi,\ y=r\sin\theta\sin\varphi,\ z=r\cos\theta\)</div><div class="fd"><span class="nm">Cartésien ↔ sphérique</span>. \(r=\sqrt{x^2+y^2+z^2}\), \(\cos\theta=\frac zr\).</div></div>
-  </section>
-
-  <section class="fgroup" id="f-surf">
-    <h2>Surfaces et volumes</h2>
-    <div class="frow"><div class="fx">\(\mathrm{d}y\,\mathrm{d}z\,\vec e_x\ ;\ \mathrm{d}x\,\mathrm{d}z\,\vec e_y\ ;\ \mathrm{d}x\,\mathrm{d}y\,\vec e_z\)</div><div class="fd"><span class="nm">Surfaces élémentaires cartésiennes</span> (faces d'un pavé). <span class="unit">m²</span></div></div>
-    <div class="frow"><div class="fx">\(r\,\mathrm{d}\theta\,\mathrm{d}z\,\vec e_r\ ;\ \mathrm{d}r\,\mathrm{d}z\,\vec e_\theta\ ;\ r\,\mathrm{d}r\,\mathrm{d}\theta\,\vec e_z\)</div><div class="fd"><span class="nm">Cylindriques</span> : surface latérale, demi-plan, disque. <span class="unit">m²</span></div></div>
-    <div class="frow"><div class="fx">\(r^2\sin\theta\,\mathrm{d}\theta\,\mathrm{d}\varphi\,\vec e_r\)<br>\(r\sin\theta\,\mathrm{d}r\,\mathrm{d}\varphi\,\vec e_\theta\)<br>\(r\,\mathrm{d}r\,\mathrm{d}\theta\,\vec e_\varphi\)</div><div class="fd"><span class="nm">Sphériques</span> : sphère, cône, demi-plan méridien. <span class="unit">m²</span></div></div>
-    <div class="frow"><div class="fx">\(V=abc\)</div><div class="fd"><span class="nm">Pavé</span> de côtés \(a,b,c\). <span class="unit">m³</span></div></div>
-    <div class="frow"><div class="fx">\(V=\pi R^2h\qquad S=2\pi Rh+2\pi R^2\)</div><div class="fd"><span class="nm">Cylindre</span> de rayon \(R\), hauteur \(h\) : volume ; surface totale (latérale + 2 disques).</div></div>
-    <div class="frow"><div class="fx">\(V=\frac43\pi R^3\qquad S=4\pi R^2\)</div><div class="fd"><span class="nm">Sphère</span> de rayon \(R\). Coquille entre \(R_1\) et \(R_2\) : \(\frac43\pi(R_2^3-R_1^3)\).</div></div>
-    <div class="frow"><div class="fx">\(S=\pi R^2\qquad L=2\pi R\)</div><div class="fd"><span class="nm">Disque et cercle</span>. Demi-cercle : \(\pi R\).</div></div>
-  </section>
-
-  <section class="fgroup" id="f-grad">
-    <h2>Gradient</h2>
-    <div class="frow"><div class="fx">\(\overrightarrow{\mathrm{grad}}\,f=\frac{\partial f}{\partial x}\vec e_x+\frac{\partial f}{\partial y}\vec e_y+\frac{\partial f}{\partial z}\vec e_z\)</div><div class="fd"><span class="nm">Gradient cartésien</span>. Champ scalaire → champ vectoriel. <span class="unit">[f]·m⁻¹</span></div></div>
-    <div class="frow"><div class="fx">\(\overrightarrow{\mathrm{grad}}\,f=\frac{\partial f}{\partial r}\vec e_r+\frac1r\frac{\partial f}{\partial\theta}\vec e_\theta+\frac{\partial f}{\partial z}\vec e_z\)</div><div class="fd"><span class="nm">Cylindrique</span>. Le \(\frac1r\) vient de \(r\,\mathrm{d}\theta\) dans \(\mathrm{d}\vec l\).</div></div>
-    <div class="frow"><div class="fx">\(\overrightarrow{\mathrm{grad}}\,f=\frac{\partial f}{\partial r}\vec e_r+\frac1r\frac{\partial f}{\partial\theta}\vec e_\theta+\frac{1}{r\sin\theta}\frac{\partial f}{\partial\varphi}\vec e_\varphi\)</div><div class="fd"><span class="nm">Sphérique</span>.</div></div>
-    <div class="frow"><div class="fx">\(\mathrm{d}f=\overrightarrow{\mathrm{grad}}\,f\cdot\mathrm{d}\vec l\)</div><div class="fd"><span class="nm">Définition intrinsèque</span>. Le gradient est normal aux surfaces \(f=\) cste, vers les \(f\) croissants.</div></div>
-    <div class="frow"><div class="fx">\(\vec E=-\overrightarrow{\mathrm{grad}}\,V\)</div><div class="fd"><span class="nm">Champ et potentiel électrostatiques</span>. \(V\) en V, \(\vec E\) en <span class="unit">V·m⁻¹</span>. Le signe − s'applique à toutes les composantes.</div></div>
-  </section>
-
-  <section class="fgroup" id="f-flux">
-    <h2>Flux et circulation</h2>
-    <div class="frow"><div class="fx">\(\Phi=\iint_\Sigma\vec A\cdot\mathrm{d}\vec S\)</div><div class="fd"><span class="nm">Flux</span> à travers une surface. Un scalaire. <span class="cond">surface fermée : normale sortante</span></div></div>
-    <div class="frow"><div class="fx">\(C=\int_{M_1}^{M_2}\vec A\cdot\mathrm{d}\vec l\qquad C=\oint_\Gamma\vec A\cdot\mathrm{d}\vec l\)</div><div class="fd"><span class="nm">Circulation</span> sur une courbe ouverte, sur un contour fermé.</div></div>
-    <div class="frow"><div class="fx">\(\mathrm{d}\vec l=R\,\mathrm{d}\theta\,\vec e_\theta\)</div><div class="fd"><span class="nm">Cercle</span> d'axe \(Oz\), rayon \(R\), sens trigonométrique. Seul \(A_\theta\) contribue.</div></div>
-    <div class="frow"><div class="fx">\(C_{A\to B}=F(B)-F(A)\)</div><div class="fd"><span class="nm">Champ de gradient</span> \(\vec A=\overrightarrow{\mathrm{grad}}\,F\) : circulation indépendante du chemin, nulle sur un contour fermé.</div></div>
-  </section>
-
-  <section class="fgroup" id="f-charges">
-    <h2>Charges</h2>
-    <div class="frow"><div class="fx">\(e=1{,}6\times10^{-19}\ \text{C}\)</div><div class="fd"><span class="nm">Charge élémentaire</span>. Charge quantifiée (\(\pm Ne\)), conservée, additive.</div></div>
-    <div class="frow"><div class="fx">\(\mathrm{d}q=\lambda\,\mathrm{d}l\qquad Q=\int_L\lambda\,\mathrm{d}l\)</div><div class="fd"><span class="nm">Distribution linéique</span> (fil). \(\lambda\) en <span class="unit">C·m⁻¹</span>. Uniforme : \(Q=\lambda L\).</div></div>
-    <div class="frow"><div class="fx">\(\mathrm{d}q=\sigma\,\mathrm{d}S\qquad Q=\iint_S\sigma\,\mathrm{d}S\)</div><div class="fd"><span class="nm">Distribution surfacique</span>. \(\sigma\) en <span class="unit">C·m⁻²</span>. Uniforme : \(Q=\sigma S\).</div></div>
-    <div class="frow"><div class="fx">\(\mathrm{d}q=\rho\,\mathrm{d}\tau\qquad Q=\iiint_V\rho\,\mathrm{d}\tau\)</div><div class="fd"><span class="nm">Distribution volumique</span>. \(\rho\) en <span class="unit">C·m⁻³</span>. Uniforme : \(Q=\rho V\).</div></div>
-    <div class="frow"><div class="fx">\(Q=\int_0^R\rho(r)\,4\pi r^2\,\mathrm{d}r\)</div><div class="fd"><span class="nm">Symétrie sphérique</span> : \(\rho\) ne dépend que de \(r\), les angles donnent \(4\pi\). En cylindrique : \(\int_0^R\rho(r)\,2\pi rh\,\mathrm{d}r\).</div></div>
-    <div class="frow"><div class="fx">\(\vec F=\frac{1}{4\pi\varepsilon_0}\frac{q_1q_2}{r^2}\vec u\qquad\varepsilon_0=8{,}85\times10^{-12}\ \text{F·m}^{-1}\)</div><div class="fd"><span class="nm">Loi de Coulomb</span> (suite du Ch1). \(\frac{1}{4\pi\varepsilon_0}\approx9\times10^9\) SI. <span class="cond">si vu en amphi</span></div></div>
-  </section>
-
-  <section class="fgroup" id="f-integ">
-    <h2>Intégrales qui reviennent</h2>
-    <div class="frow"><div class="fx">\(\int_0^{\pi}\sin\theta\,\mathrm{d}\theta=2\qquad\int_0^{\pi/2}\cos\theta\,\mathrm{d}\theta=1\)</div><div class="fd"><span class="nm">Angles sphériques</span>.</div></div>
-    <div class="frow"><div class="fx">\(\int_0^{2\pi}\cos\theta\,\mathrm{d}\theta=\int_0^{2\pi}\sin\theta\,\mathrm{d}\theta=0\)</div><div class="fd"><span class="nm">Période entière</span> : les termes en \(\cos\) ou \(\sin\) seuls disparaissent.</div></div>
-    <div class="frow"><div class="fx">\(\int_0^{2\pi}\cos^2\theta\,\mathrm{d}\theta=\int_0^{2\pi}\sin^2\theta\,\mathrm{d}\theta=\pi\)</div><div class="fd"><span class="nm">Linéarisation</span> : \(\sin^2\theta=\frac{1-\cos2\theta}{2}\).</div></div>
-    <div class="frow"><div class="fx">\(\int\sin\theta\cos\theta\,\mathrm{d}\theta=\frac{\sin^2\theta}{2}\)</div><div class="fd"><span class="nm">Produit</span> : forme \(u'u\).</div></div>
-    <div class="frow"><div class="fx">\(\int_{-a}^{a}f=0\ \text{si } f \text{ impaire}\)</div><div class="fd"><span class="nm">Symétrie</span> : un facteur \(z\), \(x\), \(\sin\)… sur un intervalle symétrique annule l'intégrale.</div></div>
-    <div class="frow"><div class="fx">\(\int_0^{2\pi}\varphi\,\mathrm{d}\varphi=2\pi^2\qquad\int_0^R r^n\,\mathrm{d}r=\frac{R^{n+1}}{n+1}\)</div><div class="fd"><span class="nm">Puissances</span>.</div></div>
-  </section>
-
-  <section class="fgroup" id="f-express">
-    <h2>Version express</h2>
-    <div class="express">
-      <div class="eg"><h4>Éléments</h4>
-        <div class="ei"><span class="nm">dτ cart.</span><span class="vl">dx dy dz</span></div>
-        <div class="ei"><span class="nm">dτ cyl.</span><span class="vl">r dr dθ dz</span></div>
-        <div class="ei"><span class="nm">dτ sph.</span><span class="vl">r² sinθ dr dθ dφ</span></div>
-        <div class="ei"><span class="nm">dS disque</span><span class="vl">r dr dθ</span></div>
-        <div class="ei"><span class="nm">dS latérale</span><span class="vl">R dθ dz</span></div>
-        <div class="ei"><span class="nm">dS sphère</span><span class="vl">R² sinθ dθ dφ</span></div>
-      </div>
-      <div class="eg"><h4>Gradient</h4>
-        <div class="ei"><span class="nm">cart.</span><span class="vl">(∂x, ∂y, ∂z)</span></div>
-        <div class="ei"><span class="nm">cyl.</span><span class="vl">(∂r, (1/r)∂θ, ∂z)</span></div>
-        <div class="ei"><span class="nm">sph.</span><span class="vl">(∂r, (1/r)∂θ, (1/(r sinθ))∂φ)</span></div>
-        <div class="ei"><span class="nm">E</span><span class="vl">−grad V (V/m)</span></div>
-      </div>
-      <div class="eg"><h4>Géométrie</h4>
-        <div class="ei"><span class="nm">Cylindre</span><span class="vl">V = πR²h · S = 2πR(R+h)</span></div>
-        <div class="ei"><span class="nm">Sphère</span><span class="vl">V = 4πR³/3 · S = 4πR²</span></div>
-        <div class="ei"><span class="nm">Disque</span><span class="vl">πR²</span></div>
-      </div>
-      <div class="eg"><h4>Charges</h4>
-        <div class="ei"><span class="nm">λ</span><span class="vl">C/m · Q = ∫λ dl</span></div>
-        <div class="ei"><span class="nm">σ</span><span class="vl">C/m² · Q = ∬σ dS</span></div>
-        <div class="ei"><span class="nm">ρ</span><span class="vl">C/m³ · Q = ∭ρ dτ</span></div>
-        <div class="ei"><span class="nm">e</span><span class="vl">1,6×10⁻¹⁹ C</span></div>
-      </div>
-      <div class="eg"><h4>Intégrales</h4>
-        <div class="ei"><span class="nm">∫₀^π sinθ</span><span class="vl">2</span></div>
-        <div class="ei"><span class="nm">∫₀^2π sin², cos²</span><span class="vl">π</span></div>
-        <div class="ei"><span class="nm">∫₀^2π sin, cos</span><span class="vl">0</span></div>
-        <div class="ei"><span class="nm">∫ sinθ cosθ</span><span class="vl">sin²θ / 2</span></div>
-      </div>
-    </div>
-  </section>
+<div class="page-head">
+<span class="eyebrow">📘 Formules</span>
+<h1>Toutes les formules</h1>
+<p>Chaque formule avec le sens de ses symboles, son unité et sa condition d'emploi. En bas de page, la version express pour vérifier vite.</p>
+</div>
+<nav aria-label="Groupes de formules" class="s4-toc">
+<a href="#f-coord">Repères</a>
+<a href="#f-surf">Surfaces et volumes</a>
+<a href="#f-grad">Gradient</a>
+<a href="#f-flux">Flux et circulation</a>
+<a href="#f-charges">Charges</a>
+<a href="#f-integ">Intégrales utiles</a>
+<a href="#f-express">Express</a>
+</nav>
+<section class="fgroup" id="f-coord">
+<h2>Repères et éléments différentiels</h2>
+<div class="frow"><div class="fx">\(\mathrm{d}\vec l=\mathrm{d}x\,\vec e_x+\mathrm{d}y\,\vec e_y+\mathrm{d}z\,\vec e_z\)</div><div class="fd"><span class="nm">Déplacement élémentaire, cartésien</span>. \(x,y,z\in\mathbb R\). <span class="unit">\(\mathrm{m}\)</span></div></div>
+<div class="frow"><div class="fx">\(\mathrm{d}\vec l=\mathrm{d}r\,\vec e_r+r\,\mathrm{d}\theta\,\vec e_\theta+\mathrm{d}z\,\vec e_z\)</div><div class="fd"><span class="nm">Cylindrique</span>. \(r\ge0\) distance à \(Oz\), \(\theta\in[0,2\pi[\). <span class="unit">\(\mathrm{m}\)</span> <span class="cond">base locale</span></div></div>
+<div class="frow"><div class="fx">\(\mathrm{d}\vec l=\mathrm{d}r\,\vec e_r+r\,\mathrm{d}\theta\,\vec e_\theta+r\sin\theta\,\mathrm{d}\varphi\,\vec e_\varphi\)</div><div class="fd"><span class="nm">Sphérique</span>. \(r=OM\), \(\theta\in[0,\pi]\) depuis \(Oz\), \(\varphi\in[0,2\pi[\) depuis \(Ox\). <span class="unit">\(\mathrm{m}\)</span></div></div>
+<div class="frow"><div class="fx">\(\overrightarrow{OM}=r\,\vec e_r+z\,\vec e_z\quad;\quad\overrightarrow{OM}=r\,\vec e_r\)</div><div class="fd"><span class="nm">Vecteur position</span> en cylindrique ; en sphérique. <span class="cond">pas de composante angulaire</span></div></div>
+<div class="frow"><div class="fx">\(\mathrm{d}\tau=\mathrm{d}x\,\mathrm{d}y\,\mathrm{d}z=r\,\mathrm{d}r\,\mathrm{d}\theta\,\mathrm{d}z=r^2\sin\theta\,\mathrm{d}r\,\mathrm{d}\theta\,\mathrm{d}\varphi\)</div><div class="fd"><span class="nm">Volume élémentaire</span> dans les 3 repères. <span class="unit">\(\mathrm{m}^{3}\)</span></div></div>
+<div class="frow"><div class="fx">\(x=r\cos\theta,\ y=r\sin\theta,\ r=\sqrt{x^2+y^2}\)</div><div class="fd"><span class="nm">Cartésien ↔ cylindrique</span>. Et \(\vec e_r=\cos\theta\,\vec e_x+\sin\theta\,\vec e_y\), \(\vec e_\theta=-\sin\theta\,\vec e_x+\cos\theta\,\vec e_y\).</div></div>
+<div class="frow"><div class="fx">\(x=r\sin\theta\cos\varphi,\ y=r\sin\theta\sin\varphi,\ z=r\cos\theta\)</div><div class="fd"><span class="nm">Cartésien ↔ sphérique</span>. \(r=\sqrt{x^2+y^2+z^2}\), \(\cos\theta=\frac zr\).</div></div>
+</section>
+<section class="fgroup" id="f-surf">
+<h2>Surfaces et volumes</h2>
+<div class="frow"><div class="fx">\(\mathrm{d}y\,\mathrm{d}z\,\vec e_x\ ;\ \mathrm{d}x\,\mathrm{d}z\,\vec e_y\ ;\ \mathrm{d}x\,\mathrm{d}y\,\vec e_z\)</div><div class="fd"><span class="nm">Surfaces élémentaires cartésiennes</span> (faces d'un pavé). <span class="unit">\(\mathrm{m}^{2}\)</span></div></div>
+<div class="frow"><div class="fx">\(r\,\mathrm{d}\theta\,\mathrm{d}z\,\vec e_r\ ;\ \mathrm{d}r\,\mathrm{d}z\,\vec e_\theta\ ;\ r\,\mathrm{d}r\,\mathrm{d}\theta\,\vec e_z\)</div><div class="fd"><span class="nm">Cylindriques</span> : surface latérale, demi-plan, disque. <span class="unit">\(\mathrm{m}^{2}\)</span></div></div>
+<div class="frow"><div class="fx">\(r^2\sin\theta\,\mathrm{d}\theta\,\mathrm{d}\varphi\,\vec e_r\)<br/>\(r\sin\theta\,\mathrm{d}r\,\mathrm{d}\varphi\,\vec e_\theta\)<br/>\(r\,\mathrm{d}r\,\mathrm{d}\theta\,\vec e_\varphi\)</div><div class="fd"><span class="nm">Sphériques</span> : sphère, cône, demi-plan méridien. <span class="unit">\(\mathrm{m}^{2}\)</span></div></div>
+<div class="frow"><div class="fx">\(V=abc\)</div><div class="fd"><span class="nm">Pavé</span> de côtés \(a,b,c\). <span class="unit">\(\mathrm{m}^{3}\)</span></div></div>
+<div class="frow"><div class="fx">\(V=\pi R^2h\qquad S=2\pi Rh+2\pi R^2\)</div><div class="fd"><span class="nm">Cylindre</span> de rayon \(R\), hauteur \(h\) : volume ; surface totale (latérale + 2 disques).</div></div>
+<div class="frow"><div class="fx">\(V=\frac43\pi R^3\qquad S=4\pi R^2\)</div><div class="fd"><span class="nm">Sphère</span> de rayon \(R\). Coquille entre \(R_1\) et \(R_2\) : \(\frac43\pi(R_2^3-R_1^3)\).</div></div>
+<div class="frow"><div class="fx">\(S=\pi R^2\qquad L=2\pi R\)</div><div class="fd"><span class="nm">Disque et cercle</span>. Demi-cercle : \(\pi R\).</div></div>
+</section>
+<section class="fgroup" id="f-grad">
+<h2>Gradient</h2>
+<div class="frow"><div class="fx">\(\overrightarrow{\mathrm{grad}}\,f=\frac{\partial f}{\partial x}\vec e_x+\frac{\partial f}{\partial y}\vec e_y+\frac{\partial f}{\partial z}\vec e_z\)</div><div class="fd"><span class="nm">Gradient cartésien</span>. Champ scalaire → champ vectoriel. <span class="unit">\([f]\cdot \,\mathrm{m}^{-1}\)</span></div></div>
+<div class="frow"><div class="fx">\(\overrightarrow{\mathrm{grad}}\,f=\frac{\partial f}{\partial r}\vec e_r+\frac1r\frac{\partial f}{\partial\theta}\vec e_\theta+\frac{\partial f}{\partial z}\vec e_z\)</div><div class="fd"><span class="nm">Cylindrique</span>. Le \(\frac1r\) vient de \(r\,\mathrm{d}\theta\) dans \(\mathrm{d}\vec l\).</div></div>
+<div class="frow"><div class="fx">\(\overrightarrow{\mathrm{grad}}\,f=\frac{\partial f}{\partial r}\vec e_r+\frac1r\frac{\partial f}{\partial\theta}\vec e_\theta+\frac{1}{r\sin\theta}\frac{\partial f}{\partial\varphi}\vec e_\varphi\)</div><div class="fd"><span class="nm">Sphérique</span>.</div></div>
+<div class="frow"><div class="fx">\(\mathrm{d}f=\overrightarrow{\mathrm{grad}}\,f\cdot\mathrm{d}\vec l\)</div><div class="fd"><span class="nm">Définition intrinsèque</span>. Le gradient est normal aux surfaces \(f=\) \(\text{cste}\), vers les \(f\) croissants.</div></div>
+<div class="frow"><div class="fx">\(\vec E=-\overrightarrow{\mathrm{grad}}\,V\)</div><div class="fd"><span class="nm">Champ et potentiel électrostatiques</span>. \(V\) en \(V\), \(\vec E\) en <span class="unit">\(\mathrm{V}\cdot \,\mathrm{m}^{-1}\)</span>. Le signe − s'applique à toutes les composantes.</div></div>
+</section>
+<section class="fgroup" id="f-flux">
+<h2>Flux et circulation</h2>
+<div class="frow"><div class="fx">\(\Phi=\iint_\Sigma\vec A\cdot\mathrm{d}\vec S\)</div><div class="fd"><span class="nm">Flux</span> à travers une surface. Un scalaire. <span class="cond">surface fermée : normale sortante</span></div></div>
+<div class="frow"><div class="fx">\(C=\int_{M_1}^{M_2}\vec A\cdot\mathrm{d}\vec l\qquad C=\oint_\Gamma\vec A\cdot\mathrm{d}\vec l\)</div><div class="fd"><span class="nm">Circulation</span> sur une courbe ouverte, sur un contour fermé.</div></div>
+<div class="frow"><div class="fx">\(\mathrm{d}\vec l=R\,\mathrm{d}\theta\,\vec e_\theta\)</div><div class="fd"><span class="nm">Cercle</span> d'axe \(Oz\), rayon \(R\), sens trigonométrique. Seul \(A_\theta\) contribue.</div></div>
+<div class="frow"><div class="fx">\(C_{A\to B}=F(B)-F(A)\)</div><div class="fd"><span class="nm">Champ de gradient</span> \(\vec A=\overrightarrow{\mathrm{grad}}\,F\) : circulation indépendante du chemin, nulle sur un contour fermé.</div></div>
+</section>
+<section class="fgroup" id="f-charges">
+<h2>Charges</h2>
+<div class="frow"><div class="fx">\(e=1{,}6\times10^{-19}\ \text{C}\)</div><div class="fd"><span class="nm">Charge élémentaire</span>. Charge quantifiée (\(\pm Ne\)), conservée, additive.</div></div>
+<div class="frow"><div class="fx">\(\mathrm{d}q=\lambda\,\mathrm{d}l\qquad Q=\int_L\lambda\,\mathrm{d}l\)</div><div class="fd"><span class="nm">Distribution linéique</span> (fil). \(\lambda\) en <span class="unit">C·m⁻¹</span>. Uniforme : \(Q=\lambda L\).</div></div>
+<div class="frow"><div class="fx">\(\mathrm{d}q=\sigma\,\mathrm{d}S\qquad Q=\iint_S\sigma\,\mathrm{d}S\)</div><div class="fd"><span class="nm">Distribution surfacique</span>. \(\sigma\) en <span class="unit">\(\mathrm{C}\cdot \,\mathrm{m}^{-2}\)</span>. Uniforme : \(Q=\sigma S\).</div></div>
+<div class="frow"><div class="fx">\(\mathrm{d}q=\rho\,\mathrm{d}\tau\qquad Q=\iiint_V\rho\,\mathrm{d}\tau\)</div><div class="fd"><span class="nm">Distribution volumique</span>. \(\rho\) en <span class="unit">\(\mathrm{C}\cdot \,\mathrm{m}^{-3}\)</span>. Uniforme : \(Q=\rho V\).</div></div>
+<div class="frow"><div class="fx">\(Q=\int_0^R\rho(r)\,4\pi r^2\,\mathrm{d}r\)</div><div class="fd"><span class="nm">Symétrie sphérique</span> : \(\rho\) ne dépend que de \(r\), les angles donnent \(4\pi\). En cylindrique : \(\int_0^R\rho(r)\,2\pi rh\,\mathrm{d}r\).</div></div>
+<div class="frow"><div class="fx">\(\vec F=\frac{1}{4\pi\varepsilon_0}\frac{q_1q_2}{r^2}\vec u\qquad\varepsilon_0=8{,}85\times10^{-12}\ \text{F·m}^{-1}\)</div><div class="fd"><span class="nm">Loi de Coulomb</span> (suite du Ch1). \(\frac{1}{4\pi\varepsilon_0}\approx9\times10^9\) SI. <span class="cond">si vu en amphi</span></div></div>
+</section>
+<section class="fgroup" id="f-integ">
+<h2>Intégrales qui reviennent</h2>
+<div class="frow"><div class="fx">\(\int_0^{\pi}\sin\theta\,\mathrm{d}\theta=2\qquad\int_0^{\pi/2}\cos\theta\,\mathrm{d}\theta=1\)</div><div class="fd"><span class="nm">Angles sphériques</span>.</div></div>
+<div class="frow"><div class="fx">\(\int_0^{2\pi}\cos\theta\,\mathrm{d}\theta=\int_0^{2\pi}\sin\theta\,\mathrm{d}\theta=0\)</div><div class="fd"><span class="nm">Période entière</span> : les termes en \(\cos\) ou \(\sin\) seuls disparaissent.</div></div>
+<div class="frow"><div class="fx">\(\int_0^{2\pi}\cos^2\theta\,\mathrm{d}\theta=\int_0^{2\pi}\sin^2\theta\,\mathrm{d}\theta=\pi\)</div><div class="fd"><span class="nm">Linéarisation</span> : \(\sin^2\theta=\frac{1-\cos2\theta}{2}\).</div></div>
+<div class="frow"><div class="fx">\(\int\sin\theta\cos\theta\,\mathrm{d}\theta=\frac{\sin^2\theta}{2}\)</div><div class="fd"><span class="nm">Produit</span> : forme \(u'u\).</div></div>
+<div class="frow"><div class="fx">\(\int_{-a}^{a}f=0\ \text{si } f \text{ impaire}\)</div><div class="fd"><span class="nm">Symétrie</span> : un facteur \(z\), \(x\), \(\sin\)… sur un intervalle symétrique annule l'intégrale.</div></div>
+<div class="frow"><div class="fx">\(\int_0^{2\pi}\varphi\,\mathrm{d}\varphi=2\pi^2\qquad\int_0^R r^n\,\mathrm{d}r=\frac{R^{n+1}}{n+1}\)</div><div class="fd"><span class="nm">Puissances</span>.</div></div>
+</section>
+<section class="fgroup" id="f-express">
+<h2>Version express</h2>
+<div class="express">
+<div class="eg"><h4>Éléments</h4>
+<div class="ei"><span class="nm">dτ cart.</span><span class="vl">\(\mathrm{d}x\,\mathrm{d}y\,\mathrm{d}z\)</span></div>
+<div class="ei"><span class="nm">dτ cyl.</span><span class="vl">\(r\,\mathrm{d}r\,\mathrm{d}\theta \,\mathrm{d}z\)</span></div>
+<div class="ei"><span class="nm">dτ sph.</span><span class="vl">\(r^{2}\,\sin \,\theta \,\mathrm{d}r\,\mathrm{d}\theta \,\mathrm{d}\varphi\)</span></div>
+<div class="ei"><span class="nm">dS disque</span><span class="vl">\(r\,\mathrm{d}r\,\mathrm{d}\theta\)</span></div>
+<div class="ei"><span class="nm">dS latérale</span><span class="vl">\(R\,\mathrm{d}\theta \,\mathrm{d}z\)</span></div>
+<div class="ei"><span class="nm">dS sphère</span><span class="vl">\(R^{2}\,\sin \,\theta \,\mathrm{d}\theta \,\mathrm{d}\varphi\)</span></div>
+</div>
+<div class="eg"><h4>Gradient</h4>
+<div class="ei"><span class="nm">cart.</span><span class="vl">\((\partial  x,\,\allowbreak \partial  y,\,\allowbreak \partial  z)\)</span></div>
+<div class="ei"><span class="nm">cyl.</span><span class="vl">\(\left(\partial  r,\,\allowbreak \left(\frac{1}{r}\right)\partial  \theta ,\,\allowbreak \partial  z\right)\)</span></div>
+<div class="ei"><span class="nm">sph.</span><span class="vl">\(\left(\partial  r,\,\allowbreak \left(\frac{1}{r}\right)\partial  \theta ,\,\allowbreak \left(\frac{1}{(r\,\sin \,\theta )}\right)\partial  \varphi \right)\)</span></div>
+<div class="ei"><span class="nm">\(E\)</span><span class="vl">\(-\operatorname{grad} \,V\,\left(\frac{V}{m}\right)\)</span></div>
+</div>
+<div class="eg"><h4>Géométrie</h4>
+<div class="ei"><span class="nm">Cylindre</span><span class="vl">\(V=\pi R^{2}\,\mathrm{h}\,\cdot \,S=2\pi R(R+h)\)</span></div>
+<div class="ei"><span class="nm">Sphère</span><span class="vl">\(V=\frac{4\pi R^{3}}{3}\,\cdot \,S=4\pi R^{2}\)</span></div>
+<div class="ei"><span class="nm">Disque</span><span class="vl">\(\pi R^{2}\)</span></div>
+</div>
+<div class="eg"><h4>Charges</h4>
+<div class="ei"><span class="nm">\(\lambda\)</span><span class="vl">\(\frac{C}{m}\,\cdot \,Q=\int \lambda \,\mathrm{d}l\)</span></div>
+<div class="ei"><span class="nm">\(\sigma\)</span><span class="vl">\(\frac{C}{m^{2}}\,\cdot \,Q=\iint \sigma \,\mathrm{d}S\)</span></div>
+<div class="ei"><span class="nm">\(\rho\)</span><span class="vl">\(\frac{C}{m^{3}}\,\cdot \,Q=\iiint \rho \,\mathrm{d}\tau\)</span></div>
+<div class="ei"><span class="nm">\(e\)</span><span class="vl">\(1{,}6\times 10^{-19}\,\mathrm{C}\)</span></div>
+</div>
+<div class="eg"><h4>Intégrales</h4>
+<div class="ei"><span class="nm">\(\int _{0}^{\pi }\,\sin \,\theta\)</span><span class="vl">\(2\)</span></div>
+<div class="ei"><span class="nm">\(\int _{0}^{2}\pi \,\sin ^{2},\,\allowbreak \cos ^{2}\)</span><span class="vl">\(\pi\)</span></div>
+<div class="ei"><span class="nm">\(\int _{0}^{2}\pi \,\sin ,\,\allowbreak \cos\)</span><span class="vl">\(0\)</span></div>
+<div class="ei"><span class="nm">\(\int \,\sin \,\theta \,\cos \,\theta\)</span><span class="vl">\(\sin ^{2}\,\theta \,/\,2\)</span></div>
+</div>
+</div>
+</section>
 </div>
 </main>
-
 <div class="foot">
-  <div class="wrap">
-    <span>Électromagnétisme · ECE ING2 · S3 2026-2027</span>
-    <span><a href="index.html">Accueil</a> · <a href="interro-s40.html">Interro S40</a> · <a href="corriges.html">TD corrigés</a></span>
-  </div>
+<div class="wrap">
+<span>Électromagnétisme · ECE ING2 \(\cdot \,S_{3}\,2026-2027\)</span>
+<span><a href="index.html">Accueil</a> · <a href="interro-s40.html">Interro S40</a> · <a href="corriges.html">TD corrigés</a></span>
 </div>
-<a class="cx-top" href="#" aria-label="Revenir en haut de la page">↑</a>
-
-<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+</div>
+<a aria-label="Revenir en haut de la page" class="cx-top" href="#">↑</a>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 <script src="js/maths.js"></script>
 <script src="js/site.js"></script>
 </body>
