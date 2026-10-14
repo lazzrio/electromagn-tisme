@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Fiche DS1 — Électromagnétisme</title>
+<meta content="Fiche de révision du DS1 d'électromagnétisme ING2 : charges, Coulomb, symétries et invariances, théorème de Gauss, compléments." name="description"/>
+<meta content="light dark" name="color-scheme"/>
+<meta content="#1d5fc4" media="(prefers-color-scheme: light)" name="theme-color"/>
+<meta content="#080d18" media="(prefers-color-scheme: dark)" name="theme-color"/>
+<link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="assets/icon-192.png" rel="apple-touch-icon"/>
+<link href="manifest.webmanifest" rel="manifest"/>
+<meta content="Fiche DS1 — Électromagnétisme" property="og:title"/>
+<meta content="Fiche de révision du DS1 d'électromagnétisme ING2 : charges, Coulomb, symétries et invariances, théorème de Gauss, compléments." property="og:description"/>
+<meta content="website" property="og:type"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,500;0,600;0,700;0,800;1,600;1,700&amp;family=Source+Sans+3:ital,wght@0,400;0,600;1,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="css/style.css" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="topbar">
+<div class="topbar-in">
+<a aria-label="Accueil du site" class="brand" href="index.html">
+<span class="chip-logo"><svg fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M13 2 L5 13 h6 l-1.5 9 L19 10 h-6 z"></path></svg></span>
+      Électromagnétisme
+    </a>
+<nav aria-label="Navigation principale" class="nav" id="nav">
+<a href="index.html">Accueil</a>
+<a class="nav-hot" href="interro-s40.html">🚨 Interro S40</a>
+<a href="cours.html">📚 Cours</a>
+<a href="formules.html">📘 Formules</a>
+<a aria-current="page" class="active" href="ds1.html">🎯 DS1</a>
+<a href="corriges.html">✅ TD corrigés</a>
+<a href="quiz.html">🧠 Quiz</a>
+</nav>
+<button aria-label="Changer de thème" class="theme-btn" id="themeBtn" title="Thème clair / sombre">
+<svg fill="none" id="thIcon" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"></svg>
+</button>
+<button aria-expanded="false" aria-label="Menu" class="burger" id="burger"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+</div>
+</div>
+<main>
+<div class="wrap">
+<div class="page-head">
+<span class="eyebrow">🎯 DS1 · Électrostatique</span>
+<h1>Fiche DS1 : symétries, Coulomb et Gauss</h1>
+<p>Tout ce qu'il faut savoir pour le DS1 : charges, loi de Coulomb, symétries et invariances, théorème de Gauss, lignes de champ. Avec la méthode à rédiger telle quelle et ce que le polycopié ne détaille pas (cylindres, plusieurs régions, charges surfaciques, constantes et unités).</p>
+</div>
+</div>
+<div class="wrap s40">
+<nav aria-label="Sections de la fiche" class="s4-toc">
+<a href="#rappels">Rappels Ch0</a>
+<a href="#charges">Charges</a>
+<a href="#coulomb">Coulomb</a>
+<a href="#symetries">Symétries</a>
+<a href="#gauss">Gauss</a>
+<a href="#complements">Compléments</a>
+<a href="#lignes">Lignes de champ</a>
+<a href="#pieges">Pièges</a>
+</nav>
+
+<section id="rappels">
+<h2>Rappels Ch0</h2>
+<p class="s4-sub">Éléments à connaître sans hésiter (les facteurs \(r\) et \(r\sin\theta\) sont l'erreur n° 1).</p>
+<div class="tbl-wrap s4-stack"><table>
+<tr><th>Repère</th><th>\(\mathrm{d}\vec l\)</th><th>Surface utile pour Gauss</th><th>\(\mathrm{d}\tau\)</th></tr>
+<tr><td data-l="Repère">Cylindrique</td><td data-l="dl">\(\mathrm{d}r\,\vec e_r+r\,\mathrm{d}\theta\,\vec e_\theta+\mathrm{d}z\,\vec e_z\)</td><td data-l="dS">latérale \(r\,\mathrm{d}\theta\,\mathrm{d}z\,\vec e_r\) ; bases \(r\,\mathrm{d}r\,\mathrm{d}\theta\,\vec e_z\)</td><td data-l="dτ">\(r\,\mathrm{d}r\,\mathrm{d}\theta\,\mathrm{d}z\)</td></tr>
+<tr><td data-l="Repère">Sphérique</td><td data-l="dl">\(\mathrm{d}r\,\vec e_r+r\,\mathrm{d}\theta\,\vec e_\theta+r\sin\theta\,\mathrm{d}\varphi\,\vec e_\varphi\)</td><td data-l="dS">\(r^2\sin\theta\,\mathrm{d}\theta\,\mathrm{d}\varphi\,\vec e_r\)</td><td data-l="dτ">\(r^2\sin\theta\,\mathrm{d}r\,\mathrm{d}\theta\,\mathrm{d}\varphi\)</td></tr>
+<tr><td data-l="Repère">Cartésien</td><td data-l="dl">\(\mathrm{d}x\,\vec e_x+\mathrm{d}y\,\vec e_y+\mathrm{d}z\,\vec e_z\)</td><td data-l="dS">\(\mathrm{d}y\,\mathrm{d}z\,\vec e_x\), etc.</td><td data-l="dτ">\(\mathrm{d}x\,\mathrm{d}y\,\mathrm{d}z\)</td></tr>
+</table></div>
+<p>Gradient : \(\vec E=-\overrightarrow{\mathrm{grad}}\,V\). Surface fermée orientée de l'intérieur vers l'extérieur. Sphère \(S=4\pi R^2\), \(V=\frac43\pi R^3\) ; cylindre latéral \(2\pi Rh\), \(V=\pi R^2h\).</p>
+</section>
+
+<section id="charges">
+<h2>Modèles de charges</h2>
+<div class="tbl-wrap s4-stack"><table>
+<tr><th>Modèle</th><th>Grandeur</th><th>Unité</th><th>Charge totale</th></tr>
+<tr><td data-l="Modèle">Ponctuelle</td><td data-l="Grandeur">\(q=n\,e\), \(e=1{,}6\times10^{-19}\,C\)</td><td data-l="Unité">\(C\)</td><td data-l="Q">\(q\)</td></tr>
+<tr><td data-l="Modèle">Linéique</td><td data-l="Grandeur">\(\lambda\)</td><td data-l="Unité">\(C\cdot m^{-1}\)</td><td data-l="Q">\(\int\lambda\,\mathrm{d}l\)</td></tr>
+<tr><td data-l="Modèle">Surfacique</td><td data-l="Grandeur">\(\sigma\)</td><td data-l="Unité">\(C\cdot m^{-2}\)</td><td data-l="Q">\(\iint\sigma\,\mathrm{d}S\)</td></tr>
+<tr><td data-l="Modèle">Volumique</td><td data-l="Grandeur">\(\rho\)</td><td data-l="Unité">\(C\cdot m^{-3}\)</td><td data-l="Q">\(\iiint\rho\,\mathrm{d}\tau\)</td></tr>
+</table></div>
+<div class="s4-tip"><span class="s4-lbl">Réflexe</span>Repère adapté, \(\mathrm{d}q\), bornes lues sur la figure, une intégrale par variable. Une densité qui dépend de l'origine du repère (fonction impaire sur un intervalle centré) peut donner \(Q=0\) ; avec l'origine au coin, \(Q\neq0\).</div>
+</section>
+
+<section id="coulomb">
+<h2>Loi de Coulomb et superposition</h2>
+<div class="mq">\[\vec F_{1/2}=\frac{q_1q_2}{4\pi\varepsilon_0d^2}\,\vec u_{12}\qquad\vec E(M)=\frac{q}{4\pi\varepsilon_0}\frac{\overrightarrow{PM}}{PM^3}\]</div>
+<ul>
+<li>\(\frac{1}{4\pi\varepsilon_0}\approx9\times10^9\) SI ; \(\varepsilon_0\approx8{,}85\times10^{-12}\,F\cdot m^{-1}\). Champ fuyant si \(q&gt;0\), rentrant si \(q&lt;0\), défini partout sauf sur la charge.</li>
+<li><b>Superposition</b> : somme <u>vectorielle</u> des champs. On ne somme les scalaires qu'après projection.</li>
+<li><b>Distribution continue</b> : \(\vec E(M)=\int\frac{\mathrm{d}q}{4\pi\varepsilon_0}\frac{\overrightarrow{PM}}{PM^3}\) avec \(\mathrm{d}q=\lambda\,\mathrm{d}l,\ \sigma\,\mathrm{d}S\) ou \(\rho\,\mathrm{d}\tau\).</li>
+<li><b>Méthode Coulomb direct</b> : schéma ; symétries ; \(\mathrm{d}\vec E\) d'un élément \(\mathrm{d}q\) ; projeter sur la seule composante non nulle ; intégrer ; tester les limites.</li>
+<li><b>Disque sur son axe</b> (\(z&gt;0\)) : \(E_z=\dfrac{\sigma}{2\varepsilon_0}\Big(1-\dfrac{z}{\sqrt{z^2+R^2}}\Big)\) ; \(z\gg R\to\dfrac{Q}{4\pi\varepsilon_0z^2}\) (charge ponctuelle) ; \(R\gg z\to\dfrac{\sigma}{2\varepsilon_0}\) (plan infini).</li>
+</ul>
+</section>
+
+<section id="symetries">
+<h2>Symétries et invariances</h2>
+<div class="s4-grid">
+<div class="s4-card"><h4>Invariances (norme)</h4><p>On fait varier <b>une seule</b> coordonnée de \(M\). Si \(E\) ne change pas, il ne dépend pas de cette coordonnée. Fil infini sur \(Oz\) : invariance en \(z\) et \(\theta\) donc \(E=E(r)\).</p></div>
+<div class="s4-card"><h4>Symétries (direction)</h4><p>Plans passant par \(M\) et la distribution. Un plan de symétrie : \(\vec E\in\) plan. Deux plans : \(\vec E\) selon l'intersection. Un plan d'antisymétrie : \(\vec E\perp\) plan. Deux plans d'antisymétrie : \(\vec E=\vec0\).</p></div>
+</div>
+<div class="tbl-wrap s4-stack"><table>
+<tr><th>Distribution</th><th>Direction</th><th>Dépendance</th></tr>
+<tr><td data-l="Distribution">Charge ponctuelle, sphère</td><td data-l="Direction">\(\vec e_r\) (sph.)</td><td data-l="Dépendance">\(E(r)\)</td></tr>
+<tr><td data-l="Distribution">Fil, cylindre infini</td><td data-l="Direction">\(\vec e_r\) (cyl.)</td><td data-l="Dépendance">\(E(r)\)</td></tr>
+<tr><td data-l="Distribution">Plan infini</td><td data-l="Direction">\(\vec e_z\)</td><td data-l="Dépendance">\(E(z)\), \(E(-z)=-E(z)\)</td></tr>
+<tr><td data-l="Distribution">Doublet \((q,-q)\)</td><td data-l="Direction">plan médiateur d'antisymétrie : \(\vec E\perp\) plan</td><td data-l="Dépendance">—</td></tr>
+</table></div>
+<div class="s4-trap"><span class="s4-lbl">Pas de Gauss si…</span>L'objet est fini (disque, cylindre fini), ou si \(\rho\) ou \(\sigma\) dépend d'un angle (\(\rho_0\cos\theta\), \(\sigma_0\cos^2\theta\)). Seule la dépendance en \(r\) est compatible avec la symétrie sphérique ou cylindrique.</div>
+</section>
+
+<section id="gauss">
+<h2>Théorème de Gauss</h2>
+<div class="mq">\[\Phi=\oiint_{S_G}\vec E\cdot\mathrm{d}\vec S=\frac{Q_{int}}{\varepsilon_0}\]</div>
+<p>\(S_G\) : surface fermée fictive passant par \(M\), orientée vers l'extérieur. \(Q_{int}\) : charge à l'intérieur de \(S_G\) seulement. Le flux ne dépend que de \(Q_{int}\), pas de la forme de \(S_G\).</p>
+<h3>Méthode en 5 étapes</h3>
+<div class="s4-must"><ol>
+<li><b>Schéma</b> et repère adapté.</li>
+<li><b>Symétries</b> : direction de \(\vec E\). <b>Invariances</b> : variable dont \(E\) dépend.</li>
+<li><b>Surface de Gauss</b> passant par \(M\) avec \(\vec E\parallel\mathrm{d}\vec S\) (ou \(\perp\)) et \(E\) constant dessus : sphère de rayon \(r\), cylindre \((r,h)\), cylindre traversant un plan.</li>
+<li><b>Flux</b> : \(4\pi r^2E\) (sphère), \(2\pi rhE\) (cylindre, bases à flux nul).</li>
+<li><b>\(Q_{int}\) par région</b> puis \(E\). Vérifier la continuité (sauf charge surfacique) et le signe.</li>
+</ol></div>
+<h3>Résultats à savoir retrouver</h3>
+<div class="tbl-wrap s4-stack"><table>
+<tr><th>Source</th><th>\(r&lt;R\)</th><th>\(r&gt;R\)</th></tr>
+<tr><td data-l="Source">Charge ponctuelle \(q\)</td><td data-l="r&lt;R">—</td><td data-l="r&gt;R">\(\dfrac{q}{4\pi\varepsilon_0r^2}\)</td></tr>
+<tr><td data-l="Source">Fil infini \(\lambda\)</td><td data-l="r&lt;R">—</td><td data-l="r&gt;R">\(\dfrac{\lambda}{2\pi\varepsilon_0r}\)</td></tr>
+<tr><td data-l="Source">Cylindre infini plein \(\rho_0\)</td><td data-l="r&lt;R">\(\dfrac{\rho_0r}{2\varepsilon_0}\)</td><td data-l="r&gt;R">\(\dfrac{\rho_0R^2}{2\varepsilon_0r}\)</td></tr>
+<tr><td data-l="Source">Cylindre infini, surface \(\sigma_0\)</td><td data-l="r&lt;R">\(0\)</td><td data-l="r&gt;R">\(\dfrac{\sigma_0R}{\varepsilon_0r}\)</td></tr>
+<tr><td data-l="Source">Sphère pleine \(\rho_0\)</td><td data-l="r&lt;R">\(\dfrac{\rho_0r}{3\varepsilon_0}\)</td><td data-l="r&gt;R">\(\dfrac{\rho_0R^3}{3\varepsilon_0r^2}\)</td></tr>
+<tr><td data-l="Source">Sphère, surface \(\sigma_0\)</td><td data-l="r&lt;R">\(0\)</td><td data-l="r&gt;R">\(\dfrac{\sigma_0R^2}{\varepsilon_0r^2}\)</td></tr>
+<tr><td data-l="Source">Plan infini \(\sigma\)</td><td data-l="r&lt;R" colspan="2">\(\pm\dfrac{\sigma}{2\varepsilon_0}\,\vec e_z\) selon le signe de \(z\)</td></tr>
+</table></div>
+</section>
+
+<section id="complements">
+<h2>Compléments : ce que le cours ne détaille pas</h2>
+<h3>Cylindre infini ou fil</h3>
+<p>\(\vec E=E(r)\vec e_r\). Gauss avec un cylindre \((r,h)\) : bases \(\mathrm{d}\vec S=\pm r\,\mathrm{d}r\,\mathrm{d}\theta\,\vec e_z\perp\vec E\) donc flux nul, latérale \(\Phi=2\pi rh\,E\). Fil : \(Q_{int}=\lambda h\) donc \(E=\frac{\lambda}{2\pi\varepsilon_0r}\).</p>
+<h3>Plusieurs régions (sphères concentriques, câble coaxial)</h3>
+<div class="s4-must"><ol>
+<li>Découper l'espace aux rayons \(R_1,R_2,R_3\).</li>
+<li>Dans chaque région : \(Q_{int}\) = charge des couches <b>entièrement traversées</b> + charge de la couche partielle <b>intégrée de son rayon intérieur jusqu'à \(r\)</b> (pas jusqu'à \(R\)). Câble, \(R_2&lt;r&lt;R_3\) : \(Q_{int}=\rho_1\pi R_1^2h+\rho_2\pi(r^2-R_2^2)h\).</li>
+<li>\(E=\dfrac{Q_{int}}{\varepsilon_0S_G}\) avec \(S_G=4\pi r^2\) ou \(2\pi rh\).</li>
+<li>Contrôler la continuité en chaque rayon.</li>
+</ol></div>
+<h3>Charges surfaciques</h3>
+<p>Coquille chargée seule en surface : \(E=0\) à l'intérieur (\(Q_{int}=0\)). Charge sur \(r=R\) : \(Q=4\pi R^2\sigma\) (sphère), \(2\pi Rh\,\sigma\) (cylindre). À la traversée, la composante normale de \(E\) <b>saute de \(\sigma/\varepsilon_0\)</b>.</p>
+<h3>Déterminer une constante et son unité</h3>
+<p>Poser \(Q=\iiint\rho\,\mathrm{d}\tau\) sur tout l'objet, égaler à la charge donnée, isoler la constante. Unité : \([A]=C\cdot m^{-3}\times[\text{fonction de }r]^{-1}\). Sphère de charge \(Q\), rayon \(R\) :</p>
+<div class="tbl-wrap s4-stack"><table>
+<tr><th>\(\rho\)</th><th>Constante</th><th>Unité</th><th>\(E(r&lt;R)\)</th></tr>
+<tr><td data-l="ρ">\(\rho_0\)</td><td data-l="Constante">\(\dfrac{3Q}{4\pi R^3}\)</td><td data-l="Unité">\(C\cdot m^{-3}\)</td><td data-l="E">\(\dfrac{Qr}{4\pi\varepsilon_0R^3}\)</td></tr>
+<tr><td data-l="ρ">\(A_1/r^2\)</td><td data-l="Constante">\(A_1=\dfrac{Q}{4\pi R}\)</td><td data-l="Unité">\(C\cdot m^{-1}\)</td><td data-l="E">\(\dfrac{Q}{4\pi\varepsilon_0Rr}\)</td></tr>
+<tr><td data-l="ρ">\(A_2r^2\)</td><td data-l="Constante">\(A_2=\dfrac{5Q}{4\pi R^5}\)</td><td data-l="Unité">\(C\cdot m^{-5}\)</td><td data-l="E">\(\dfrac{Qr^3}{4\pi\varepsilon_0R^5}\)</td></tr>
+</table></div>
+<p>Pour \(r&gt;R\) : toujours \(\frac{Q}{4\pi\varepsilon_0r^2}\).</p>
+<h3>Champ nul à l'extérieur</h3>
+<p>\(E=0\) pour \(r\) grand \(\Leftrightarrow Q_{tot}=0\) (par hauteur \(h\) pour un cylindre). Câble coaxial : \(\rho_1R_1^2+\rho_2(R_3^2-R_2^2)=0\).</p>
+</section>
+
+<section id="lignes">
+<h2>Lignes de champ</h2>
+<ul>
+<li>Tangentes à \(\vec E\), orientées comme lui : \(\mathrm{d}\vec l\wedge\vec E=\vec0\).</li>
+<li>Elles partent des charges \(+\), arrivent sur les charges \(-\) ou à l'infini, ne se croisent jamais ; plus serrées = champ plus intense.</li>
+<li>Doublet \((q,-q)\) : plan médiateur d'antisymétrie, lignes perpendiculaires. Deux charges de même signe : plan de symétrie, lignes qui « s'évitent ».</li>
+</ul>
+</section>
+
+<section id="pieges">
+<h2>Pièges et questions de cours</h2>
+<div class="s4-grid">
+<div class="s4-trap"><span class="s4-lbl">Flux nul</span>\(\Phi=0\) n'implique pas \(\vec E=\vec0\) (il donne \(Q_{int}=0\)). Si \(\vec E=\vec0\) sur \(S\), alors \(\Phi=0\) et \(Q_{int}=0\).</div>
+<div class="s4-trap"><span class="s4-lbl">Forme de la surface</span>Cube ou sphère autour de la même charge : même flux.</div>
+<div class="s4-trap"><span class="s4-lbl">Bornes de \(Q_{int}\)</span>De \(0\) à \(r\) pour \(r&lt;R\), pas à \(R\). Pour \(R_2&lt;r&lt;R_3\) : de \(R_2\) à \(r\).</div>
+<div class="s4-trap"><span class="s4-lbl">Unités</span>Donner l'unité de chaque constante et vérifier l'homogénéité du résultat.</div>
+<div class="s4-trap"><span class="s4-lbl">Justification</span>Toujours : schéma, plans de symétrie, invariances, puis « Gauss applicable car… ».</div>
+<div class="s4-trap"><span class="s4-lbl">Contrôle final</span>Continuité en \(r=R\), limite \(r\to\infty\) (charge ponctuelle pour une sphère), signe selon \(Q\).</div>
+</div>
+<div class="s4-tip" style="margin-top:18px"><span class="s4-lbl">Pour s'entraîner</span>Les exercices du TD2bis (sphères, deux sphères concentriques, câble coaxial) et un entraînement Gauss sont corrigés dans la page <a href="corriges.html#td2bis">TD corrigés</a>. Le <a href="quiz.html">quiz</a> contient 30 questions sur ce programme.</div>
+</section>
+</div>
+</main>
+<div class="foot">
+<div class="wrap">
+<span>Électromagnétisme · ECE ING2 \(\cdot \,S_{3}\,2026-2027\)</span>
+<span><a href="index.html">Accueil</a> · <a href="interro-s40.html">Interro S40</a> · <a href="corriges.html">TD corrigés</a></span>
+</div>
+</div>
+<a aria-label="Revenir en haut de la page" class="cx-top" href="#">↑</a>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script src="js/maths.js"></script>
+<script src="js/site.js"></script>
+</body>
+</html>
