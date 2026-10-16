@@ -6,6 +6,7 @@ Site de révision statique (GitHub Pages) : https://lazzrio.github.io/electromag
 - `cours.html` : Ch0 Outils mathématiques, Ch1 Électrostatique (partie A : charges)
 - `formules.html` : formules détaillées (variables, unités, conditions) et version express
 - `corriges.html` : TD0 et TD1 corrigés pas à pas (méthode + correction)
+- `ds1.html` : préparation du DS1 (TD0, TD1, TD2, TD2bis, annales) rédigée comme en partiel, rappels cités, schémas 2D/3D
 - `interro-s40.html` : fiche de l'interrogation surprise de la semaine 40
 - `quiz.html` : QCM d'entraînement
 
