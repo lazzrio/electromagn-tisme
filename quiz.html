@@ -34,6 +34,7 @@
 🚨 Interro S40</a>
 <a href="cours.html">📚 Cours</a>
 <a href="formules.html">📘 Formules</a>
+<a href="ds1.html">🎯 DS1</a>
 <a href="corriges.html">✅ TD corrigés</a>
 <a aria-current="page" class="active" href="quiz.html">🧠 Quiz</a>
 </nav>
@@ -48,12 +49,13 @@
 <div class="page-head">
 <span class="eyebrow">🧠 Quiz</span>
 <h1>Quiz d'entraînement</h1>
-<p>20 questions à choix unique sur le programme de l'interro. Réponds, lis l'explication, passe à la suivante. Les questions et les réponses sont mélangées à chaque partie.</p>
+<p>50 questions à choix unique : repères, gradient, flux, charges (interro) puis Coulomb, symétries et Gauss (DS1). Réponds, lis l'explication, passe à la suivante. Les questions et les réponses sont mélangées à chaque partie.</p>
 </div>
 <div class="qz" id="qz">
 <div class="qz-bar" id="qzBar">
 <button class="on" data-n="10" type="button">10 questions</button>
-<button data-n="20" type="button">Les 20</button>
+<button data-n="20" type="button">20 questions</button>
+<button data-n="50" type="button">Les 50</button>
 <button id="qzRestart" type="button">Recommencer</button>
 </div>
 <div aria-live="polite" class="qz-card" id="qzCard"></div>
@@ -79,6 +81,36 @@
 <li data-c="0" data-exp="Il dérive par rapport à une longueur (\(\frac{\partial}{\partial x}\), \(\frac1r\frac{\partial}{\partial\theta}\))."><p>Unité de l'opérateur gradient ?</p><ul><li>\(m^{-1}\)</li><li>\(m\)</li><li>sans unité</li><li>\(m^{2}\)</li></ul></li>
 <li data-c="0" data-exp="Champ radial de norme constante sur la sphère : \(\Phi=A_0\times4\pi R^2\)."><p>Flux sortant de \(\vec A=A_0\,\vec e_r\) (\(A_0\) constante) à travers la sphère de rayon \(R\) ?</p><ul><li>\(4\pi R^2A_0\)</li><li>0</li><li>\(\frac43\pi R^3A_0\)</li><li>\(2\pi RA_0\)</li></ul></li>
 <li data-c="0" data-exp="\(9{,}1\times10^{-31}\) kg est la masse de l'électron et \(8{,}85\times10^{-12}\) F/m la permittivité du vide."><p>Valeur de la charge élémentaire ?</p><ul><li>\(1{,}6\times10^{-19}\) \(C\)</li><li>\(9{,}1\times10^{-31}\) \(C\)</li><li>\(8{,}85\times10^{-12}\) \(C\)</li><li>\(6{,}02\times10^{23}\) \(C\)</li></ul></li>
+<li data-c="0" data-exp="\(dq=\rho\,d\tau\) avec \(d\tau\) en m³."><p>Unité de la densité volumique de charge \(\rho\) ?</p><ul><li>C·m⁻³</li><li>C·m⁻²</li><li>C·m⁻¹</li><li>C</li></ul></li>
+<li data-c="0" data-exp="\(dl\) contient \(r\,d\theta\) : un seul facteur \(r\)."><p>Élément de volume en coordonnées cylindriques ?</p><ul><li>\(r\,dr\,d\theta\,dz\)</li><li>\(dr\,d\theta\,dz\)</li><li>\(r^2\sin\theta\,dr\,d\theta\,d\varphi\)</li><li>\(r^2\,dr\,d\theta\,dz\)</li></ul></li>
+<li data-c="0" data-exp="\(dr\times r\,d\theta\times r\sin\theta\,d\varphi\)."><p>Élément de volume en coordonnées sphériques (\(\theta\) = angle avec \(Oz\)) ?</p><ul><li>\(r^2\sin\theta\,dr\,d\theta\,d\varphi\)</li><li>\(r\sin\theta\,dr\,d\theta\,d\varphi\)</li><li>\(r^2\,dr\,d\theta\,d\varphi\)</li><li>\(r\,dr\,d\theta\,d\varphi\)</li></ul></li>
+<li data-c="0" data-exp="Latérale \(2\pi Rh\) + deux bases \(2\pi R^2\)."><p>Surface totale d'un cylindre plein de rayon \(R\) et de hauteur \(h\) ?</p><ul><li>\(2\pi R(h+R)\)</li><li>\(2\pi Rh\)</li><li>\(\pi R^2h\)</li><li>\(4\pi R^2\)</li></ul></li>
+<li data-c="0" data-exp="On identifie \(df=\overrightarrow\nabla f\cdot\overrightarrow{dl}\) avec \(dl_\theta=r\,d\theta\)."><p>Composante selon \(\vec e_\theta\) du gradient en cylindriques ?</p><ul><li>\(\dfrac1r\partial_\theta f\)</li><li>\(\partial_\theta f\)</li><li>\(r\,\partial_\theta f\)</li><li>\(\dfrac{1}{r\sin\theta}\partial_\theta f\)</li></ul></li>
+<li data-c="0" data-exp="Un gradient divise par une longueur."><p>Unité du champ électrique \(\vec E=-\overrightarrow\nabla V\) ?</p><ul><li>V·m⁻¹</li><li>V</li><li>V·m</li><li>C·m⁻²</li></ul></li>
+<li data-c="0" data-exp="\(A=A_0R\) constant sur la sphère, surface \(4\pi R^2\)."><p>Flux sortant de \(\vec A=A_0\,r\,\vec e_r\) à travers la sphère de rayon \(R\) ?</p><ul><li>\(4\pi A_0R^3\)</li><li>\(4\pi A_0R^2\)</li><li>\(A_0R\)</li><li>\(\frac43\pi A_0R^3\)</li></ul></li>
+<li data-c="0" data-exp="\(\int B_0R\,d\theta\) de \(0\) à \(2\pi\)."><p>Circulation de \(\vec B=B_0\,\vec e_\theta\) sur un cercle de rayon \(R\) (sens trigo) ?</p><ul><li>\(2\pi B_0R\)</li><li>\(0\)</li><li>\(B_0R\)</li><li>\(\pi B_0R^2\)</li></ul></li>
+<li data-c="0" data-exp="Loi de Coulomb, décroissance en \(1/r^2\)."><p>Le champ d'une charge ponctuelle \(q\) à la distance \(r\) vaut :</p><ul><li>\(\dfrac{q}{4\pi\varepsilon_0 r^2}\)</li><li>\(\dfrac{q}{4\pi\varepsilon_0 r}\)</li><li>\(\dfrac{q}{2\pi\varepsilon_0 r}\)</li><li>\(\dfrac{q}{\varepsilon_0 r^2}\)</li></ul></li>
+<li data-c="0" data-exp="Les lignes arrivent sur les charges négatives."><p>Pour \(q\lt 0\), le champ de la charge ponctuelle est :</p><ul><li>rentrant</li><li>fuyant (sortant)</li><li>nul</li><li>tangentiel</li></ul></li>
+<li data-c="0" data-exp="Principe de superposition : addition de vecteurs."><p>Le champ créé par plusieurs charges ponctuelles s'obtient par :</p><ul><li>somme vectorielle des champs</li><li>somme des normes</li><li>produit des champs</li><li>moyenne des champs</li></ul></li>
+<li data-c="0" data-exp="Symétrie ⇒ dans le plan ; antisymétrie ⇒ perpendiculaire."><p>En \(M\), un plan d'antisymétrie passe par \(M\). Alors \(\vec E\) est :</p><ul><li>perpendiculaire au plan</li><li>contenu dans le plan</li><li>nul</li><li>quelconque</li></ul></li>
+<li data-c="0" data-exp="\(\vec E\) appartient aux deux plans."><p>Si deux plans de symétrie passent par \(M\), \(\vec E\) est :</p><ul><li>selon leur intersection</li><li>nul</li><li>selon la normale à l'un des plans</li><li>quelconque dans l'espace</li></ul></li>
+<li data-c="0" data-exp="Invariance par translation en \(z\) et rotation en \(\theta\)."><p>Un fil infini uniformément chargé sur \(Oz\) : de quelles variables dépend \(E\) ?</p><ul><li>\(r\) seulement</li><li>\(r,\theta,z\)</li><li>\(z\) seulement</li><li>\(\theta\) seulement</li></ul></li>
+<li data-c="0" data-exp="Il faut une symétrie sphérique, cylindrique ou plane exacte."><p>Dans quel cas le théorème de Gauss permet-il de calculer \(E\) simplement ?</p><ul><li>sphère avec \(\rho(r)\)</li><li>disque fini chargé</li><li>sphère avec \(\rho=\rho_0\cos\theta\)</li><li>cylindre fini</li></ul></li>
+<li data-c="0" data-exp="Gauss : \(\Phi=Q_{int}/\varepsilon_0\)."><p>Le flux de \(\vec E\) à travers une surface fermée est nul. On peut affirmer que :</p><ul><li>\(Q_{int}=0\)</li><li>\(\vec E=\vec0\) partout sur la surface</li><li>il n'y a aucune charge dans l'espace</li><li>\(\vec E\) est uniforme</li></ul></li>
+<li data-c="0" data-exp="Seul \(Q_{int}\) compte."><p>Une charge ponctuelle est entourée d'une sphère de rayon \(r\). On la remplace par un cube de côté \(r\) qui contient toujours la charge. Le flux :</p><ul><li>est identique</li><li>augmente</li><li>diminue</li><li>s'annule</li></ul></li>
+<li data-c="0" data-exp="\(2\pi rh\,E=\lambda h/\varepsilon_0\)."><p>Champ d'un fil infini de densité linéique \(\lambda\) :</p><ul><li>\(\dfrac{\lambda}{2\pi\varepsilon_0r}\)</li><li>\(\dfrac{\lambda}{4\pi\varepsilon_0r^2}\)</li><li>\(\dfrac{\lambda}{2\varepsilon_0}\)</li><li>\(\dfrac{\lambda r}{2\pi\varepsilon_0}\)</li></ul></li>
+<li data-c="0" data-exp="\(Q_{int}=\rho_0\pi r^2h\)."><p>Cylindre infini plein de rayon \(R\), \(\rho_0\) uniforme. Pour \(r\lt R\) :</p><ul><li>\(\dfrac{\rho_0r}{2\varepsilon_0}\)</li><li>\(\dfrac{\rho_0R^2}{2\varepsilon_0r}\)</li><li>\(0\)</li><li>\(\dfrac{\rho_0r}{3\varepsilon_0}\)</li></ul></li>
+<li data-c="0" data-exp="\(Q_{int}=0\) pour \(r\lt R\)."><p>Champ à l'intérieur d'une sphère creuse chargée uniformément en surface :</p><ul><li>\(0\)</li><li>\(\dfrac{\sigma}{\varepsilon_0}\)</li><li>\(\dfrac{Q}{4\pi\varepsilon_0r^2}\)</li><li>\(\dfrac{\sigma}{2\varepsilon_0}\)</li></ul></li>
+<li data-c="0" data-exp="De chaque côté, en sens opposés selon le signe de \(z\)."><p>Champ d'un plan infini de densité surfacique \(\sigma\) :</p><ul><li>\(\dfrac{\sigma}{2\varepsilon_0}\)</li><li>\(\dfrac{\sigma}{\varepsilon_0}\)</li><li>\(\dfrac{\sigma}{4\pi\varepsilon_0z^2}\)</li><li>\(0\)</li></ul></li>
+<li data-c="0" data-exp="\(E\simeq Q/(4\pi\varepsilon_0z^2)\)."><p>Pour un disque chargé, sur son axe, quand \(z\gg R\) le champ tend vers :</p><ul><li>celui d'une charge ponctuelle \(Q\)</li><li>celui d'un plan infini</li><li>celui d'un fil infini</li><li>zéro plus vite que \(1/z^3\)</li></ul></li>
+<li data-c="0" data-exp="En chaque point \(\vec E\) a une direction unique."><p>Deux lignes de champ peuvent-elles se croiser (hors charge) ?</p><ul><li>non, jamais</li><li>oui, au point de champ nul</li><li>oui, toujours</li><li>seulement pour deux charges identiques</li></ul></li>
+<li data-c="0" data-exp="\(\vec E\) y est perpendiculaire au plan."><p>Doublet \((q,-q)\) : le plan médiateur est un plan :</p><ul><li>d'antisymétrie</li><li>de symétrie</li><li>équipotentiel de champ nul</li><li>sans intérêt</li></ul></li>
+<li data-c="0" data-exp="\(\int A_1\,4\,\pi\,dr=4\pi A_1R\)."><p>Sphère de rayon \(R\) avec \(\rho=A_1/r^2\). Charge totale et unité de \(A_1\) :</p><ul><li>\(4\pi A_1R\) ; C·m⁻¹</li><li>\(\frac43\pi A_1R^3\) ; C·m⁻³</li><li>\(4\pi A_1R^2\) ; C·m⁻²</li><li>\(A_1/R\) ; C</li></ul></li>
+<li data-c="0" data-exp="Discontinuité due à la charge surfacique."><p>À la traversée d'une surface de densité surfacique \(\sigma\), la composante normale de \(\vec E\) :</p><ul><li>saute de \(\sigma/\varepsilon_0\)</li><li>est continue</li><li>s'annule</li><li>double</li></ul></li>
+<li data-c="0" data-exp="Fonction impaire de \(x\) sur un intervalle centré."><p>Pavé centré en \(O\) avec \(\rho=\rho_0\,x/a\). Charge totale :</p><ul><li>\(0\)</li><li>\(\rho_0abc\)</li><li>\(\rho_0abc/2\)</li><li>\(\rho_0 a^2bc\)</li></ul></li>
+<li data-c="0" data-exp="Il faut \(Q_{tot}\) nulle sur une hauteur \(h\)."><p>Câble coaxial infini (âme \(\rho_1\), gaine \(\rho_2\)). \(E=0\) à l'extérieur si :</p><ul><li>\(\rho_1R_1^2+\rho_2(R_3^2-R_2^2)=0\)</li><li>\(\rho_1=\rho_2\)</li><li>\(\rho_1=0\) seulement</li><li>\(R_1=R_3\)</li></ul></li>
+<li data-c="0" data-exp="\(\vec E\perp\overrightarrow{dS}\) sur les bases."><p>Pour un cylindre de Gauss \((r,h)\) autour d'un fil, le flux à travers les bases est :</p><ul><li>nul</li><li>\(E\pi r^2\)</li><li>\(2E\pi r^2\)</li><li>\(E\,2\pi rh\)</li></ul></li>
+<li data-c="0" data-exp="\(K\approx9\cdot10^9\) N·m²·C⁻² ; \(\varepsilon_0\approx8{,}85\cdot10^{-12}\) F·m⁻¹."><p>Ordre de grandeur de \(\dfrac{1}{4\pi\varepsilon_0}\) :</p><ul><li>\(9\cdot10^{9}\) SI</li><li>\(9\cdot10^{-9}\)</li><li>\(8{,}85\cdot10^{-12}\)</li><li>\(1{,}6\cdot10^{-19}\)</li></ul></li>
 </ol>
 </div>
 </main>
