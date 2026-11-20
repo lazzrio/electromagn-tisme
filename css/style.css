@@ -1,6 +1,7 @@
 /* --- base reset --- */
 *,*::before,*::after{box-sizing:border-box}
-html{color-scheme:light dark}
+html{color-scheme:light}
+html[data-theme="dark"]{color-scheme:dark}
 img{max-width:100%}
 [hidden]{display:none!important}
 
@@ -15,15 +16,7 @@ img{max-width:100%}
   --f-body:'Source Sans 3',system-ui,sans-serif;
   --f-mono:'JetBrains Mono',ui-monospace,monospace;
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  color-scheme:dark;
-  --bg:#080d18; --surface:#0f1726; --surface2:#0c1320; --ink:#e3eaf5; --muted:#8a9ab1;
-  --accent:#6ea8ff; --accent-soft:#12233f; --accent2:#ff8c52; --amber-soft:#2d1b12;
-  --line:#1f2b40; --line2:#172234;
-  --good:#4fd08e; --good-soft:#10291d; --bad:#f07b6e; --bad-soft:#2f1512; --warn:#ff9f66;
-  --ring:#6ea8ff;
-  --shadow:0 1px 2px rgba(0,0,0,.35),0 10px 30px rgba(0,0,0,.45);
-}}
+
 :root[data-theme="dark"]{
   color-scheme:dark;
   --bg:#080d18; --surface:#0f1726; --surface2:#0c1320; --ink:#e3eaf5; --muted:#8a9ab1;
@@ -792,7 +785,7 @@ a.card:hover{text-decoration:none}
 @media(max-width:900px){.nav a{width:100%;text-align:left;font-size:14.5px;padding:11px}}
 /* texte sur fond d'accent : blanc en clair, bleu nuit en sombre (contraste) */
 :root{--on-accent:#ffffff}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--on-accent:#08101f}}
+
 :root[data-theme="dark"]{--on-accent:#08101f}
 .btn-primary,.qz-next,.cx-num,.chip-logo{color:var(--on-accent)}
 /* ===================== DS1 : préparation (schémas, rappels cités, rédaction) ===================== */
