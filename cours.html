@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Cours — Électromagnétisme</title>
-<meta content="Cours d'électromagnétisme ING2 : outils mathématiques (repères, gradient, flux, circulation) et électrostatique (charges)." name="description"/>
+<meta content="Cours d'électromagnétisme ING2 : outils mathématiques, électrostatique (charges, Coulomb, symétries, Gauss), potentiel électrostatique, conducteurs et condensateurs." name="description"/>
 <meta content="light" name="color-scheme"/>
 <meta content="#1d5fc4" name="theme-color"/>
 
@@ -13,7 +13,7 @@
 <link href="assets/icon-192.png" rel="apple-touch-icon"/>
 <link href="manifest.webmanifest" rel="manifest"/>
 <meta content="Cours — Électromagnétisme" property="og:title"/>
-<meta content="Cours d'électromagnétisme ING2 : outils mathématiques (repères, gradient, flux, circulation) et électrostatique (charges)." property="og:description"/>
+<meta content="Cours d'électromagnétisme ING2 : outils mathématiques, électrostatique (charges, Coulomb, symétries, Gauss), potentiel électrostatique, conducteurs et condensateurs." property="og:description"/>
 <meta content="website" property="og:type"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -31,13 +31,12 @@
     </a>
 <nav aria-label="Navigation principale" class="nav" id="nav">
 <a href="index.html">Accueil</a>
-<a class="nav-hot" href="ds1-complet.html">📝 DS1 rédigé</a>
-🚨 Interro S40</a>
+<a class="nav-hot" href="revision-ds.html">🎯 Révision DS</a>
 <a aria-current="page" class="active" href="cours.html">📚 Cours</a>
 <a href="formules.html">📘 Formules</a>
-<a href="ds1.html">🎯 DS1</a>
 <a href="corriges.html">✅ TD corrigés</a>
 <a href="quiz.html">🧠 Quiz</a>
+<a href="ds1-complet.html">📝 DS1</a>
 </nav>
 <button aria-label="Changer de thème" class="theme-btn" id="themeBtn" title="Thème clair / sombre">
 <svg fill="none" id="thIcon" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"></svg>
@@ -59,10 +58,29 @@
 <a href="#ch0-coord">↳ Systèmes de coordonnées</a>
 <a href="#ch0-grad">↳ Champs et gradient</a>
 <a href="#ch0-flux">↳ Flux et circulation</a>
-<a href="#ch1">1 · Électrostatique \((A)\)</a>
+<a href="#ch1">1 · Électrostatique</a>
 <a href="#ch1-dist">↳ Distributions de charges</a>
 <a href="#ch1-calc">↳ Calculer une charge</a>
-<a href="#ch1-suite">↳ Suite : champ et potentiel</a>
+<a href="#ch1-coulomb">↳ Coulomb et champ</a>
+<a href="#ch1-superpo">↳ Superposition</a>
+<a href="#ch1-sym">↳ Symétries et invariances</a>
+<a href="#ch1-gauss">↳ Théorème de Gauss</a>
+<a href="#ch1-lignes">↳ Lignes de champ</a>
+<a href="#ch2">2 · Potentiel et énergie</a>
+<a href="#ch2-circ">↳ Circulation et potentiel</a>
+<a href="#ch2-ex">↳ Potentiels usuels</a>
+<a href="#ch2-grad">↳ \(\vec E=-\overrightarrow{\mathrm{grad}}\,V\)</a>
+<a href="#ch2-equi">↳ Équipotentielles</a>
+<a href="#ch2-energie">↳ Énergie</a>
+<a href="#ch2-tab">↳ Résultats</a>
+<!-- CH3TOC:DEBUT -->
+<a href="#ch3">3 · Conducteurs et condensateurs</a>
+<a href="#ch3-ohm">↳ Courant et loi d'Ohm</a>
+<a href="#ch3-equilibre">↳ Conducteur à l'équilibre</a>
+<a href="#ch3-capa">↳ Capacité d'un conducteur</a>
+<a href="#ch3-cond">↳ Condensateurs</a>
+<a href="#ch3-energie">↳ Énergie</a>
+<!-- CH3TOC:FIN -->
 </aside>
 <div class="course-content">
 <!-- ============ CH 0 ============ -->
@@ -145,13 +163,13 @@
 <article class="chapter" id="ch1">
 <div class="chapter-hd">
 <span class="cn">CH 1</span>
-<h2>Électrostatique · partie \(A\) : les charges</h2>
+<h2>Électrostatique : charges, champ, symétries et Gauss</h2>
 <label class="chap-check"><input data-chk="1" type="checkbox"/> validé</label>
 </div>
 <div class="prose">
-<div class="soon"><b>Source</b> : le poly de cours du Ch1 n'était pas dans le dossier au moment de la rédaction. Cette partie est construite à partir du TD1 (« Calculs de charges »), qui en est l'application directe. Compare-la avec tes notes d'amphi.</div>
+<div class="soon"><b>Source</b> : poly officiel « Ch1 : Étude du champ électrique en statique » 2026/2027 (partie \(A\) : les charges ; partie \(B\) : champ électrostatique) et TD0 à TD2. Les compléments (cylindres, plusieurs régions, constantes et unités) viennent des TD et des annales : ils sont signalés par <em>complément</em>.</div>
 <p>L'<span class="term">électrostatique</span> étudie les charges immobiles et les champs qu'elles créent. Avant de calculer un champ, il faut savoir décrire comment la charge est répartie et calculer la charge totale d'un objet.</p>
-<h3>La charge électrique</h3>
+<h3>Partie A · La charge électrique</h3>
 <ul>
 <li>Unité : le <b>coulomb</b> \((C)\). Charge élémentaire \(e=1{,}6\times10^{-19}\ \text{C}\) : électron \(-e\), proton \(+e\).</li>
 <li>La charge est <b>quantifiée</b> (toute charge vaut \(\pm Ne\)), <b>conservée</b> (la charge totale d'un système isolé est constante) et <b>additive</b> (la charge d'un ensemble est la somme des charges de ses parties).</li>
@@ -160,7 +178,7 @@
 <h3 id="ch1-dist">Distributions de charges</h3>
 <p>À l'échelle macroscopique, les charges sont si nombreuses et si proches qu'on les décrit par une <b>densité</b> continue. On découpe l'objet en éléments assez petits pour que la densité y soit constante, mais assez grands pour contenir beaucoup de charges.</p>
 <div class="box def"><div class="bt">◆ Les trois densités</div>
-<div class="mq">\[\begin{gathered}\lambda=\frac{\mathrm{d}q}{\mathrm{d}l}\ \ (\text{C·m}^{-1})\\[4pt] \sigma=\frac{\mathrm{d}q}{\mathrm{d}S}\ \ (\text{C·m}^{-2})\\[4pt] \rho=\frac{\mathrm{d}q}{\mathrm{d}\tau}\ \ (\text{C·m}^{-3})\end{gathered}\]</div>
+<div class="mq">\[\begin{gathered}\lambda=\frac{\mathrm{d}q}{\mathrm{d}l}\ \ (\text{C}\cdot \text{m}^{-1})\\[4pt] \sigma=\frac{\mathrm{d}q}{\mathrm{d}S}\ \ (\text{C}\cdot \text{m}^{-2})\\[4pt] \rho=\frac{\mathrm{d}q}{\mathrm{d}\tau}\ \ (\text{C}\cdot \text{m}^{-3})\end{gathered}\]</div>
 <p>Linéique pour un fil, surfacique pour une plaque, un disque, une sphère creuse, volumique pour un objet plein. On parle aussi de charge <b>ponctuelle</b> \(q\) quand les dimensions de l'objet sont négligeables.</p></div>
 <div class="box thm"><div class="bt">★ Charge totale</div>
 <div class="mq">\[\begin{gathered}Q=\int_L\lambda\,\mathrm{d}l\\[4pt] Q=\iint_S\sigma\,\mathrm{d}S\\[4pt] Q=\iiint_V\rho\,\mathrm{d}\tau\end{gathered}\]</div>
@@ -176,13 +194,247 @@
 <div class="box ex"><div class="bt">Exemple</div><p>Disque de rayon \(a\), \(\sigma=\sigma_0\frac ar\) : \(Q=\int_0^{2\pi}\!\int_0^a\sigma_0\frac ar\,r\,\mathrm{d}r\,\mathrm{d}\theta=2\pi\sigma_0a^2\). La densité est infinie au centre, mais le facteur \(r\) de \(\mathrm{d}S\) la compense : la charge est finie.</p></div>
 <div class="box warn"><div class="bt">⚠ Densité et repère</div><p>Une densité non uniforme est écrite dans un repère donné. Garder la même formule en déplaçant l'origine décrit une <b>autre</b> distribution : la charge change (TD1, ex. 2 et 7). Une densité uniforme donne la même charge quel que soit le repère.</p></div>
 <div class="box ex corr-link"><div class="bt">✅ S'entraîner</div><p>Les 7 exercices du TD1 sont corrigés : <a href="corriges.html#td1">voir les corrigés du TD1</a>.</p></div>
-<h3 id="ch1-suite">Suite du chapitre : force, champ et potentiel</h3>
-<p class="soon">Si ces notions ont déjà été vues en amphi, elles peuvent tomber ; sinon elles viendront avec la partie \(B\).</p>
-<div class="box thm"><div class="bt">★ Loi de Coulomb, champ et potentiel d'une charge ponctuelle</div>
-<div class="mq">\[\begin{gathered}\vec F_{1\to2}=\frac{1}{4\pi\varepsilon_0}\frac{q_1q_2}{r^2}\,\vec u_{1\to2}\\[4pt] \vec E=\frac{\vec F}{q}=\frac{1}{4\pi\varepsilon_0}\frac{q}{r^2}\,\vec e_r\\[4pt] V=\frac{1}{4\pi\varepsilon_0}\frac{q}{r}\\[4pt] \varepsilon_0=8{,}85\times10^{-12}\ \text{F·m}^{-1}\\[4pt] \frac{1}{4\pi\varepsilon_0}\approx9\times10^9\ \text{SI}\end{gathered}\]</div></div>
-<p>Principe de superposition : le champ créé par plusieurs charges est la somme vectorielle des champs de chacune. Pour une distribution continue, chaque élément \(\mathrm{d}q\) (\(\lambda\,\mathrm{d}l\), \(\sigma\,\mathrm{d}S\), \(\rho\,\mathrm{d}\tau\)) crée \(\mathrm{d}\vec E=\frac{1}{4\pi\varepsilon_0}\frac{\mathrm{d}q}{r^2}\vec u\), et on intègre. On vérifie la cohérence avec le Ch0 : \(-\overrightarrow{\mathrm{grad}}\left(\frac{q}{4\pi\varepsilon_0r}\right)=\frac{q}{4\pi\varepsilon_0r^2}\vec e_r\).</p>
+
+<h3 id="ch1-coulomb">Partie B · Loi de Coulomb et champ d'une charge ponctuelle</h3>
+<div class="box thm"><div class="bt">★ Loi de Coulomb (force)</div>
+<div class="mq">\[\vec F_{1\to2}=K\frac{q_1q_2}{d^2}\,\vec u_{12}\qquad K=\frac{1}{4\pi\varepsilon_0}\approx9\times10^{9}\ \text{N}\cdot \text{m}^2\cdot \text{C}^{-2}\qquad\vec F_{2\to1}=-\vec F_{1\to2}\]</div>
+<p>\(\vec u_{12}\) est le vecteur unitaire <b>orienté de \(q_1\) vers \(q_2\)</b>. Charges de même signe : répulsion ; de signes opposés : attraction. Les deux forces sont opposées (3<sup>e</sup> loi de Newton). Deux charges de \(1\ \text{C}\) à \(1\ \text{m}\) dans le vide : environ \(9\times10^{9}\ \text{N}\). \(\varepsilon_0=8{,}85\times10^{-12}\ \text{F}\cdot \text{m}^{-1}\).</p></div>
+<div class="box def"><div class="bt">◆ Champ d'une charge ponctuelle</div>
+<p>Vue de \(q_2\), la force s'écrit \(\vec F_{1\to2}=q_2\,\vec E_1\) : le champ \(\vec E_1\) créé par \(q_1\) est un champ de vecteurs défini dans l'espace. Pour une charge \(q\) placée en \(P\), au point de mesure \(M\) :</p>
+<div class="mq">\[\vec E(M)=\frac{q}{4\pi\varepsilon_0\,PM^2}\,\vec u=\frac{q}{4\pi\varepsilon_0}\frac{\overrightarrow{PM}}{PM^3}\qquad\vec F=q\,\vec E\qquad[E]=\text{V}\cdot \text{m}^{-1}\]</div>
+<p>Le champ est <b>fuyant</b> si \(q&gt;0\), <b>rentrant</b> si \(q&lt;0\), et défini partout <b>sauf sur la charge</b>. Il ne dépend que de la position de \(M\) par rapport à la source : en statique, rien ne se propage.</p></div>
+<h3 id="ch1-superpo">Superposition et distributions continues</h3>
+<div class="box thm"><div class="bt">★ Principe de superposition</div>
+<div class="mq">\[\vec E(M)=\sum_i\frac{q_i}{4\pi\varepsilon_0}\frac{\overrightarrow{P_iM}}{P_iM^3}\qquad\vec E(M)=\int\mathrm{d}\vec E=\int\frac{\mathrm{d}q}{4\pi\varepsilon_0}\frac{\overrightarrow{PM}}{PM^3}\]</div>
+<p>Pour une distribution continue, \(\mathrm{d}q=\lambda\,\mathrm{d}l\), \(\sigma\,\mathrm{d}S\) ou \(\rho\,\mathrm{d}\tau\). Le champ est défini partout sauf sur la ligne chargée (fil), sauf sur la surface chargée (surface) ; il est défini <b>partout</b> pour un volume chargé.</p></div>
+<div class="box warn"><div class="bt">⚠ Vecteurs, pas scalaires</div><p>La superposition est une addition de <b>vecteurs</b>. On n'additionne des scalaires qu'après avoir projeté les champs dans une base orthonormée.</p></div>
+<div class="box method"><div class="bt">▹ Calcul direct de Coulomb (distribution continue)</div><ol>
+<li><b>Schéma</b> et repère adapté à la forme de l'objet.</li>
+<li><b>Symétries et invariances</b> : direction de \(\vec E\) (quelles composantes sont nulles) et variables dont dépend \(E\).</li>
+<li><b>Champ élémentaire</b> \(\mathrm{d}\vec E\) créé en \(M\) par un élément \(\mathrm{d}q\) centré en \(P\), exprimé dans le repère.</li>
+<li><b>Projeter</b> sur la seule composante non nulle (souvent \(\vec e_z\) ou \(\vec e_r\)).</li>
+<li><b>Intégrer</b> en séparant les variables, avec les bornes lues sur la figure.</li>
+<li><b>Contrôler</b> : unité (\(\text{V}\cdot \text{m}^{-1}\)), signe selon \(q\), cas limites (\(M\) très loin : on retrouve une charge ponctuelle).</li>
+</ol></div>
+<div class="box ex"><div class="bt">Exemple : disque sur son axe (complément)</div><p>Disque de rayon \(R\), densité \(\sigma\) uniforme, en un point \(M\) de l'axe à la cote \(z&gt;0\) : seule la composante selon \(\vec e_z\) survit (les composantes radiales se compensent deux à deux).</p>
+<div class="mq">\[E_z=\frac{\sigma}{2\varepsilon_0}\Big(1-\frac{z}{\sqrt{z^2+R^2}}\Big)\qquad z\gg R:\ \frac{Q}{4\pi\varepsilon_0z^2}\qquad R\gg z:\ \frac{\sigma}{2\varepsilon_0}\]</div>
+<p>Deux limites qui servent de contrôle : très loin, le disque se comporte comme une charge ponctuelle ; très près (ou disque très grand), comme un plan infini.</p></div>
+
+<h3 id="ch1-sym">Invariances et symétries</h3>
+<p>Avant tout calcul de champ, on détermine <b>la direction</b> de \(\vec E\) (symétries) et <b>les variables</b> dont dépend sa norme (invariances).</p>
+<div class="box def"><div class="bt">◆ Invariances (sur la norme \(E(M)\))</div>
+<p>On fait varier <b>une seule coordonnée</b> du point \(M\) à la fois, les deux autres restant constantes. Si la norme ne change pas, \(E\) est indépendant de cette coordonnée (invariance par translation ou par rotation). Fil infini sur \(Oz\), en cylindrique : \(M\) translaté selon \(z\) ou tournant d'un angle \(\theta\) autour du fil garde la même distance au fil, donc \(E\) ne dépend que de \(r\) : \(E=E(r)\).</p></div>
+<div class="box def"><div class="bt">◆ Plans de symétrie et d'antisymétrie</div>
+<p>On ne considère que des plans qui passent <b>par \(M\)</b> et par la distribution. Un plan est de <b>symétrie</b> si, de part et d'autre, les charges sont identiques, de même signe, en effet miroir ; il est d'<b>antisymétrie</b> si elles sont de signes opposés.</p>
+<ul>
+<li>Un plan de symétrie passant par \(M\) : \(\vec E(M)\) est <b>dans</b> ce plan.</li>
+<li>Deux plans de symétrie : \(\vec E(M)\) est selon leur <b>intersection</b> ; trois plans : \(\vec E=\vec0\).</li>
+<li>Un plan d'antisymétrie : \(\vec E(M)\) est <b>perpendiculaire</b> au plan ; deux plans d'antisymétrie : \(\vec E=\vec0\).</li>
+</ul></div>
+<div class="tbl-wrap s4-stack"><table>
+<tr><th>Distribution</th><th>Direction de \(\vec E\)</th><th>Dépendance</th></tr>
+<tr><td data-l="Distribution">Charge ponctuelle, sphère (surface ou volume \(\rho(r)\))</td><td data-l="Direction">\(\vec e_r\) (sphérique)</td><td data-l="Dépendance">\(E(r)\)</td></tr>
+<tr><td data-l="Distribution">Fil ou cylindre infini</td><td data-l="Direction">\(\vec e_r\) (cylindrique)</td><td data-l="Dépendance">\(E(r)\)</td></tr>
+<tr><td data-l="Distribution">Plan infini uniforme</td><td data-l="Direction">\(\vec e_z\) (normal au plan)</td><td data-l="Dépendance">\(E(z)\), avec \(E(-z)=-E(z)\)</td></tr>
+</table></div>
+
+<h3 id="ch1-gauss">Théorème de Gauss</h3>
+<div class="box thm"><div class="bt">★ Énoncé</div>
+<div class="mq">\[\Phi=\oiint_{S_G}\vec E(M)\cdot\vec n\,\mathrm{d}S=\frac{Q_{int}}{\varepsilon_0}\]</div>
+<p>\(S_G\) est une surface <b>fermée fictive</b> (inventée par le calculateur) passant par \(M\), orientée vers l'<b>extérieur</b> ; \(Q_{int}\) est la charge totale <b>contenue dans</b> \(S_G\) : \(\sum q_i\) pour une distribution discrète, \(\int\mathrm{d}q\) pour une distribution continue. Le flux ne dépend que de \(Q_{int}\), pas de la forme de la surface.</p></div>
+<div class="box warn"><div class="bt">⚠ Quand a-t-on le droit d'utiliser Gauss ?</div><p>Seulement si la <b>direction</b> de \(\vec E\) est la même (un seul vecteur unitaire) en tout point où le champ est défini, et si sa <b>norme ne dépend que d'une seule variable</b>, celle du vecteur unitaire. Cela donne : symétrie sphérique, cylindrique <b>infinie</b> ou plan infini. Un objet fini (disque, cylindre fini, fil fini) ou une densité qui dépend d'un angle (\(\rho_0\cos\theta\), \(\sigma_0\sin^2\theta\)) interdit Gauss : on utilise Coulomb direct.</p></div>
+<div class="box method"><div class="bt">▹ Gauss en 5 étapes</div><ol>
+<li><b>Schéma</b> et repère adapté.</li>
+<li><b>Symétries</b> : direction de \(\vec E\).</li>
+<li><b>Invariances</b> : variable dont dépend \(E\).</li>
+<li><b>Surface de Gauss</b> passant par \(M\), telle que \(\vec E\parallel\mathrm{d}\vec S\) (ou \(\perp\)) et que \(E\) soit constant sur elle : sphère de rayon \(r\), cylindre \((r,h)\), cylindre traversant un plan. Calculer le flux : \(4\pi r^2E\) (sphère), \(2\pi rhE\) (cylindre, bases à flux nul).</li>
+<li><b>\(Q_{int}\)</b> région par région, puis \(E=\dfrac{Q_{int}}{\varepsilon_0S_G}\). Contrôler la continuité (sauf traversée d'une charge surfacique), le signe et les unités.</li>
+</ol></div>
+<div class="box ex"><div class="bt">Exemple : charge ponctuelle par Gauss</div><p>Charge \(q\) au centre du repère sphérique : \(\vec E=E(r)\vec e_r\). Surface de Gauss : sphère de rayon \(r\), \(\mathrm{d}\vec S=\mathrm{d}S\,\vec e_r\) :</p>
+<div class="mq">\[\iint E(r)\,r^2\sin\theta\,\mathrm{d}\theta\,\mathrm{d}\varphi=E(r)\,4\pi r^2=\frac{q}{\varepsilon_0}\ \Longrightarrow\ \vec E=\frac{q}{4\pi\varepsilon_0r^2}\,\vec e_r\]</div>
+<p>On retrouve le champ de Coulomb, avec \(\theta\in[0,\pi]\) et \(\varphi\in[0,2\pi]\).</p></div>
+<div class="box thm"><div class="bt">★ Résultats à savoir retrouver (champ en \(\text{V}\cdot \text{m}^{-1}\))</div>
+<div class="tbl-wrap s4-stack"><table>
+<tr><th>Source</th><th>\(r&lt;R\)</th><th>\(r&gt;R\)</th></tr>
+<tr><td data-l="Source">Charge ponctuelle \(q\)</td><td data-l="r&lt;R">—</td><td data-l="r&gt;R">\(\dfrac{q}{4\pi\varepsilon_0r^2}\)</td></tr>
+<tr><td data-l="Source">Fil infini \(\lambda\)</td><td data-l="r&lt;R">—</td><td data-l="r&gt;R">\(\dfrac{\lambda}{2\pi\varepsilon_0r}\)</td></tr>
+<tr><td data-l="Source">Sphère pleine \(\rho_0\)</td><td data-l="r&lt;R">\(\dfrac{\rho_0r}{3\varepsilon_0}\)</td><td data-l="r&gt;R">\(\dfrac{\rho_0R^3}{3\varepsilon_0r^2}\)</td></tr>
+<tr><td data-l="Source">Sphère, surface \(\sigma_0\)</td><td data-l="r&lt;R">\(0\)</td><td data-l="r&gt;R">\(\dfrac{\sigma_0R^2}{\varepsilon_0r^2}\)</td></tr>
+<tr><td data-l="Source">Cylindre infini plein \(\rho_0\)</td><td data-l="r&lt;R">\(\dfrac{\rho_0r}{2\varepsilon_0}\)</td><td data-l="r&gt;R">\(\dfrac{\rho_0R^2}{2\varepsilon_0r}\)</td></tr>
+<tr><td data-l="Source">Cylindre infini, surface \(\sigma_0\)</td><td data-l="r&lt;R">\(0\)</td><td data-l="r&gt;R">\(\dfrac{\sigma_0R}{\varepsilon_0r}\)</td></tr>
+<tr><td data-l="Source">Plan infini \(\sigma\)</td><td data-l="r&lt;R" colspan="2">\(\pm\dfrac{\sigma}{2\varepsilon_0}\,\vec e_z\) selon le signe de \(z\)</td></tr>
+</table></div></div>
+<div class="box warn"><div class="bt">⚠ Pièges de \(Q_{int}\)</div><p>Dans une région partielle (\(r&lt;R\), ou \(R_2&lt;r&lt;R_3\) pour un câble), on intègre de la borne intérieure de la couche jusqu'à \(r\), <b>pas jusqu'à \(R\)</b>. Un flux nul n'implique pas \(\vec E=\vec0\) (il donne seulement \(Q_{int}=0\)). Une charge répartie sur une surface fait sauter la composante normale de \(\vec E\) de \(\sigma/\varepsilon_0\).</p></div>
+
+<h3 id="ch1-lignes">Lignes de champ</h3>
+<div class="box def"><div class="bt">◆ Définition</div>
+<p>Une ligne de champ est une ligne fictive, orientée dans le sens de \(\vec E\), sur laquelle \(\vec E\) est <b>tangent</b> en chaque point : \(\mathrm{d}\vec l\wedge\vec E(M)=\vec0\). Elle donne la direction et le sens du champ, pas sa valeur ; plus les lignes sont serrées, plus le champ est intense. Elles partent des charges positives, arrivent sur les charges négatives (ou à l'infini) et <b>ne se croisent jamais</b>.</p>
+<ul>
+<li>Charge ponctuelle : lignes radiales, sortantes si \(q&gt;0\), entrantes si \(q&lt;0\).</li>
+<li>Doublet \((q,-q)\) : le plan médiateur est un plan d'<b>antisymétrie</b>, donc les lignes lui sont perpendiculaires.</li>
+<li>Deux charges de même signe : le plan médiateur est un plan de <b>symétrie</b>, les lignes « s'évitent ».</li>
+</ul></div>
+<div class="box ex corr-link"><div class="bt">✅ S'entraîner</div><p>TD2bis, annales et entraînement Gauss : <a href="corriges.html#td2bis">TD2bis</a> · <a href="corriges.html#gauss">entraînement Gauss</a> · <a href="ds1-complet.html">DS1 rédigé</a> · <a href="ds1.html">fiche DS1</a>.</p></div>
 </div>
 </article>
+<!-- ============ CH 2 ============ -->
+<article class="chapter" id="ch2">
+<div class="chapter-hd">
+<span class="cn">CH 2</span>
+<h2>Le potentiel électrostatique et l'énergie</h2>
+<label class="chap-check"><input data-chk="2" type="checkbox"/> validé</label>
+</div>
+<div class="prose">
+<div class="soon"><b>Source</b> : le poly de cours du Ch2 pour 2026/2027 n'était pas dans le dossier. Cette partie suit le poly « Potentiel et énergie » de l'an dernier et le <b>TD3 2026/2027</b> (le potentiel). Compare-la avec tes notes d'amphi : seuls l'ordre et les exemples peuvent différer.</div>
+<p>Le <span class="term">potentiel électrostatique</span> est une grandeur <b>scalaire</b> liée au champ \(\vec E\) : il est souvent plus simple à manipuler (un nombre par point au lieu d'un vecteur) et il donne son sens physique à l'énergie d'une charge dans un champ.</p>
+<h3 id="ch2-circ">Circulation et potentiel</h3>
+<div class="box def"><div class="bt">◆ Circulation du champ électrostatique</div>
+<div class="mq">\[C_{AB}=\int_A^B\vec E\cdot\mathrm{d}\vec l\]</div>
+<p>Elle ne dépend que des points \(A\) et \(B\), pas du chemin : le champ électrostatique est <b>conservatif</b>. Sur une courbe fermée, elle est <b>nulle</b> : \(\oint\vec E\cdot\mathrm{d}\vec l=0\). (C'est l'analogue du travail du poids, qui ne dépend pas du trajet.)</p></div>
+<div class="box thm"><div class="bt">★ Définition du potentiel</div>
+<div class="mq">\[V_A-V_B=\int_A^B\vec E\cdot\mathrm{d}\vec l\qquad\Longleftrightarrow\qquad\mathrm{d}V=-\vec E\cdot\mathrm{d}\vec l\qquad[V]=\text{volt (V)}\]</div>
+<ul>
+<li>Le potentiel est défini à une <b>constante près</b> : on choisit arbitrairement l'origine des potentiels, sans effet sur \(\vec E\).</li>
+<li>Il est <b>additif</b> (superposition) : le potentiel d'un ensemble de charges est la somme des potentiels de chaque système.</li>
+<li>Une différence de potentiel est une <b>tension</b> (en régime stationnaire).</li>
+</ul></div>
+<div class="box warn"><div class="bt">⚠ Sens des bornes</div><p>Avec \(\vec E=-\overrightarrow{\mathrm{grad}}\,V\), c'est \(\int_A^B\vec E\cdot\mathrm{d}\vec l=V_A-V_B\) (le départ moins l'arrivée). Le polycopié écrit parfois « \(V_B-V_A\) » : vérifie le signe avec la charge ponctuelle, \(\int_A^B\vec E\cdot\mathrm{d}\vec l=\frac{q}{4\pi\varepsilon_0}\big(\frac1{r_A}-\frac1{r_B}\big)=V_A-V_B\).</p></div>
+<h3 id="ch2-ex">Potentiels des distributions usuelles</h3>
+<div class="box thm"><div class="bt">★ Charge ponctuelle et distributions (distribution finie, \(V(\infty)=0\))</div>
+<div class="mq">\[V(M)=\frac{q}{4\pi\varepsilon_0\,r}\qquad V(M)=\int\frac{\mathrm{d}q}{4\pi\varepsilon_0\,PM}\ \ (\mathrm{d}q=\lambda\,\mathrm{d}l,\ \sigma\,\mathrm{d}S,\ \rho\,\mathrm{d}\tau)\]</div>
+<p>Sur la circulation entre \(A\) et \(B\) avec \(\vec E=\frac{q}{4\pi\varepsilon_0r^2}\vec e_r\) et \(\mathrm{d}\vec l=\mathrm{d}r\,\vec e_r+\dots\), on a \(\vec e_r\cdot\mathrm{d}\vec l=\mathrm{d}r\), d'où \(V(r)=\frac{q}{4\pi\varepsilon_0r}+\text{cste}\) ; la constante est nulle si \(V(\infty)=0\).</p></div>
+<div class="box warn"><div class="bt">⚠ Distributions infinies</div><p>Pour un fil, un cylindre ou un plan infinis, on ne peut <b>pas</b> poser \(V(\infty)=0\) (le potentiel diverge). On fixe une référence en un point : « \(V(R_0)=V_0\) ». Le potentiel est <b>continu</b> pour des charges en volume ou en surface ; il présente une singularité sur un fil (le champ n'y est pas défini).</p></div>
+<h3 id="ch2-grad">Champ de gradient : \(\vec E=-\overrightarrow{\mathrm{grad}}\,V\)</h3>
+<div class="box thm"><div class="bt">★ Lien entre \(\vec E\) et \(V\)</div>
+<div class="mq">\[\vec E=-\overrightarrow{\mathrm{grad}}\,V\qquad E_x=-\frac{\partial V}{\partial x}\qquad E_r=-\frac{\partial V}{\partial r}\qquad E_\theta=-\frac1r\frac{\partial V}{\partial\theta}\qquad E_z=-\frac{\partial V}{\partial z}\]</div>
+<p>Le champ dérive du potentiel : il est dirigé vers les potentiels <b>décroissants</b>. Les expressions du gradient en cylindrique et en sphérique sont celles du Ch0 (avec les facteurs \(\frac1r\) et \(\frac{1}{r\sin\theta}\)). Unités : \(\text{V}\cdot \text{m}^{-1}\).</p></div>
+<div class="box method"><div class="bt">▹ Deux sens de passage</div>
+<ul>
+<li><b>De \(V\) à \(\vec E\)</b> : dériver. \(\vec E=-\overrightarrow{\mathrm{grad}}\,V\) dans le repère de \(V\).</li>
+<li><b>De \(\vec E\) à \(V\)</b> : intégrer \(\mathrm{d}V=-\vec E\cdot\mathrm{d}\vec l\). Si \(\vec E=E(r)\vec e_r\) : \(V(r)=-\int E(r)\,\mathrm{d}r+\text{cste}\). Région par région (sphères concentriques, cylindre) : intégrer dans chaque région, puis <b>raccorder</b> les constantes par continuité de \(V\) aux interfaces, en partant de la référence (\(V(\infty)=0\) ou \(V(R_0)=V_0\)).</li>
+<li><b>Vérifier</b> qu'un champ \(\vec A\) dérive d'un potentiel \(f\) : calculer \(\overrightarrow{\mathrm{grad}}\,f\) et le comparer à \(\vec A\) (TD3, ex. 3.1).</li>
+</ul></div>
+<h3 id="ch2-equi">Surfaces équipotentielles</h3>
+<div class="box def"><div class="bt">◆ Définition et propriétés</div>
+<p>Une surface équipotentielle est l'ensemble des points où \(V\) a la même valeur. Deux équipotentielles de valeurs différentes ne se coupent pas.</p>
+<ul>
+<li>Elles sont, en tout point, <b>orthogonales aux lignes de champ</b> (\(\mathrm{d}V=-\vec E\cdot\mathrm{d}\vec l=0\) pour un déplacement le long de la surface).</li>
+<li>Le long d'une ligne de champ, \(\vec E\) est dirigé vers les potentiels <b>décroissants</b>.</li>
+<li>Charge ponctuelle : sphères centrées sur la charge ; fil ou cylindre infini : cylindres coaxiaux ; plan infini : plans parallèles.</li>
+</ul></div>
+<h3 id="ch2-energie">Énergie potentielle électrostatique</h3>
+<div class="box thm"><div class="bt">★ Travail de la force de Coulomb</div>
+<div class="mq">\[W_{AB}=\int_A^Bq\vec E\cdot\mathrm{d}\vec l=q\,(V_A-V_B)=E_p(A)-E_p(B)\qquad E_p(M)=q\,V(M)+\text{cste}\]</div>
+<p>Le travail ne dépend pas du chemin : la force de Coulomb est <b>conservative</b> et dérive de l'énergie potentielle \(E_p=qV\) (en joules). L'<b>électronvolt</b> est l'énergie d'une charge \(e\) soumise à \(1\ \text{V}\) : \(1\ \text{eV}=1{,}6\times10^{-19}\ \text{J}\).</p></div>
+<div class="box thm"><div class="bt">★ Énergie d'interaction de deux charges ponctuelles</div>
+<div class="mq">\[E_p=\frac{q_1q_2}{4\pi\varepsilon_0\,r_{12}}\]</div>
+<p>C'est le travail qu'un opérateur doit fournir pour amener les charges, initialement à l'infini, à la distance \(r_{12}\) l'une de l'autre. Positive pour deux charges de même signe (il faut forcer : elles se repoussent), négative pour deux charges de signes opposés.</p></div>
+<h3 id="ch2-tab">Résultats à savoir retrouver (potentiel)</h3>
+<div class="box thm"><div class="bt">★ Potentiels usuels</div>
+<div class="tbl-wrap s4-stack"><table>
+<tr><th>Source</th><th>Champ (V·m⁻¹)</th><th>Potentiel (V)</th></tr>
+<tr><td data-l="Source">Charge ponctuelle</td><td data-l="Champ">\(\dfrac{q}{4\pi\varepsilon_0r^2}\vec e_r\)</td><td data-l="Potentiel">\(\dfrac{q}{4\pi\varepsilon_0r}\) \((V(\infty)=0)\)</td></tr>
+<tr><td data-l="Source">Fil infini \(\lambda\)</td><td data-l="Champ">\(\dfrac{\lambda}{2\pi\varepsilon_0r}\vec e_r\)</td><td data-l="Potentiel">\(V_0-\dfrac{\lambda}{2\pi\varepsilon_0}\ln\dfrac{r}{R_0}\)</td></tr>
+<tr><td data-l="Source">Sphère, surface \(\sigma\)</td><td data-l="Champ">\(0\) ; \(\dfrac{\sigma R^2}{\varepsilon_0r^2}\)</td><td data-l="Potentiel">\(r&lt;R\) : \(\dfrac{\sigma R}{\varepsilon_0}\) (constant) ; \(r&gt;R\) : \(\dfrac{\sigma R^2}{\varepsilon_0r}\)</td></tr>
+<tr><td data-l="Source">Sphère pleine \(\rho\)</td><td data-l="Champ">\(\dfrac{\rho r}{3\varepsilon_0}\) ; \(\dfrac{\rho R^3}{3\varepsilon_0r^2}\)</td><td data-l="Potentiel">\(r&lt;R\) : \(\dfrac{\rho(3R^2-r^2)}{6\varepsilon_0}\) ; \(r&gt;R\) : \(\dfrac{\rho R^3}{3\varepsilon_0r}\)</td></tr>
+<tr><td data-l="Source">Cylindre infini, surface \(\sigma\)</td><td data-l="Champ">\(0\) ; \(\dfrac{\sigma R}{\varepsilon_0r}\)</td><td data-l="Potentiel">\(r&gt;R\) : \(V_0-\dfrac{\sigma R}{\varepsilon_0}\ln\dfrac{r}{R_0}\) ; \(r&lt;R\) : constant \(=V(R)\)</td></tr>
+<tr><td data-l="Source">Plan infini \(\sigma\)</td><td data-l="Champ">\(\pm\dfrac{\sigma}{2\varepsilon_0}\vec e_z\)</td><td data-l="Potentiel">\(V_0-\dfrac{\sigma|z|}{2\varepsilon_0}\) (\(V(0)=V_0\))</td></tr>
+<tr><td data-l="Source">Dipôle \(\{-q,+q\}\), \(r\gg d\)</td><td data-l="Champ">\(\dfrac{qd}{4\pi\varepsilon_0r^3}\big(2\cos\theta\,\vec e_r+\sin\theta\,\vec e_\theta\big)\)</td><td data-l="Potentiel">\(\dfrac{qd\cos\theta}{4\pi\varepsilon_0r^2}\)</td></tr>
+<tr><td data-l="Source">Disque \(\sigma\), sur l'axe (\(z&gt;0\))</td><td data-l="Champ">\(\dfrac{\sigma}{2\varepsilon_0}\Big(1-\dfrac{z}{\sqrt{z^2+R^2}}\Big)\)</td><td data-l="Potentiel">\(\dfrac{\sigma}{2\varepsilon_0}\big(\sqrt{z^2+R^2}-z\big)\)</td></tr>
+</table></div>
+<p>À l'intérieur d'une sphère chargée en surface, le champ est nul et le potentiel est <b>constant</b> : tout le volume est à l'équipotentielle \(\frac{\sigma R}{\varepsilon_0}\). Le potentiel est continu en \(r=R\), le champ ne l'est que pour une charge en volume.</p></div>
+<div class="box ex corr-link"><div class="bt">✅ S'entraîner</div><p>Les 7 exercices du TD3 sont corrigés : <a href="corriges.html#td3">voir les corrigés du TD3</a>. Résumé des méthodes et pièges : <a href="revision-ds.html">fiche de révision du DS</a>.</p></div>
+</div>
+</article>
+
+<!-- CH3:DEBUT -->
+<article class="chapter" id="ch3">
+<div class="chapter-hd">
+<span class="cn">CH 3</span>
+<h2>Conducteurs à l'équilibre et condensateurs</h2>
+<label class="chap-check"><input data-chk="3" type="checkbox"/> validé</label>
+</div>
+<div class="prose">
+<div class="soon"><b>Source</b> : poly « Chap. 3 : Conducteurs à l'équilibre – Condensateurs » 2026/2027 et TD4. Le chapitre commence par la conduction (loi d'Ohm), puis traite de l'équilibre d'un conducteur (théorème de Coulomb), de la capacité et de l'énergie.</div>
+<p>Un <span class="term">conducteur</span> contient des porteurs de charge libres (électrons dans un métal, ions dans une solution) qui se déplacent sous l'action d'un champ. À l'équilibre ils ne bougent plus en moyenne : c'est ce qui donne au conducteur ses propriétés très simples, base du calcul des condensateurs.</p>
+<h3 id="ch3-ohm">Courant électrique et loi d'Ohm locale</h3>
+<div class="box def"><div class="bt">◆ Intensité et densité de courant</div>
+<div class="mq">\[I=\iint_{(S)}\vec j\cdot\vec n\,\mathrm{d}S\qquad\vec j=\rho\,\vec v\qquad[I]=\text{ampère (A)},\ \ [j]=\mathrm{A\,m^{-2}}\]</div>
+<p>L'intensité est le <b>flux</b> de la densité de courant \(\vec j\) à travers la section \((S)\) ; \(\mathrm{d}q=I\,\mathrm{d}t\). Si \(\vec j\) est uniforme et normal à la section : \(I=jS\). Avec plusieurs types de porteurs : \(\vec j=\sum_i\rho_i\vec v_i\).</p></div>
+<div class="box thm"><div class="bt">★ Loi d'Ohm locale et modèle de Drude</div>
+<div class="mq">\[\vec j=\gamma\vec E\qquad\gamma=\frac{ne^2\tau}{m_e}\qquad[\gamma]=\mathrm{S\,m^{-1}}\]</div>
+<p>Entre deux collisions, un électron obéit à \(m_e\,\dot{\vec v}=-e\vec E\) ; la vitesse d'ensemble est \(\vec v_{moy}=-\frac{e\tau}{m_e}\vec E\) (\(\tau\sim10^{-14}\ \mathrm{s}\) : temps entre deux collisions). Quand la température monte, les collisions sont plus fréquentes, \(\tau\) diminue, donc \(\gamma\) <b>diminue</b> pour un métal.</p></div>
+<div class="box thm"><div class="bt">★ Résistance d'un fil cylindrique</div>
+<div class="mq">\[U=RI\qquad R=\frac{\ell}{\gamma s}\qquad[R]=\text{ohm }(\Omega)\]</div>
+<p>Pour un courant uniforme et axial sur la section \(s\) et la longueur \(\ell\) : \(I=\gamma Es\) et \(U=E\ell\), d'où \(R=\frac{\ell}{\gamma s}\). La résistivité \(\frac1\gamma\) varie à peu près linéairement avec \(T\) (thermomètre à résistance de platine).</p></div>
+<div class="box ex"><div class="bt">✎ Ordre de grandeur : la vitesse des électrons</div><p>Fil de cuivre de section \(2{,}5\ \mathrm{mm^2}\), \(I=20\ \mathrm{A}\) : \(j=\frac{I}{s}=8\times10^6\ \mathrm{A\,m^{-2}}\). Charge libre volumique \(\rho=n e\approx1{,}4\times10^{10}\ \mathrm{C\,m^{-3}}\) (un électron libre par atome de cuivre), donc \(v=\frac{j}{\rho}\approx0{,}6\ \mathrm{mm\,s^{-1}}\) : très lente devant l'agitation thermique (\(\sim10^5\ \mathrm{m\,s^{-1}}\)).</p></div>
+<h3 id="ch3-equilibre">Conducteur en équilibre électrostatique</h3>
+<div class="box thm"><div class="bt">★ Propriétés à connaître (à l'équilibre)</div>
+<ul>
+<li>Pas de courant macroscopique : \(\vec j=\vec0\), donc, par la loi d'Ohm, <b>champ intérieur nul</b> : \(\vec E_{int}=\vec0\).</li>
+<li>\(\vec E=-\overrightarrow{\mathrm{grad}}\,V=\vec0\) : le potentiel est <b>uniforme</b>, \(V_{int}=\text{cste}\). Le conducteur est un volume <b>équipotentiel</b> (sa surface aussi).</li>
+<li>Gauss avec \(\vec E=\vec0\) donne \(\rho_{int}=0\) : toute la charge est <b>à la surface</b>, avec une densité \(\sigma(P)\).</li>
+<li>Les lignes de champ sont orthogonales aux équipotentielles : à l'extérieur, au voisinage de la surface, \(\vec E\) est <b>normal</b> à la surface.</li>
+</ul></div>
+<div class="box thm"><div class="bt">★ Théorème de Coulomb</div>
+<div class="mq">\[\vec E_{ext}(P)=\frac{\sigma(P)}{\varepsilon_0}\,\vec n_{ext}\]</div>
+<p>\(\vec n_{ext}\) est la normale unitaire à la surface, dirigée vers l'extérieur du conducteur. Le champ au voisinage immédiat de la surface ne dépend que de la densité surfacique en ce point.</p></div>
+<div class="box method"><div class="bt">▹ Pourquoi un facteur 2 de plus qu'un plan isolé</div>
+<p>Près de \(P\), le champ est la somme du champ \(\vec E_1\) d'un petit morceau de surface (assimilé à un plan : \(\pm\frac{\sigma}{2\varepsilon_0}\vec n\)) et du champ \(\vec E_2\) du reste du conducteur, continu en traversant la surface. Dedans, \(\vec E_{int}=\vec0=-\frac{\sigma}{2\varepsilon_0}\vec n_{ext}+\vec E_2\), donc \(\vec E_2=\frac{\sigma}{2\varepsilon_0}\vec n_{ext}\) ; dehors, \(\vec E_{ext}=\frac{\sigma}{2\varepsilon_0}\vec n_{ext}+\vec E_2=\frac{\sigma}{\varepsilon_0}\vec n_{ext}\).</p></div>
+<div class="box warn"><div class="bt">⚠ Plan isolé ou surface de conducteur</div><p>Le plan infini <em>isolé</em> donne \(\frac{\sigma}{2\varepsilon_0}\) de chaque côté ; <b>à la surface d'un conducteur</b> le champ est \(\frac{\sigma}{\varepsilon_0}\) d'un seul côté (et 0 de l'autre). Dans un condensateur plan, c'est la somme des deux plans qui donne aussi \(\frac{\sigma}{\varepsilon_0}\).</p></div>
+<figure class="fgbox"><svg class="fg" viewBox="0 0 400 240" role="img" aria-label="Conducteur à l'équilibre : champ nul à l'intérieur, champ normal à la surface, effet de pointe" style="max-width:400px"><path class="qg" d="M263.0 128.0 L262.9 125.2 L262.6 122.4 L262.2 119.7 L261.6 116.9 L260.9 114.2 L260.1 111.5 L259.3 108.9 L258.6 106.2 L258.2 103.5 L258.4 100.6 L259.1 97.4 L260.7 93.8 L263.1 89.8 L266.1 85.3 L269.4 80.3 L272.3 75.2 L274.2 70.4 L274.6 66.1 L272.9 62.9 L269.2 61.0 L263.8 60.5 L257.0 61.2 L249.7 62.7 L242.4 64.7 L235.6 66.8 L229.7 68.6 L224.7 70.0 L220.6 70.8 L217.1 71.2 L214.2 71.2 L211.6 71.0 L209.3 70.5 L207.1 70.0 L205.0 69.5 L202.9 69.0 L200.9 68.4 L198.9 67.9 L196.9 67.5 L195.0 67.1 L193.0 66.7 L191.1 66.3 L189.1 66.0 L187.2 65.7 L185.3 65.4 L183.5 65.1 L181.6 64.9 L179.7 64.7 L177.9 64.6 L176.0 64.4 L174.2 64.3 L172.3 64.2 L170.5 64.1 L168.7 64.0 L166.8 64.0 L165.0 64.0 L163.2 64.0 L161.3 64.0 L159.5 64.1 L157.7 64.2 L155.8 64.3 L154.0 64.4 L152.1 64.6 L150.3 64.7 L148.4 64.9 L146.5 65.1 L144.7 65.4 L142.8 65.7 L140.9 66.0 L138.9 66.3 L137.0 66.7 L135.0 67.1 L133.1 67.5 L131.1 68.0 L129.1 68.5 L127.1 69.0 L125.0 69.6 L123.0 70.2 L120.9 70.8 L118.8 71.5 L116.7 72.3 L114.6 73.1 L112.5 74.0 L110.3 74.9 L108.2 75.9 L106.0 76.9 L103.8 78.0 L101.7 79.2 L99.5 80.4 L97.3 81.7 L95.1 83.1 L93.0 84.6 L90.9 86.1 L88.8 87.8 L86.7 89.5 L84.7 91.3 L82.7 93.2 L80.8 95.2 L79.0 97.3 L77.3 99.5 L75.6 101.8 L74.1 104.1 L72.7 106.5 L71.4 109.0 L70.3 111.6 L69.3 114.2 L68.5 116.9 L67.8 119.7 L67.4 122.4 L67.1 125.2 L67.0 128.0 L67.1 130.8 L67.4 133.6 L67.8 136.3 L68.5 139.1 L69.3 141.8 L70.3 144.4 L71.4 147.0 L72.7 149.5 L74.1 151.9 L75.6 154.2 L77.3 156.5 L79.0 158.7 L80.8 160.8 L82.7 162.8 L84.7 164.7 L86.7 166.5 L88.8 168.2 L90.9 169.9 L93.0 171.4 L95.1 172.9 L97.3 174.3 L99.5 175.6 L101.7 176.8 L103.8 178.0 L106.0 179.1 L108.2 180.1 L110.3 181.1 L112.5 182.0 L114.6 182.9 L116.7 183.7 L118.8 184.5 L120.9 185.2 L123.0 185.8 L125.0 186.4 L127.1 187.0 L129.1 187.5 L131.1 188.0 L133.1 188.5 L135.0 188.9 L137.0 189.3 L138.9 189.7 L140.9 190.0 L142.8 190.3 L144.7 190.6 L146.5 190.9 L148.4 191.1 L150.3 191.3 L152.1 191.4 L154.0 191.6 L155.8 191.7 L157.7 191.8 L159.5 191.9 L161.3 192.0 L163.2 192.0 L165.0 192.0 L166.8 192.0 L168.7 192.0 L170.5 191.9 L172.3 191.8 L174.2 191.7 L176.0 191.6 L177.9 191.4 L179.7 191.3 L181.6 191.1 L183.5 190.9 L185.3 190.6 L187.2 190.3 L189.1 190.0 L191.1 189.7 L193.0 189.3 L195.0 188.9 L196.9 188.5 L198.9 188.0 L200.9 187.5 L202.9 187.0 L205.0 186.4 L207.0 185.8 L209.1 185.2 L211.2 184.5 L213.3 183.7 L215.4 182.9 L217.5 182.0 L219.7 181.1 L221.8 180.1 L224.0 179.1 L226.2 178.0 L228.3 176.8 L230.5 175.6 L232.7 174.3 L234.9 172.9 L237.0 171.4 L239.1 169.9 L241.2 168.2 L243.3 166.5 L245.3 164.7 L247.3 162.8 L249.2 160.8 L251.0 158.7 L252.7 156.5 L254.4 154.2 L255.9 151.9 L257.3 149.5 L258.6 147.0 L259.7 144.4 L260.7 141.8 L261.5 139.1 L262.2 136.3 L262.6 133.6 L262.9 130.8 Z"/><line class="ef" x1="266.0" y1="128.0" x2="285.0" y2="128.0"/><polygon class="efh" points="292.0,128.0 285.0,131.2 285.0,124.9"/><text class="tc" x="254.0" y="132.0" text-anchor="middle" style="font-size:13px">+</text><line class="ef" x1="261.6" y1="99.7" x2="283.9" y2="105.3"/><polygon class="efh" points="290.7,106.9 283.1,108.3 284.7,102.2"/><text class="tc" x="249.9" y="100.9" text-anchor="middle" style="font-size:13px">+</text><line class="ef" x1="273.9" y1="59.8" x2="299.6" y2="22.9"/><polygon class="efh" points="303.6,17.1 302.2,24.7 297.0,21.1"/><text class="tc" x="267.0" y="73.7" text-anchor="middle" style="font-size:13px">+</text><line class="ef" x1="220.0" y1="67.9" x2="216.4" y2="45.2"/><polygon class="efh" points="215.3,38.3 219.5,44.7 213.3,45.7"/><text class="tc" x="221.9" y="83.7" text-anchor="middle" style="font-size:13px">+</text><line class="ef" x1="186.2" y1="62.5" x2="188.6" y2="45.7"/><polygon class="efh" points="189.6,38.7 191.7,46.1 185.5,45.2"/><text class="tc" x="184.5" y="78.4" text-anchor="middle" style="font-size:13px">+</text><line class="ef" x1="143.2" y1="62.6" x2="140.8" y2="45.7"/><polygon class="efh" points="139.8,38.8 143.9,45.3 137.7,46.2"/><text class="tc" x="145.0" y="78.4" text-anchor="middle" style="font-size:13px">+</text><line class="ef" x1="99.0" y1="77.2" x2="90.6" y2="62.4"/><polygon class="efh" points="87.1,56.4 93.3,60.9 87.8,64.0"/><text class="tc" x="105.0" y="91.6" text-anchor="middle" style="font-size:13px">+</text><line class="ef" x1="64.0" y1="127.8" x2="47.0" y2="127.8"/><polygon class="efh" points="40.0,127.7 47.0,124.6 47.0,130.9"/><text class="tc" x="76.0" y="131.9" text-anchor="middle" style="font-size:13px">+</text><line class="ef" x1="100.3" y1="179.5" x2="92.1" y2="194.4"/><polygon class="efh" points="88.7,200.5 89.4,192.9 94.9,195.9"/><text class="tc" x="106.1" y="173.0" text-anchor="middle" style="font-size:13px">+</text><line class="ef" x1="151.1" y1="194.4" x2="149.5" y2="211.3"/><polygon class="efh" points="148.9,218.3 146.4,211.0 152.6,211.6"/><text class="tc" x="152.2" y="186.4" text-anchor="middle" style="font-size:13px">+</text><line class="ef" x1="197.7" y1="191.4" x2="201.5" y2="208.0"/><polygon class="efh" points="203.0,214.8 198.4,208.7 204.6,207.3"/><text class="tc" x="195.1" y="183.7" text-anchor="middle" style="font-size:13px">+</text><line class="ef" x1="243.3" y1="170.4" x2="254.0" y2="183.6"/><polygon class="efh" points="258.4,189.0 251.6,185.6 256.5,181.6"/><text class="tc" x="235.7" y="165.1" text-anchor="middle" style="font-size:13px">+</text><text class="tx" x="147.0" y="124.0" text-anchor="middle">E<tspan dy="3.2" font-size="72%">int</tspan><tspan dy="-3.2"> = 0</tspan></text><text class="tm" x="147.0" y="144.0" text-anchor="middle">V = cste · ρ = 0</text><text class="te" x="315.0" y="40.0" text-anchor="start" style="font-size:13px">pointe : σ grand,</text><text class="te" x="315.0" y="56.0" text-anchor="start" style="font-size:13px">E grand</text><line class="dsh" x1="315.0" y1="62.0" x2="271.9" y2="69.2"/><polygon class="efh" points="267.0,70.0 271.6,67.0 272.3,71.4"/><text class="te" x="315.0" y="168.0" text-anchor="start" style="font-size:13px">E = σ/ε<tspan dy="3.2" font-size="72%">0</tspan><tspan dy="-3.2"> n<tspan dy="3.2" font-size="72%">ext</tspan><tspan dy="-3.2"></tspan></tspan></text><text class="tm" x="315.0" y="184.0" text-anchor="start" style="font-size:12px">normal à la surface</text><text class="tm" x="165.0" y="228.0" text-anchor="middle" style="font-size:13px">charges à la surface uniquement</text></svg><figcaption>Conducteur à l'équilibre : charges à la surface, E<sub>int</sub> = 0, V constant, champ normal à la surface valant σ/ε<sub>0</sub>. Là où le rayon de courbure est petit (pointe), σ et le champ sont plus grands.</figcaption></figure>
+<div class="box thm"><div class="bt">★ Trois conséquences</div>
+<ul>
+<li><b>Boule conductrice de charge \(Q\)</b> (charge uniforme en surface, \(\sigma=\frac{Q}{4\pi R^2}\)) : par Gauss, pour \(r&gt;R\), \(\vec E=\frac{Q}{4\pi\varepsilon_0r^2}\vec e_r\), comme une charge ponctuelle en son centre ; \(E=0\) et \(V=\frac{Q}{4\pi\varepsilon_0R}\) pour \(r&lt;R\).</li>
+<li><b>Cavité contenant une charge \(q\)</b> : une surface de Gauss dans le métal entourant la cavité a un flux nul, donc la surface interne porte \(-q\) : c'est l'<b>influence totale</b>. Si le conducteur est neutre, la surface externe porte \(+q\).</li>
+<li><b>Cavité vide</b> : la surface interne ne porte aucune charge, le champ y est nul et le potentiel égal à celui du conducteur. Aucune perturbation extérieure n'agit dans la cavité : c'est la <b>cage de Faraday</b>.</li>
+</ul></div>
+<figure class="fgbox"><svg class="fg" viewBox="0 0 400 250" role="img" aria-label="Charge dans une cavité d'un conducteur : influence totale" style="max-width:400px"><circle class="qg" cx="150.0" cy="125.0" r="100.0"/><circle class="ob" cx="150.0" cy="125.0" r="48.0" style="fill:var(--surface)"/><circle class="qp" cx="144.0" cy="127.0" r="6.0"/><text class="tc" x="144.0" y="113.0" text-anchor="middle" style="font-size:13px">+q</text><line class="ef" x1="152.8" y1="125.2" x2="184.3" y2="118.2"/><polygon class="efh" points="190.2,116.9 184.9,120.8 183.7,115.5"/><line class="ef" x1="150.1" y1="120.4" x2="173.3" y2="98.9"/><polygon class="efh" points="177.7,94.8 175.2,100.8 171.5,96.9"/><line class="ef" x1="145.0" y1="118.1" x2="153.0" y2="90.0"/><polygon class="efh" points="154.7,84.3 155.6,90.8 150.4,89.3"/><line class="ef" x1="139.6" y1="119.2" x2="131.7" y2="95.0"/><polygon class="efh" points="129.8,89.3 134.3,94.2 129.1,95.8"/><line class="ef" x1="135.8" y1="123.3" x2="117.7" y2="111.3"/><polygon class="efh" points="112.7,108.0 119.2,109.0 116.2,113.5"/><line class="ef" x1="135.2" y1="128.8" x2="115.7" y2="132.1"/><polygon class="efh" points="109.8,133.1 115.3,129.5 116.2,134.8"/><line class="ef" x1="137.9" y1="133.6" x2="125.8" y2="150.4"/><polygon class="efh" points="122.3,155.2 123.6,148.8 128.0,151.9"/><line class="ef" x1="143.0" y1="135.9" x2="144.9" y2="159.8"/><polygon class="efh" points="145.3,165.7 142.2,160.0 147.5,159.5"/><line class="ef" x1="148.4" y1="134.8" x2="166.3" y2="156.1"/><polygon class="efh" points="170.2,160.7 164.2,157.8 168.4,154.4"/><line class="ef" x1="152.2" y1="130.7" x2="181.6" y2="140.2"/><polygon class="efh" points="187.3,142.0 180.8,142.8 182.4,137.6"/><text class="te" x="206.7" y="123.3" text-anchor="middle" style="font-size:13px">−</text><text class="te" x="196.3" y="95.7" text-anchor="middle" style="font-size:13px">−</text><text class="te" x="173.4" y="77.0" text-anchor="middle" style="font-size:13px">−</text><text class="te" x="144.3" y="72.3" text-anchor="middle" style="font-size:13px">−</text><text class="te" x="116.7" y="82.7" text-anchor="middle" style="font-size:13px">−</text><text class="te" x="98.0" y="105.6" text-anchor="middle" style="font-size:13px">−</text><text class="te" x="93.3" y="134.7" text-anchor="middle" style="font-size:13px">−</text><text class="te" x="103.7" y="162.3" text-anchor="middle" style="font-size:13px">−</text><text class="te" x="126.6" y="181.0" text-anchor="middle" style="font-size:13px">−</text><text class="te" x="155.7" y="185.7" text-anchor="middle" style="font-size:13px">−</text><text class="te" x="183.3" y="175.3" text-anchor="middle" style="font-size:13px">−</text><text class="te" x="202.0" y="152.4" text-anchor="middle" style="font-size:13px">−</text><text class="tc" x="240.2" y="110.7" text-anchor="middle" style="font-size:13px">+</text><text class="tc" x="226.3" y="77.6" text-anchor="middle" style="font-size:13px">+</text><text class="tc" x="200.8" y="52.3" text-anchor="middle" style="font-size:13px">+</text><text class="tc" x="167.6" y="38.7" text-anchor="middle" style="font-size:13px">+</text><text class="tc" x="131.7" y="38.8" text-anchor="middle" style="font-size:13px">+</text><text class="tc" x="98.6" y="52.7" text-anchor="middle" style="font-size:13px">+</text><text class="tc" x="73.3" y="78.2" text-anchor="middle" style="font-size:13px">+</text><text class="tc" x="59.7" y="111.4" text-anchor="middle" style="font-size:13px">+</text><text class="tc" x="59.8" y="147.3" text-anchor="middle" style="font-size:13px">+</text><text class="tc" x="73.7" y="180.4" text-anchor="middle" style="font-size:13px">+</text><text class="tc" x="99.2" y="205.7" text-anchor="middle" style="font-size:13px">+</text><text class="tc" x="132.4" y="219.3" text-anchor="middle" style="font-size:13px">+</text><text class="tc" x="168.3" y="219.2" text-anchor="middle" style="font-size:13px">+</text><text class="tc" x="201.4" y="205.3" text-anchor="middle" style="font-size:13px">+</text><text class="tc" x="226.7" y="179.8" text-anchor="middle" style="font-size:13px">+</text><text class="tc" x="240.3" y="146.6" text-anchor="middle" style="font-size:13px">+</text><line class="ef" x1="245.8" y1="84.5" x2="264.2" y2="76.7"/><polygon class="efh" points="269.7,74.4 265.3,79.2 263.2,74.2"/><line class="ef" x1="189.1" y1="28.6" x2="196.6" y2="10.1"/><polygon class="efh" points="198.9,4.5 199.1,11.1 194.1,9.1"/><line class="ef" x1="109.5" y1="29.2" x2="101.7" y2="10.8"/><polygon class="efh" points="99.4,5.3 104.2,9.7 99.2,11.8"/><line class="ef" x1="53.6" y1="85.9" x2="35.1" y2="78.4"/><polygon class="efh" points="29.5,76.1 36.1,75.9 34.1,80.9"/><line class="ef" x1="54.2" y1="165.5" x2="35.8" y2="173.3"/><polygon class="efh" points="30.3,175.6 34.7,170.8 36.8,175.8"/><line class="ef" x1="110.9" y1="221.4" x2="103.4" y2="239.9"/><polygon class="efh" points="101.1,245.5 100.9,238.9 105.9,240.9"/><line class="ef" x1="190.5" y1="220.8" x2="198.3" y2="239.2"/><polygon class="efh" points="200.6,244.7 195.8,240.3 200.8,238.2"/><line class="ef" x1="246.4" y1="164.1" x2="264.9" y2="171.6"/><polygon class="efh" points="270.5,173.9 263.9,174.1 265.9,169.1"/><text class="tc" x="268.0" y="46.0" text-anchor="start" style="font-size:13px">surface externe : +q</text><text class="tx" x="268.0" y="90.0" text-anchor="start" style="font-size:13px">conducteur neutre :</text><text class="tm" x="268.0" y="107.0" text-anchor="start" style="font-size:13px">E = 0, V = cste</text><text class="te" x="268.0" y="150.0" text-anchor="start" style="font-size:13px">surface interne : −q</text><text class="tm" x="268.0" y="167.0" text-anchor="start" style="font-size:12px">(influence totale)</text></svg><figcaption>Une charge +q dans la cavité fait apparaître −q sur la surface interne (influence totale, Gauss) et +q sur la surface externe (conducteur neutre). Dans le métal, E = 0.</figcaption></figure>
+<h3 id="ch3-capa">Capacité d'un conducteur seul</h3>
+<div class="box def"><div class="bt">◆ Capacité</div>
+<div class="mq">\[C=\frac{Q}{V}>0\qquad[C]=\text{farad (F)}=\mathrm{C\,V^{-1}}\]</div>
+<p>Si on porte un conducteur seul au potentiel \(V\) (avec \(V(\infty)=0\)), il se charge de \(Q=CV\), et \(C\) ne dépend que de sa <b>géométrie</b> : si on multiplie \(V\) par \(\lambda\), toutes les densités de charge sont multipliées par \(\lambda\).</p></div>
+<div class="box thm"><div class="bt">★ Capacité d'une sphère de rayon \(R\)</div>
+<div class="mq">\[V=\frac{Q}{4\pi\varepsilon_0R}\ \Longrightarrow\ C=4\pi\varepsilon_0R\]</div>
+<p>Proportionnelle au rayon. Pour la Terre, \(C\approx0{,}7\ \mathrm{mF}\) : le farad est une très grande unité (on utilise \(\mathrm{pF}\), \(\mathrm{nF}\), \(\mu\mathrm{F}\)).</p></div>
+<div class="box thm"><div class="bt">★ Effet de pointe</div>
+<p>Deux sphères de rayons \(R_1\) et \(R_2\) reliées par un fil (très éloignées) sont au même potentiel \(V\) : \(\sigma_1=\frac{\varepsilon_0V}{R_1}\), \(\sigma_2=\frac{\varepsilon_0V}{R_2}\), d'où</p>
+<div class="mq">\[\frac{\sigma_1}{\sigma_2}=\frac{R_2}{R_1}\qquad C=C_1+C_2=4\pi\varepsilon_0(R_1+R_2)\]</div>
+<p>La densité de charge varie comme l'<b>inverse du rayon de courbure</b> : le champ \(\frac{\sigma}{\varepsilon_0}\) est très intense près des pointes (paratonnerre, foudre).</p></div>
+<h3 id="ch3-cond">Condensateurs</h3>
+<div class="box def"><div class="bt">◆ Influence partielle et totale</div>
+<ul>
+<li><b>Partielle</b> : un conducteur neutre (ou relié à la Terre) approché d'un conducteur chargé se couvre de charges de signe opposé : \(Q_2=C_{21}V_1\) avec \(C_{21}&lt;0\).</li>
+<li><b>Totale</b> : si le conducteur 2 <em>entoure</em> le conducteur 1, toutes les lignes de champ issues de 1 arrivent sur 2 : \(Q_1=-Q_{2,int}\). L'ensemble des deux armatures forme un <b>condensateur</b>.</li>
+</ul></div>
+<div class="box thm"><div class="bt">★ Capacité d'un condensateur</div>
+<div class="mq">\[Q=CU\qquad U=V_1-V_2\qquad Q=\text{charge de l'armature interne (ou positive)}\]</div>
+<p>\(C\) ne dépend que de la géométrie (et du diélectrique) ; de \(10^{-12}\ \mathrm{F}\) à \(10^{-3}\ \mathrm{F}\) environ.</p></div>
+<figure class="fgbox"><svg class="fg" viewBox="0 0 400 230" role="img" aria-label="Condensateur plan : champ uniforme entre les armatures" style="max-width:400px"><rect class="qp" x="70.0" y="150.0" width="240.0" height="12.0"/><rect class="qn" x="70.0" y="60.0" width="240.0" height="12.0"/><text class="tc" x="86.0" y="148.0" text-anchor="middle" style="font-size:13px">+</text><text class="tc" x="116.0" y="148.0" text-anchor="middle" style="font-size:13px">+</text><text class="tc" x="146.0" y="148.0" text-anchor="middle" style="font-size:13px">+</text><text class="tc" x="176.0" y="148.0" text-anchor="middle" style="font-size:13px">+</text><text class="tc" x="206.0" y="148.0" text-anchor="middle" style="font-size:13px">+</text><text class="tc" x="236.0" y="148.0" text-anchor="middle" style="font-size:13px">+</text><text class="tc" x="266.0" y="148.0" text-anchor="middle" style="font-size:13px">+</text><text class="tc" x="296.0" y="148.0" text-anchor="middle" style="font-size:13px">+</text><text class="te" x="86.0" y="90.0" text-anchor="middle" style="font-size:13px">−</text><text class="te" x="116.0" y="90.0" text-anchor="middle" style="font-size:13px">−</text><text class="te" x="146.0" y="90.0" text-anchor="middle" style="font-size:13px">−</text><text class="te" x="176.0" y="90.0" text-anchor="middle" style="font-size:13px">−</text><text class="te" x="206.0" y="90.0" text-anchor="middle" style="font-size:13px">−</text><text class="te" x="236.0" y="90.0" text-anchor="middle" style="font-size:13px">−</text><text class="te" x="266.0" y="90.0" text-anchor="middle" style="font-size:13px">−</text><text class="te" x="296.0" y="90.0" text-anchor="middle" style="font-size:13px">−</text><line class="ef" x1="95.0" y1="148.0" x2="95.0" y2="83.0"/><polygon class="efh" points="95.0,76.0 98.2,83.0 91.8,83.0"/><line class="ef" x1="135.0" y1="148.0" x2="135.0" y2="83.0"/><polygon class="efh" points="135.0,76.0 138.2,83.0 131.8,83.0"/><line class="ef" x1="175.0" y1="148.0" x2="175.0" y2="83.0"/><polygon class="efh" points="175.0,76.0 178.2,83.0 171.8,83.0"/><line class="ef" x1="215.0" y1="148.0" x2="215.0" y2="83.0"/><polygon class="efh" points="215.0,76.0 218.2,83.0 211.8,83.0"/><line class="ef" x1="255.0" y1="148.0" x2="255.0" y2="83.0"/><polygon class="efh" points="255.0,76.0 258.1,83.0 251.8,83.0"/><path class="ef" d="M68 146 C 22 138 22 84 68 76"/><path class="ef" d="M312 146 C 358 138 358 84 312 76"/><line class="ef" x1="54.0" y1="78.5" x2="61.1" y2="77.2"/><polygon class="efh" points="68.0,76.0 61.7,80.3 60.6,74.1"/><line class="ef" x1="326.0" y1="78.5" x2="318.9" y2="77.2"/><polygon class="efh" points="312.0,76.0 319.4,74.1 318.3,80.3"/><text class="tx" x="190.0" y="186.0" text-anchor="middle" style="font-size:13px">E = σ/ε<tspan dy="3.2" font-size="72%">0</tspan><tspan dy="-3.2"> entre les armatures,  E ≈ 0 à l'extérieur</tspan></text><text class="tm" x="190.0" y="206.0" text-anchor="middle" style="font-size:12px">aux bords : lignes de champ courbées (effet de bord)</text><text class="te" x="190.0" y="42.0" text-anchor="middle" style="font-size:13px">−σ  (armature 2)</text><line class="dsh" x1="385.0" y1="154.0" x2="385.0" y2="75.0"/><polygon class="efh" points="385.0,70.0 387.2,75.0 382.8,75.0"/><line class="dsh" x1="385.0" y1="70.0" x2="385.0" y2="149.0"/><polygon class="efh" points="385.0,154.0 382.8,149.0 387.2,149.0"/><text class="tx" x="393.0" y="117.0" text-anchor="start" style="font-size:13px">e</text><text class="tc" x="40.0" y="156.0" text-anchor="middle" style="font-size:13px">+σ</text></svg><figcaption>Condensateur plan : les charges +σ et −σ sont sur les faces en regard (influence totale). Le champ est uniforme entre les armatures, quasi nul à l'extérieur (sauf aux bords).</figcaption></figure>
+<div class="box method"><div class="bt">▹ Méthode : calculer une capacité</div>
+<ol>
+<li><b>Schéma</b> et repère adapté ; armatures chargées \(+Q\) et \(-Q\) (influence totale).</li>
+<li><b>Champ</b> entre les armatures (Gauss ou plans superposés) en fonction de \(Q\) ou de \(\sigma\), et nul en dehors.</li>
+<li><b>Tension</b> \(U=V_1-V_2=\int_1^2\vec E\cdot\mathrm{d}\vec l\) le long d'une ligne de champ.</li>
+<li><b>Capacité</b> \(C=\frac{Q}{U}\) : \(Q\) doit se simplifier (si elle reste, c'est une erreur).</li>
+</ol></div>
+<div class="box thm"><div class="bt">★ Condensateurs usuels</div>
+<div class="tbl-wrap s4-stack"><table>
+<tr><th>Géométrie</th><th>Champ entre les armatures</th><th>Tension \(U\)</th><th>Capacité \(C\)</th></tr>
+<tr><td data-l="Géométrie">Plan (surface \(S\), écart \(e\))</td><td data-l="Champ">\(\dfrac{\sigma}{\varepsilon_0}\vec e_z\) (uniforme)</td><td data-l="Tension">\(\dfrac{\sigma e}{\varepsilon_0}=\dfrac{Qe}{\varepsilon_0S}\)</td><td data-l="Capacité">\(\dfrac{\varepsilon_0S}{e}\)</td></tr>
+<tr><td data-l="Géométrie">Cylindrique (\(R_1&lt;R_2\), hauteur \(H\gg R_2\))</td><td data-l="Champ">\(\dfrac{Q}{2\pi\varepsilon_0Hr}\vec e_r\)</td><td data-l="Tension">\(\dfrac{Q}{2\pi\varepsilon_0H}\ln\dfrac{R_2}{R_1}\)</td><td data-l="Capacité">\(\dfrac{2\pi\varepsilon_0H}{\ln(R_2/R_1)}\)</td></tr>
+<tr><td data-l="Géométrie">Sphérique (\(R_A&lt;R_B\))</td><td data-l="Champ">\(\dfrac{Q}{4\pi\varepsilon_0r^2}\vec e_r\)</td><td data-l="Tension">\(\dfrac{Q(R_B-R_A)}{4\pi\varepsilon_0R_AR_B}\)</td><td data-l="Capacité">\(\dfrac{4\pi\varepsilon_0R_AR_B}{R_B-R_A}\)</td></tr>
+</table></div>
+<p>À \(R_2\to R_1\) (écart \(e=R_2-R_1\ll R_1\)), les deux formules cylindrique et sphérique tendent vers \(\frac{\varepsilon_0S}{e}\) avec \(S\) l'aire d'une armature : on retrouve le condensateur plan.</p></div>
+<h3 id="ch3-energie">Énergie d'un condensateur</h3>
+<div class="box thm"><div class="bt">★ Énergie stockée</div>
+<div class="mq">\[W_E=\frac12\,Q\,U=\frac12\,C\,U^2=\frac{Q^2}{2C}\]</div>
+<p>C'est l'énergie libérée à la décharge (on ramène \(U\) à zéro). Pour le condensateur plan : \(W_E=\frac12\frac{\varepsilon_0S}{e}(Ee)^2=\frac12\varepsilon_0E^2\times(Se)\) : une <b>densité volumique</b> \(\frac12\varepsilon_0E^2\) dans le volume entre les armatures.</p></div>
+<div class="box warn"><div class="bt">⚠ Charge constante ou tension constante ?</div><p>Condensateur <b>isolé</b> : \(Q\) constante. Si on écarte les armatures, \(C\) diminue, \(U=\frac QC\) et \(W_E=\frac{Q^2}{2C}\) augmentent (l'opérateur fournit un travail), le champ \(\frac{\sigma}{\varepsilon_0}\) ne change pas. Condensateur <b>branché</b> sur un générateur : c'est \(U\) qui est constante. Toujours dire laquelle des deux est fixée avant de calculer.</p></div>
+<div class="box ex corr-link"><div class="bt">✅ S'entraîner</div><p>Les 6 exercices du TD4 (deux sphères reliées, condensateurs plan, cylindrique, sphérique, disques, annale à trois cylindres) sont corrigés : <a href="corriges.html#td4">voir les corrigés du TD4</a>. Formules : <a href="formules.html#f-cond">conducteurs et condensateurs</a>.</p></div>
+</div>
+</article>
+<!-- CH3:FIN -->
 </div>
 </div>
 </div>
@@ -190,7 +442,7 @@
 <div class="foot">
 <div class="wrap">
 <span>Électromagnétisme · ECE ING2 \(\cdot \,S_{3}\,2026-2027\)</span>
-<span><a href="index.html">Accueil</a> · <a href="interro-s40.html">Interro S40</a> · <a href="corriges.html">TD corrigés</a></span>
+<span><a href="index.html">Accueil</a> · <a href="revision-ds.html">Révision DS</a> · <a href="cours.html">Cours</a> · <a href="formules.html">Formules</a> · <a href="corriges.html">TD corrigés</a> · <a href="quiz.html">Quiz</a></span>
 </div>
 </div>
 <a aria-label="Revenir en haut de la page" class="cx-top" href="#">↑</a>

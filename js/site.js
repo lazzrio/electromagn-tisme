@@ -116,19 +116,25 @@
   window.addEventListener("hashchange", ouvrirAdresse);
   ouvrirAdresse();
 
-  /* ---------- compte à rebours (accueil) ---------- */
-  var JALONS = [
-    { d: new Date(2026, 8, 28, 8, 0, 0), t: "jours avant l'interro surprise de la semaine 40 (en TD)" },
-    { d: new Date(2026, 9, 17, 11, 0, 0), t: "jours avant l'évaluation du samedi 17 octobre (11 h)" },
-    { d: new Date(2026, 11, 14, 8, 0, 0), t: "jours avant la semaine des partiels (14 décembre)" }
-  ];
-  var cd = document.getElementById("countdown"), cdl = document.getElementById("countdownLbl");
-  if (cd) {
-    var now = new Date(), cible = null;
-    for (var i = 0; i < JALONS.length; i++) { if (JALONS[i].d > now) { cible = JALONS[i]; break; } }
-    if (cible) { cd.textContent = Math.max(0, Math.ceil((cible.d - now) / 864e5)); if (cdl) cdl.textContent = cible.t; }
+  /* ---------- compte à rebours (accueil) : date de DS réglable, sinon semaine des partiels ---------- */
+  var PARTIELS = { d: new Date(2026, 11, 14, 8, 0, 0), t: "jours avant la semaine des partiels (14 décembre)" };
+  var cd = document.getElementById("countdown"), cdl = document.getElementById("countdownLbl"), cdi = document.getElementById("dsDate");
+  function compte_rebours() {
+    if (!cd) return;
+    var now = new Date(), cible = PARTIELS, perso = lire("em_ds_date", "");
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(perso || "");
+    if (m) {
+      var d = new Date(+m[1], +m[2] - 1, +m[3], 8, 0, 0);
+      if (d > now) cible = { d: d, t: "jours avant ton DS" };
+    }
+    if (cible.d > now) { cd.textContent = Math.max(0, Math.ceil((cible.d - now) / 864e5)); if (cdl) cdl.textContent = cible.t; }
     else { cd.textContent = "✓"; if (cdl) cdl.textContent = "évaluations du semestre terminées"; }
   }
+  if (cdi) {
+    cdi.value = lire("em_ds_date", "") || "";
+    cdi.addEventListener("change", function () { ecrire("em_ds_date", cdi.value); compte_rebours(); });
+  }
+  compte_rebours();
 
   /* ---------- hors ligne ---------- */
   if ("serviceWorker" in navigator && location.protocol === "https:") {

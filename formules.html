@@ -31,13 +31,12 @@
     </a>
 <nav aria-label="Navigation principale" class="nav" id="nav">
 <a href="index.html">Accueil</a>
-<a class="nav-hot" href="ds1-complet.html">📝 DS1 rédigé</a>
-🚨 Interro S40</a>
+<a class="nav-hot" href="revision-ds.html">🎯 Révision DS</a>
 <a href="cours.html">📚 Cours</a>
 <a aria-current="page" class="active" href="formules.html">📘 Formules</a>
-<a href="ds1.html">🎯 DS1</a>
 <a href="corriges.html">✅ TD corrigés</a>
 <a href="quiz.html">🧠 Quiz</a>
+<a href="ds1-complet.html">📝 DS1</a>
 </nav>
 <button aria-label="Changer de thème" class="theme-btn" id="themeBtn" title="Thème clair / sombre">
 <svg fill="none" id="thIcon" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"></svg>
@@ -59,6 +58,10 @@
 <a href="#f-flux">Flux et circulation</a>
 <a href="#f-charges">Charges</a>
 <a href="#f-integ">Intégrales utiles</a>
+<a href="#f-coulomb">Coulomb et champ</a>
+<a href="#f-gauss">Symétries et Gauss</a>
+<a href="#f-pot">Potentiel et énergie</a>
+<a href="#f-cond">Conducteurs et condensateurs</a>
 <a href="#f-express">Express</a>
 </nav>
 <section class="fgroup" id="f-coord">
@@ -103,7 +106,7 @@
 <div class="frow"><div class="fx">\(\mathrm{d}q=\sigma\,\mathrm{d}S\qquad Q=\iint_S\sigma\,\mathrm{d}S\)</div><div class="fd"><span class="nm">Distribution surfacique</span>. \(\sigma\) en <span class="unit">\(\mathrm{C}\cdot \,\mathrm{m}^{-2}\)</span>. Uniforme : \(Q=\sigma S\).</div></div>
 <div class="frow"><div class="fx">\(\mathrm{d}q=\rho\,\mathrm{d}\tau\qquad Q=\iiint_V\rho\,\mathrm{d}\tau\)</div><div class="fd"><span class="nm">Distribution volumique</span>. \(\rho\) en <span class="unit">\(\mathrm{C}\cdot \,\mathrm{m}^{-3}\)</span>. Uniforme : \(Q=\rho V\).</div></div>
 <div class="frow"><div class="fx">\(Q=\int_0^R\rho(r)\,4\pi r^2\,\mathrm{d}r\)</div><div class="fd"><span class="nm">Symétrie sphérique</span> : \(\rho\) ne dépend que de \(r\), les angles donnent \(4\pi\). En cylindrique : \(\int_0^R\rho(r)\,2\pi rh\,\mathrm{d}r\).</div></div>
-<div class="frow"><div class="fx">\(\vec F=\frac{1}{4\pi\varepsilon_0}\frac{q_1q_2}{r^2}\vec u\qquad\varepsilon_0=8{,}85\times10^{-12}\ \text{F·m}^{-1}\)</div><div class="fd"><span class="nm">Loi de Coulomb</span> (suite du Ch1). \(\frac{1}{4\pi\varepsilon_0}\approx9\times10^9\) SI. <span class="cond">si vu en amphi</span></div></div>
+<div class="frow"><div class="fx">\(\vec F=\frac{1}{4\pi\varepsilon_0}\frac{q_1q_2}{r^2}\vec u\qquad\varepsilon_0=8{,}85\times10^{-12}\ \text{F}\cdot \text{m}^{-1}\)</div><div class="fd"><span class="nm">Loi de Coulomb</span> (suite du Ch1). \(\frac{1}{4\pi\varepsilon_0}\approx9\times10^9\) SI. <span class="cond">si vu en amphi</span></div></div>
 </section>
 <section class="fgroup" id="f-integ">
 <h2>Intégrales qui reviennent</h2>
@@ -114,6 +117,56 @@
 <div class="frow"><div class="fx">\(\int_{-a}^{a}f=0\ \text{si } f \text{ impaire}\)</div><div class="fd"><span class="nm">Symétrie</span> : un facteur \(z\), \(x\), \(\sin\)… sur un intervalle symétrique annule l'intégrale.</div></div>
 <div class="frow"><div class="fx">\(\int_0^{2\pi}\varphi\,\mathrm{d}\varphi=2\pi^2\qquad\int_0^R r^n\,\mathrm{d}r=\frac{R^{n+1}}{n+1}\)</div><div class="fd"><span class="nm">Puissances</span>.</div></div>
 </section>
+<section class="fgroup" id="f-coulomb">
+<h2>Loi de Coulomb et champ électrostatique</h2>
+<div class="frow"><div class="fx">\(\vec F_{1\to2}=\dfrac{q_1q_2}{4\pi\varepsilon_0\,d^2}\,\vec u_{12}\)</div><div class="fd"><span class="nm">Force de Coulomb</span>. \(\vec u_{12}\) unitaire orienté de \(q_1\) vers \(q_2\) ; \(\vec F_{2\to1}=-\vec F_{1\to2}\). Même signe : répulsion ; signes opposés : attraction. <span class="unit">\(\mathrm{N}\)</span> <span class="cond">charges ponctuelles fixes</span></div></div>
+<div class="frow"><div class="fx">\(\dfrac1{4\pi\varepsilon_0}\approx9\times10^{9}\ \ ;\ \ \varepsilon_0\approx8{,}85\times10^{-12}\)</div><div class="fd"><span class="nm">Constantes</span>. \(K=\frac1{4\pi\varepsilon_0}\) en \(\mathrm{N\,m^2\,C^{-2}}\) ; \(\varepsilon_0\) permittivité du vide. <span class="unit">\(\mathrm{F\,m^{-1}}\)</span></div></div>
+<div class="frow"><div class="fx">\(\vec E(M)=\dfrac{q}{4\pi\varepsilon_0\,PM^2}\,\vec u=\dfrac{q}{4\pi\varepsilon_0}\dfrac{\overrightarrow{PM}}{PM^3}\)</div><div class="fd"><span class="nm">Champ d'une charge ponctuelle en \(P\)</span>. \(\vec F=q\,\vec E\). Fuyant si \(q&gt;0\), rentrant si \(q&lt;0\). <span class="unit">\(\mathrm{V\,m^{-1}}\)</span> <span class="cond">défini partout sauf sur la charge</span></div></div>
+<div class="frow"><div class="fx">\(\vec E(M)=\sum_i\dfrac{q_i}{4\pi\varepsilon_0}\dfrac{\overrightarrow{P_iM}}{P_iM^3}\)</div><div class="fd"><span class="nm">Superposition (charges discrètes)</span>. Somme <b>vectorielle</b> ; les scalaires ne s'additionnent qu'après projection dans une base. <span class="unit">\(\mathrm{V\,m^{-1}}\)</span></div></div>
+<div class="frow"><div class="fx">\(\vec E(M)=\displaystyle\int\dfrac{\mathrm{d}q}{4\pi\varepsilon_0}\dfrac{\overrightarrow{PM}}{PM^3}\)</div><div class="fd"><span class="nm">Distribution continue</span>. \(\mathrm{d}q=\lambda\,\mathrm{d}l\), \(\sigma\,\mathrm{d}S\) ou \(\rho\,\mathrm{d}\tau\). <span class="unit">\(\mathrm{V\,m^{-1}}\)</span> <span class="cond">non défini sur le fil ou la surface chargés</span></div></div>
+<div class="frow"><div class="fx">\(E_z=\dfrac{\sigma}{2\varepsilon_0}\Big(1-\dfrac{z}{\sqrt{z^2+R^2}}\Big)\)</div><div class="fd"><span class="nm">Disque uniforme, sur l'axe</span>. \(z\gg R\to\frac{Q}{4\pi\varepsilon_0z^2}\) (charge ponctuelle) ; \(R\gg z\to\frac\sigma{2\varepsilon_0}\) (plan infini). <span class="unit">\(\mathrm{V\,m^{-1}}\)</span> <span class="cond">\(z&gt;0\)</span></div></div>
+<div class="frow"><div class="fx">\(E_r=\dfrac{\lambda L}{2\pi\varepsilon_0r\sqrt{4r^2+L^2}}\)</div><div class="fd"><span class="nm">Fil fini de longueur \(L\), sur la médiatrice</span>. \(E_z=0\) ; limite \(L\to\infty\) : \(\frac{\lambda}{2\pi\varepsilon_0r}\). <span class="unit">\(\mathrm{V\,m^{-1}}\)</span></div></div>
+</section>
+<section class="fgroup" id="f-gauss">
+<h2>Symétries, invariances et théorème de Gauss</h2>
+<div class="frow"><div class="fx">un plan de symétrie par \(M\) \(\Rightarrow\vec E\in\) plan ; deux \(\Rightarrow\vec E\) selon l'intersection ; trois \(\Rightarrow\vec E=\vec0\)</div><div class="fd"><span class="nm">Plans de symétrie</span>. Plans passant par \(M\) et contenant la distribution (ou son miroir identique). <span class="cond">charges identiques en miroir</span></div></div>
+<div class="frow"><div class="fx">un plan d'antisymétrie par \(M\) \(\Rightarrow\vec E\perp\) plan ; deux \(\Rightarrow\vec E=\vec0\)</div><div class="fd"><span class="nm">Plans d'antisymétrie</span>. Charges opposées en miroir (doublet : le plan médiateur est d'antisymétrie).</div></div>
+<div class="frow"><div class="fx">\(E=E(r)\ \text{(sphère, cylindre infini)}\qquad E=E(z)\ \text{(plan infini)}\)</div><div class="fd"><span class="nm">Invariances</span>. On fait varier <b>une seule</b> coordonnée de \(M\) ; si \(E\) ne change pas, il n'en dépend pas.</div></div>
+<div class="frow"><div class="fx">\(\Phi=\oiint_{S_G}\vec E\cdot\vec n\,\mathrm{d}S=\dfrac{Q_{int}}{\varepsilon_0}\)</div><div class="fd"><span class="nm">Théorème de Gauss</span>. \(S_G\) fermée, fictive, orientée vers l'extérieur, passant par \(M\) ; \(Q_{int}\) : charge <b>à l'intérieur</b> de \(S_G\). <span class="unit">\(\mathrm{V\,m}\)</span> <span class="cond">direction unique de \(\vec E\), norme à une seule variable</span></div></div>
+<div class="frow"><div class="fx">\(\Phi=4\pi r^2E\ \ (\text{sphère})\qquad\Phi=2\pi rhE\ \ (\text{cylindre, bases à flux nul})\)</div><div class="fd"><span class="nm">Flux utiles</span>. Plan infini : cylindre traversant le plan, flux \(2SE\).</div></div>
+<div class="frow"><div class="fx">\(\dfrac{q}{4\pi\varepsilon_0r^2}\ ;\ \ \dfrac{\lambda}{2\pi\varepsilon_0r}\ ;\ \ \dfrac{\rho_0r}{3\varepsilon_0}\ \text{puis}\ \dfrac{\rho_0R^3}{3\varepsilon_0r^2}\)</div><div class="fd"><span class="nm">Sphères et fil</span>. Charge ponctuelle ; fil infini ; sphère pleine (\(r&lt;R\) puis \(r&gt;R\)). <span class="unit">\(\mathrm{V\,m^{-1}}\)</span></div></div>
+<div class="frow"><div class="fx">\(\dfrac{\rho_0r}{2\varepsilon_0}\ \text{puis}\ \dfrac{\rho_0R^2}{2\varepsilon_0r}\ ;\ \ 0\ \text{puis}\ \dfrac{\sigma_0R}{\varepsilon_0r}\ ;\ \ \dfrac{\sigma}{2\varepsilon_0}\)</div><div class="fd"><span class="nm">Cylindres et plan</span>. Cylindre infini plein ; cylindre infini en surface ; plan infini (\(\pm\) selon le signe de \(z\)). <span class="unit">\(\mathrm{V\,m^{-1}}\)</span></div></div>
+<div class="frow"><div class="fx">\(\Delta E_\perp=\dfrac{\sigma}{\varepsilon_0}\)</div><div class="fd"><span class="nm">Traversée d'une charge surfacique</span>. La composante normale de \(\vec E\) saute de \(\sigma/\varepsilon_0\) ; \(E\) est continu à la traversée d'une charge en volume. <span class="unit">\(\mathrm{V\,m^{-1}}\)</span></div></div>
+</section>
+<section class="fgroup" id="f-pot">
+<h2>Potentiel et énergie</h2>
+<div class="frow"><div class="fx">\(V_A-V_B=\displaystyle\int_A^B\vec E\cdot\mathrm{d}\vec l\ \ \Longleftrightarrow\ \ \mathrm{d}V=-\vec E\cdot\mathrm{d}\vec l\)</div><div class="fd"><span class="nm">Définition du potentiel</span>. La circulation de \(\vec E\) ne dépend pas du chemin ; \(\oint\vec E\cdot\mathrm{d}\vec l=0\). \(V\) est défini à une constante près. <span class="unit">\(\mathrm{V}\)</span> <span class="cond">régime stationnaire</span></div></div>
+<div class="frow"><div class="fx">\(\vec E=-\overrightarrow{\mathrm{grad}}\,V\ \ ;\ \ E_r=-\dfrac{\partial V}{\partial r},\ E_\theta=-\dfrac1r\dfrac{\partial V}{\partial\theta}\)</div><div class="fd"><span class="nm">Champ de gradient</span>. \(\vec E\) pointe vers les potentiels décroissants ; les équipotentielles sont orthogonales aux lignes de champ. <span class="unit">\(\mathrm{V\,m^{-1}}\)</span></div></div>
+<div class="frow"><div class="fx">\(V(M)=\dfrac{q}{4\pi\varepsilon_0\,r}\ \ ;\ \ V(M)=\displaystyle\int\dfrac{\mathrm{d}q}{4\pi\varepsilon_0\,PM}\)</div><div class="fd"><span class="nm">Potentiel de charges (additif)</span>. Potentiel nul à l'infini ; \(\mathrm{d}q=\lambda\,\mathrm{d}l\), \(\sigma\,\mathrm{d}S\) ou \(\rho\,\mathrm{d}\tau\). <span class="unit">\(\mathrm{V}\)</span> <span class="cond">distribution finie, \(V(\infty)=0\)</span></div></div>
+<div class="frow"><div class="fx">\(V(r)=V_0-\dfrac{\lambda}{2\pi\varepsilon_0}\ln\dfrac{r}{R_0}\)</div><div class="fd"><span class="nm">Fil infini</span>. Référence \(V(R_0)=V_0\). Même forme pour un cylindre en surface avec \(\lambda=2\pi R\sigma\) (\(r&gt;R\)). <span class="unit">\(\mathrm{V}\)</span> <span class="cond">pas de \(V(\infty)=0\)</span></div></div>
+<div class="frow"><div class="fx">\(V=\dfrac{\sigma R}{\varepsilon_0}\ (r&lt;R)\ ;\ \dfrac{\sigma R^2}{\varepsilon_0r}\ (r&gt;R)\)</div><div class="fd"><span class="nm">Sphère chargée en surface</span>. Potentiel constant à l'intérieur (champ nul), continu en \(R\). <span class="unit">\(\mathrm{V}\)</span></div></div>
+<div class="frow"><div class="fx">\(V=\dfrac{\rho(3R^2-r^2)}{6\varepsilon_0}\ (r&lt;R)\ ;\ \dfrac{\rho R^3}{3\varepsilon_0r}\ (r&gt;R)\)</div><div class="fd"><span class="nm">Sphère chargée en volume</span>. Maximum au centre : \(\frac{\rho R^2}{2\varepsilon_0}\). Continu en \(R\). <span class="unit">\(\mathrm{V}\)</span></div></div>
+<div class="frow"><div class="fx">\(V=V_0-\dfrac{\sigma|z|}{2\varepsilon_0}\)</div><div class="fd"><span class="nm">Plan infini</span>. Référence \(V(0)=V_0\). <span class="unit">\(\mathrm{V}\)</span></div></div>
+<div class="frow"><div class="fx">\(V=\dfrac{qd\cos\theta}{4\pi\varepsilon_0r^2}\)</div><div class="fd"><span class="nm">Dipôle \(\{-q,+q\}\)</span>. \(p=qd\) moment dipolaire ; champ \(E_r=\frac{2p\cos\theta}{4\pi\varepsilon_0r^3}\), \(E_\theta=\frac{p\sin\theta}{4\pi\varepsilon_0r^3}\). <span class="unit">\(\mathrm{V}\)</span> <span class="cond">\(r\gg d\)</span></div></div>
+<div class="frow"><div class="fx">\(W_{AB}=q(V_A-V_B)=E_p(A)-E_p(B)\ \ ;\ \ E_p=qV+\text{cste}\)</div><div class="fd"><span class="nm">Travail et énergie potentielle</span>. La force de Coulomb est conservative. \(1\ \mathrm{eV}=1{,}6\times10^{-19}\ \mathrm{J}\). <span class="unit">\(\mathrm{J}\)</span></div></div>
+<div class="frow"><div class="fx">\(E_p=\dfrac{q_1q_2}{4\pi\varepsilon_0\,r_{12}}\)</div><div class="fd"><span class="nm">Énergie d'interaction de deux charges</span>. Travail de l'opérateur qui amène les charges depuis l'infini. \(&gt;0\) pour des charges de même signe. <span class="unit">\(\mathrm{J}\)</span></div></div>
+</section>
+<!-- F3:DEBUT -->
+<section class="fgroup" id="f-cond">
+<h2>Conducteurs et condensateurs</h2>
+<div class="frow"><div class="fx">\(I=\displaystyle\iint\vec j\cdot\vec n\,\mathrm{d}S\ \ ;\ \ \vec j=\rho\vec v\ \ ;\ \ \vec j=\gamma\vec E\)</div><div class="fd"><span class="nm">Courant et loi d'Ohm locale</span>. \(\gamma=\frac{ne^2\tau}{m_e}\) (Drude). \(\gamma\) diminue quand \(T\) augmente (métal). <span class="unit">\(\mathrm{A},\ \mathrm{A\,m^{-2}},\ \mathrm{S\,m^{-1}}\)</span></div></div>
+<div class="frow"><div class="fx">\(U=RI\ \ ;\ \ R=\dfrac{\ell}{\gamma s}\)</div><div class="fd"><span class="nm">Résistance d'un fil</span>. Section \(s\), longueur \(\ell\), courant uniforme et axial. <span class="unit">\(\Omega\)</span></div></div>
+<div class="frow"><div class="fx">\(\vec E_{int}=\vec0\ \ ;\ \ V=\text{cste}\ \ ;\ \ \rho_{int}=0\)</div><div class="fd"><span class="nm">Conducteur à l'équilibre</span>. La charge est à la surface ; le conducteur est un volume équipotentiel. <span class="cond">équilibre électrostatique</span></div></div>
+<div class="frow"><div class="fx">\(\vec E_{ext}=\dfrac{\sigma}{\varepsilon_0}\,\vec n_{ext}\)</div><div class="fd"><span class="nm">Théorème de Coulomb</span>. Champ au voisinage immédiat de la surface, normal à celle-ci. <span class="unit">\(\mathrm{V\,m^{-1}}\)</span> <span class="cond">surface d'un conducteur (pas \(\frac{\sigma}{2\varepsilon_0}\))</span></div></div>
+<div class="frow"><div class="fx">\(C=\dfrac{Q}{V}\ \ ;\ \ C_{sph}=4\pi\varepsilon_0R\)</div><div class="fd"><span class="nm">Capacité d'un conducteur seul</span>. \(V(\infty)=0\). <span class="unit">\(\mathrm{F}\)</span></div></div>
+<div class="frow"><div class="fx">\(\dfrac{\sigma_1}{\sigma_2}=\dfrac{R_2}{R_1}\ \ ;\ \ C=4\pi\varepsilon_0(R_1+R_2)\)</div><div class="fd"><span class="nm">Deux sphères reliées (effet de pointe)</span>. Même potentiel ; \(\sigma\) varie comme \(\frac1R\). <span class="cond">sphères éloignées</span></div></div>
+<div class="frow"><div class="fx">\(Q=CU\ \ ;\ \ U=V_1-V_2=\displaystyle\int_1^2\vec E\cdot\mathrm{d}\vec l\)</div><div class="fd"><span class="nm">Condensateur</span>. \(+Q\) sur l'armature de potentiel \(V_1\), \(-Q\) sur l'autre (influence totale). <span class="unit">\(\mathrm{C},\ \mathrm{V}\)</span></div></div>
+<div class="frow"><div class="fx">\(C=\dfrac{\varepsilon_0S}{e}\)</div><div class="fd"><span class="nm">Condensateur plan</span>. \(E=\frac{\sigma}{\varepsilon_0}\) entre les armatures, nul dehors. <span class="unit">\(\mathrm{F}\)</span> <span class="cond">\(e\ll\sqrt S\) (effets de bord négligés)</span></div></div>
+<div class="frow"><div class="fx">\(C=\dfrac{2\pi\varepsilon_0H}{\ln(R_2/R_1)}\)</div><div class="fd"><span class="nm">Condensateur cylindrique</span>. \(E=\frac{Q}{2\pi\varepsilon_0Hr}\) pour \(R_1&lt;r&lt;R_2\). <span class="unit">\(\mathrm{F}\)</span> <span class="cond">\(H\gg R_2\)</span></div></div>
+<div class="frow"><div class="fx">\(C=\dfrac{4\pi\varepsilon_0R_AR_B}{R_B-R_A}\)</div><div class="fd"><span class="nm">Condensateur sphérique</span>. \(E=\frac{Q}{4\pi\varepsilon_0r^2}\) pour \(R_A&lt;r&lt;R_B\). <span class="unit">\(\mathrm{F}\)</span></div></div>
+<div class="frow"><div class="fx">\(W_E=\dfrac12QU=\dfrac12CU^2=\dfrac{Q^2}{2C}\)</div><div class="fd"><span class="nm">Énergie d'un condensateur</span>. Densité volumique \(\frac12\varepsilon_0E^2\). <span class="unit">\(\mathrm{J}\)</span> <span class="cond">préciser \(Q\) ou \(U\) constant</span></div></div>
+</section>
+<!-- F3:FIN -->
 <section class="fgroup" id="f-express">
 <h2>Version express</h2>
 <div class="express">
@@ -136,6 +189,16 @@
 <div class="ei"><span class="nm">Sphère</span><span class="vl">\(V=\frac{4\pi R^{3}}{3}\,\cdot \,S=4\pi R^{2}\)</span></div>
 <div class="ei"><span class="nm">Disque</span><span class="vl">\(\pi R^{2}\)</span></div>
 </div>
+<!-- F3EXP:DEBUT -->
+<div class="eg"><h4>Conducteurs</h4>
+<div class="ei"><span class="nm">Coulomb</span><span class="vl">\(\vec E=\frac{\sigma}{\varepsilon_0}\vec n_{ext}\)</span></div>
+<div class="ei"><span class="nm">Sphère</span><span class="vl">\(C=4\pi\varepsilon_0R\)</span></div>
+<div class="ei"><span class="nm">Plan</span><span class="vl">\(C=\frac{\varepsilon_0S}{e}\)</span></div>
+<div class="ei"><span class="nm">Cylindre</span><span class="vl">\(C=\frac{2\pi\varepsilon_0H}{\ln(R_2/R_1)}\)</span></div>
+<div class="ei"><span class="nm">Sphères</span><span class="vl">\(C=\frac{4\pi\varepsilon_0R_AR_B}{R_B-R_A}\)</span></div>
+<div class="ei"><span class="nm">Énergie</span><span class="vl">\(W=\frac12CU^2=\frac{Q^2}{2C}\)</span></div>
+</div>
+<!-- F3EXP:FIN -->
 <div class="eg"><h4>Charges</h4>
 <div class="ei"><span class="nm">\(\lambda\)</span><span class="vl">\(\frac{C}{m}\,\cdot \,Q=\int \lambda \,\mathrm{d}l\)</span></div>
 <div class="ei"><span class="nm">\(\sigma\)</span><span class="vl">\(\frac{C}{m^{2}}\,\cdot \,Q=\iint \sigma \,\mathrm{d}S\)</span></div>
@@ -148,6 +211,22 @@
 <div class="ei"><span class="nm">\(\int _{0}^{2}\pi \,\sin ,\,\allowbreak \cos\)</span><span class="vl">\(0\)</span></div>
 <div class="ei"><span class="nm">\(\int \,\sin \,\theta \,\cos \,\theta\)</span><span class="vl">\(\sin ^{2}\,\theta \,/\,2\)</span></div>
 </div>
+<div class="eg"><h4>Coulomb, Gauss</h4>
+<div class="ei"><span class="nm">\(\vec E\) ponctuelle</span><span class="vl">\(\frac{q}{4\pi\varepsilon_0r^2}\vec e_r\)</span></div>
+<div class="ei"><span class="nm">Gauss</span><span class="vl">\(\oiint\vec E\cdot\mathrm{d}\vec S=\frac{Q_{int}}{\varepsilon_0}\)</span></div>
+<div class="ei"><span class="nm">fil infini</span><span class="vl">\(\frac{\lambda}{2\pi\varepsilon_0r}\)</span></div>
+<div class="ei"><span class="nm">plan infini</span><span class="vl">\(\frac{\sigma}{2\varepsilon_0}\)</span></div>
+<div class="ei"><span class="nm">sphère \(\rho\), \(r&lt;R\)</span><span class="vl">\(\frac{\rho r}{3\varepsilon_0}\)</span></div>
+<div class="ei"><span class="nm">cylindre \(\rho\), \(r&lt;R\)</span><span class="vl">\(\frac{\rho r}{2\varepsilon_0}\)</span></div>
+</div>
+<div class="eg"><h4>Potentiel, énergie</h4>
+<div class="ei"><span class="nm">définition</span><span class="vl">\(\mathrm{d}V=-\vec E\cdot\mathrm{d}\vec l\)</span></div>
+<div class="ei"><span class="nm">\(\vec E\)</span><span class="vl">\(-\overrightarrow{\mathrm{grad}}\,V\)</span></div>
+<div class="ei"><span class="nm">\(V\) ponctuelle</span><span class="vl">\(\frac{q}{4\pi\varepsilon_0r}\)</span></div>
+<div class="ei"><span class="nm">\(V\) fil infini</span><span class="vl">\(V_0-\frac{\lambda}{2\pi\varepsilon_0}\ln\frac{r}{R_0}\)</span></div>
+<div class="ei"><span class="nm">dipôle</span><span class="vl">\(\frac{qd\cos\theta}{4\pi\varepsilon_0r^2}\)</span></div>
+<div class="ei"><span class="nm">\(E_p\)</span><span class="vl">\(qV\ ;\ \frac{q_1q_2}{4\pi\varepsilon_0r_{12}}\)</span></div>
+</div>
 </div>
 </section>
 </div>
@@ -155,7 +234,7 @@
 <div class="foot">
 <div class="wrap">
 <span>Électromagnétisme · ECE ING2 \(\cdot \,S_{3}\,2026-2027\)</span>
-<span><a href="index.html">Accueil</a> · <a href="interro-s40.html">Interro S40</a> · <a href="corriges.html">TD corrigés</a></span>
+<span><a href="index.html">Accueil</a> · <a href="revision-ds.html">Révision DS</a> · <a href="cours.html">Cours</a> · <a href="formules.html">Formules</a> · <a href="corriges.html">TD corrigés</a> · <a href="quiz.html">Quiz</a></span>
 </div>
 </div>
 <a aria-label="Revenir en haut de la page" class="cx-top" href="#">↑</a>

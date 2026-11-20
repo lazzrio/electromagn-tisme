@@ -31,13 +31,12 @@
     </a>
 <nav aria-label="Navigation principale" class="nav" id="nav">
 <a aria-current="page" class="active" href="index.html">Accueil</a>
-<a class="nav-hot" href="ds1-complet.html">📝 DS1 rédigé</a>
-🚨 Interro S40</a>
+<a class="nav-hot" href="revision-ds.html">🎯 Révision DS</a>
 <a href="cours.html">📚 Cours</a>
 <a href="formules.html">📘 Formules</a>
-<a href="ds1.html">🎯 DS1</a>
 <a href="corriges.html">✅ TD corrigés</a>
 <a href="quiz.html">🧠 Quiz</a>
+<a href="ds1-complet.html">📝 DS1</a>
 </nav>
 <button aria-label="Changer de thème" class="theme-btn" id="themeBtn" title="Thème clair / sombre">
 <svg fill="none" id="thIcon" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"></svg>
@@ -52,17 +51,17 @@
 <div>
 <span class="eyebrow">ING2 · Électromagnétisme · Semestre 3</span>
 <h1>Champs, charges <em>et flux</em>.</h1>
-<p class="lead">Le cours d'électromagnétisme réécrit pas à pas, toutes les formules avec leurs unités, les TD corrigés en détail, une fiche pour l'interro de la semaine 40 et un quiz pour s'entraîner.</p>
+<p class="lead">Le cours d'électromagnétisme réécrit pas à pas (outils mathématiques, électrostatique, potentiel), toutes les formules avec leurs unités, les TD corrigés en détail, une fiche de révision du DS et un quiz pour s'entraîner.</p>
 <div class="hero-cta">
-<a class="btn btn-primary" href="interro-s40.html">🚨 Réviser l'interro \(S_{40}\to\)</a>
-<a class="btn btn-ghost" href="ds1.html">🎯 Fiche DS1</a>
+<a class="btn btn-primary" href="revision-ds.html">🎯 Réviser le DS →</a>
 <a class="btn btn-ghost" href="cours.html">📚 Le cours</a>
 <a class="btn btn-ghost" href="corriges.html">✅ TD corrigés</a>
+<a class="btn btn-ghost" href="quiz.html">🧠 Quiz</a>
 </div>
 <div class="hero-meta">
-<div><div class="n">2</div><div class="l">Chapitres</div></div>
-<div><div class="n">23</div><div class="l">Fiches corrigées</div></div>
-<div><div class="n">50</div><div class="l">Questions de quiz</div></div>
+<div><div class="n">4</div><div class="l">Chapitres</div></div>
+<div><div class="n">36</div><div class="l">Fiches corrigées</div></div>
+<div><div class="n">114</div><div class="l">Questions de quiz</div></div>
 </div>
 </div>
 <div class="panel">
@@ -70,9 +69,9 @@
 <div class="count-big" id="countdown">—</div>
 <div id="countdownLbl" style="font-family:var(--f-mono);font-size:13px;color:var(--muted);margin-top:4px">jours avant la prochaine évaluation</div>
 <div class="dates">
-<div><b>Semaine 40</b><span>Interro surprise en TD : Ch0, TD0, Ch1 partie \(A\), TD1</span></div>
-<div><b>Sam. 17 oct.</b><span>Évaluation intermédiaire, \(11\,\mathrm{h}-12\,\mathrm{h}\,30\)</span></div>
+<div><b>Mon DS</b><span><input aria-label="Date de mon DS" id="dsDate" type="date"/> <small>à régler (mémorisée sur cet appareil)</small></span></div>
 <div><b>14 déc.</b><span>Semaine des partiels</span></div>
+<div><b>Passé</b><span>Interro S40 et évaluation du 17 oct. (pages DS1)</span></div>
 </div>
 </div>
 </div>
@@ -80,17 +79,18 @@
 <div class="wrap">
 <div class="section-head">
 <span class="eyebrow">Navigation</span>
-<h2>Six espaces pour réviser</h2>
-<p>Le cours pour comprendre, les formules pour retenir, les TD corrigés pour savoir calculer, la fiche d'interro pour aller à l'essentiel et le quiz pour vérifier.</p>
+<h2>Tout pour réviser le DS</h2>
+<p>La fiche de révision pour aller à l'essentiel, le cours pour comprendre, les formules pour retenir, les TD corrigés pour savoir calculer et le quiz pour vérifier.</p>
 </div>
 <div class="card-grid">
+<a class="card" href="revision-ds.html"><div class="ic">🎯</div><h3>Révision DS : Ch0, Ch1, Ch2</h3><p>Checklist « je sais faire », formules par cœur, que faire devant une question, méthodes, pièges, questions de cours.</p><span class="tag">Tout ce qu'il faut savoir →</span></a>
 <a class="card" href="ds1-complet.html"><div class="ic">📝</div><h3>DS1 rédigé comme en partiel</h3><p>TD0, TD1, TD2, TD2bis et annales rédigés comme en partiel, théorèmes cités, schémas 2D et 3D, Gauss ou pas Gauss.</p><span class="tag">28 exercices →</span></a>
 <a class="card" href="interro-s40.html"><div class="ic">🚨</div><h3>Interro semaine 40</h3><p>L'essentiel à savoir, les exercices des TD résolus, les pièges et 11 questions d'entraînement.</p><span class="tag">Fiche de révision →</span></a>
-<a class="card" href="ds1.html"><div class="ic">🎯</div><h3>Fiche DS1</h3><p>Charges, Coulomb, symétries et invariances, théorème de Gauss, plus ce que le cours ne détaille pas.</p><span class="tag">Réviser le DS1 →</span></a>
-<a class="card" href="cours.html"><div class="ic">📚</div><h3>Le cours</h3><p>Ch0 outils mathématiques (repères, gradient, flux, circulation) et Ch1 électrostatique (charges et distributions).</p><span class="tag">2 chapitres →</span></a>
+<a class="card" href="ds1.html"><div class="ic">🎯</div><h3>Fiche DS1 (déjà passé)</h3><p>Charges, Coulomb, symétries et invariances, théorème de Gauss, plus ce que le cours ne détaille pas.</p><span class="tag">Réviser le DS1 →</span></a>
+<a class="card" href="cours.html"><div class="ic">📚</div><h3>Le cours</h3><p>Ch0 outils mathématiques, Ch1 électrostatique (charges, Coulomb, symétries, Gauss), Ch2 potentiel et énergie et Ch3 conducteurs et condensateurs.</p><span class="tag">4 chapitres →</span></a>
 <a class="card" href="formules.html"><div class="ic">📘</div><h3>Formules</h3><p>Chaque formule avec ses symboles, son unité et sa condition d'emploi, plus une version express.</p><span class="tag">Référence →</span></a>
-<a class="card" href="corriges.html"><div class="ic">✅</div><h3>TD corrigés</h3><p>TD0, TD1, TD2bis (annales DS1) et entraînement Gauss : méthode puis correction détaillée, suivi « fait » sur cet appareil.</p><span class="tag">23 fiches →</span></a>
-<a class="card" href="quiz.html"><div class="ic">🧠</div><h3>Quiz</h3><p>50 questions à choix multiples avec explications : repères, gradient, flux, charges, Coulomb, symétries, Gauss.</p><span class="tag">S'entraîner →</span></a>
+<a class="card" href="corriges.html"><div class="ic">✅</div><h3>TD corrigés</h3><p>TD0, TD1, TD2bis (annales DS1), entraînement Gauss et TD3 (potentiel) : méthode puis correction détaillée, suivi « fait » sur cet appareil.</p><span class="tag">30 fiches →</span></a>
+<a class="card" href="quiz.html"><div class="ic">🧠</div><h3>Quiz</h3><p>114 questions à choix multiples avec explications : repères, gradient, flux, charges, Coulomb, symétries, Gauss, potentiel et énergie.</p><span class="tag">S'entraîner →</span></a>
 </div>
 <div class="section-head">
 <span class="eyebrow">Programme</span>
@@ -98,8 +98,11 @@
 </div>
 <div class="s4-grid">
 <div class="s4-card"><h4>Ch0 · Outils mathématiques</h4><p>Coordonnées cartésiennes, cylindriques, sphériques ; éléments \(\mathrm{d}\vec l\), \(\mathrm{d}\vec S\), \(\mathrm{d}\tau\) ; gradient ; flux et circulation. <a href="cours.html#ch0">Cours</a> · <a href="corriges.html#td0">TD0</a></p></div>
-<div class="s4-card"><h4>Ch1 · Électrostatique (DS1)</h4><p>Loi de Coulomb, symétries et invariances, théorème de Gauss, lignes de champ. <a href="ds1.html">Fiche DS1</a> · <a href="corriges.html#td2bis">TD2bis</a> · <a href="corriges.html#gauss">Entraînement</a></p></div>
-<div class="s4-card"><h4>Ch1 · Électrostatique, partie \(A\)</h4><p>Charge électrique, distributions linéique, surfacique, volumique, calcul de la charge totale. <a href="cours.html#ch1">Cours</a> · <a href="corriges.html#td1">TD1</a></p></div>
+<div class="s4-card"><h4>Ch1 · Électrostatique</h4><p>Charges (\(\lambda\), \(\sigma\), \(\rho\)), loi de Coulomb, superposition, symétries et invariances, théorème de Gauss, lignes de champ. <a href="cours.html#ch1">Cours</a> · <a href="corriges.html#td1">TD1</a> · <a href="corriges.html#td2bis">TD2bis</a> · <a href="ds1.html">Fiche DS1</a></p></div>
+<div class="s4-card"><h4>Ch2 · Potentiel et énergie</h4><p>Circulation, potentiel, \(\vec E=-\overrightarrow{\mathrm{grad}}\,V\), équipotentielles, énergie potentielle, dipôle. <a href="cours.html#ch2">Cours</a> · <a href="corriges.html#td3">TD3</a> · <a href="revision-ds.html">Révision DS</a></p></div>
+<!-- IDX3:DEBUT -->
+<div class="s4-card"><h4>Ch3 · Conducteurs et condensateurs</h4><p>Loi d'Ohm, conducteur à l'équilibre, théorème de Coulomb, cage de Faraday, capacité, condensateurs plan, cylindrique et sphérique, énergie. <a href="cours.html#ch3">Cours</a> · <a href="corriges.html#td4">TD4</a> · <a href="formules.html#f-cond">Formules</a></p></div>
+<!-- IDX3:FIN -->
 </div>
 <div class="s4-tip" style="margin-top:18px"><span class="s4-lbl">Méthode de révision</span>Chercher chaque exercice au moins 10 minutes avant d'ouvrir la correction, puis le refaire seul quelques jours plus tard. Relire un corrigé sans avoir cherché donne l'impression de savoir, jusqu'au jour de l'interro.</div>
 </div>
@@ -107,7 +110,7 @@
 <div class="foot">
 <div class="wrap">
 <span>Électromagnétisme · ECE ING2 \(\cdot \,S_{3}\,2026-2027\)</span>
-<span><a href="index.html">Accueil</a> · <a href="interro-s40.html">Interro S40</a> · <a href="corriges.html">TD corrigés</a></span>
+<span><a href="index.html">Accueil</a> · <a href="revision-ds.html">Révision DS</a> · <a href="cours.html">Cours</a> · <a href="formules.html">Formules</a> · <a href="corriges.html">TD corrigés</a> · <a href="quiz.html">Quiz</a></span>
 </div>
 </div>
 <a aria-label="Revenir en haut de la page" class="cx-top" href="#">↑</a>
