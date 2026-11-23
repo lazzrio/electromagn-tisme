@@ -33,6 +33,7 @@
 <a href="index.html">Accueil</a>
 <a class="nav-hot" href="revision-ds.html">🎯 Révision DS</a>
 <a href="cours.html">📚 Cours</a>
+<a href="comprendre.html">💡 Comprendre</a>
 <a aria-current="page" class="active" href="formules.html">📘 Formules</a>
 <a href="corriges.html">✅ TD corrigés</a>
 <a href="quiz.html">🧠 Quiz</a>
@@ -62,6 +63,7 @@
 <a href="#f-gauss">Symétries et Gauss</a>
 <a href="#f-pot">Potentiel et énergie</a>
 <a href="#f-cond">Conducteurs et condensateurs</a>
+<a href="#f-mag">Champ magnétique</a>
 <a href="#f-express">Express</a>
 </nav>
 <section class="fgroup" id="f-coord">
@@ -167,6 +169,23 @@
 <div class="frow"><div class="fx">\(W_E=\dfrac12QU=\dfrac12CU^2=\dfrac{Q^2}{2C}\)</div><div class="fd"><span class="nm">Énergie d'un condensateur</span>. Densité volumique \(\frac12\varepsilon_0E^2\). <span class="unit">\(\mathrm{J}\)</span> <span class="cond">préciser \(Q\) ou \(U\) constant</span></div></div>
 </section>
 <!-- F3:FIN -->
+<!-- F4:DEBUT -->
+<section class="fgroup" id="f-mag">
+<h2>Champ magnétique</h2>
+<div class="frow"><div class="fx">\(\vec f=q\big(\vec E+\vec v\wedge\vec B\big)\)</div><div class="fd"><span class="nm">Force de Lorentz</span>. Partie électrique \(q\vec E\), partie magnétique \(\vec f_m=q\vec v\wedge\vec B\) (nulle si \(\vec v=\vec0\), orthogonale à \(\vec v\), ne travaille pas). <span class="unit">\(\mathrm{N}\)</span></div></div>
+<div class="frow"><div class="fx">\([B]=\mathrm{kg\,A^{-1}\,s^{-2}}=\mathrm{T}\)</div><div class="fd"><span class="nm">Unité de \(\vec B\)</span>. Terre \(4{,}7\times10^{-5}\ \mathrm{T}\) ; aimant \(0{,}1\ \mathrm{T}\) ; électroaimant \(10\ \mathrm{T}\). <span class="unit">\(\mathrm{T}\)</span></div></div>
+<div class="frow"><div class="fx">\(r=\dfrac{m\,v}{|q|\,B}\)</div><div class="fd"><span class="nm">Rayon de la trajectoire circulaire</span>. \(\vec v\perp\vec B\) uniforme ; \(|\vec v|\) constante. <span class="unit">\(\mathrm{m}\)</span> <span class="cond">\(\vec B\) uniforme, pas de champ \(\vec E\)</span></div></div>
+<div class="frow"><div class="fx">\(\mathrm{d}\vec B=\dfrac{\mu_0}{4\pi}\dfrac{I\,\mathrm{d}\vec l\wedge\overrightarrow{PM}}{PM^3}\)</div><div class="fd"><span class="nm">Loi de Biot et Savart</span>. \(\vec B=\int\mathrm{d}\vec B\) sur la ligne \(\mathcal L\) ; sens par le tire-bouchon (\(\mathrm{d}\vec l,\overrightarrow{PM},\mathrm{d}\vec B\) direct). <span class="unit">\(\mathrm{T}\)</span> <span class="cond">courant filiforme</span></div></div>
+<div class="frow"><div class="fx">\(\mu_0=4\pi\times10^{-7}\ \mathrm{SI}\ \ ;\ \ c^2=\dfrac{1}{\varepsilon_0\mu_0}\)</div><div class="fd"><span class="nm">Perméabilité du vide</span>. Lie électricité et magnétisme à la vitesse de la lumière \(c\). <span class="unit">\(\mathrm{T\,m\,A^{-1}}\)</span></div></div>
+<div class="frow"><div class="fx">\(\vec B(M)=\dfrac{\mu_0\,I}{2\pi\,r}\,\vec e_\theta\)</div><div class="fd"><span class="nm">Fil infini</span>. Coordonnées cylindriques d'axe le fil, \(I\) dans le sens de \(\vec e_z\) ; module en \(\frac1r\). <span class="unit">\(\mathrm{T}\)</span> <span class="cond">fil infini, filiforme</span></div></div>
+<div class="frow"><div class="fx">plan de symétrie : \(\vec B\perp\) plan ; plan d'antisymétrie : \(\vec B\in\) plan</div><div class="fd"><span class="nm">Symétries du champ magnétique</span>. <b>Inversé</b> par rapport à \(\vec E\). \(\vec B\) est un pseudo-vecteur : en \(M'\) symétrique par un plan de symétrie, \(\vec B(M')=-\mathrm{sym}\,\vec B(M)\) ; par un plan d'antisymétrie, \(\vec B(M')=\mathrm{sym}\,\vec B(M)\).</div></div>
+<div class="frow"><div class="fx">\(\displaystyle\oint_{\mathcal C}\vec B\cdot\mathrm{d}\vec l=\mu_0\,I_{\text{enlacé}}\)</div><div class="fd"><span class="nm">Théorème d'Ampère</span>. Contour d'Ampère orienté ; signe des courants par la règle de la main droite. <span class="unit">\(\mathrm{T\,m}\)</span> <span class="cond">symétries fortes ; hors poly partie I</span></div></div>
+<div class="frow"><div class="fx">\(B=\mu_0\,n\,I\ \ (\text{intérieur})\ ;\ \ B=0\ \ (\text{extérieur})\)</div><div class="fd"><span class="nm">Solénoïde infini</span>. \(n\) spires par mètre, champ uniforme selon \(\vec e_z\). <span class="unit">\(\mathrm{T}\)</span></div></div>
+<div class="frow"><div class="fx">\(B=\dfrac{\mu_0Ir}{2\pi R^2}\ (r\lt R)\ ;\ \dfrac{\mu_0I}{2\pi r}\ (r\gt R)\)</div><div class="fd"><span class="nm">Cylindre plein infini</span>. Courant uniforme de densité \(j=\frac{I}{\pi R^2}\). Champ continu en \(R\). <span class="unit">\(\mathrm{T}\)</span></div></div>
+<div class="frow"><div class="fx">\(B=\dfrac{\mu_0NI}{2\pi r}\)</div><div class="fd"><span class="nm">Tore</span>. \(N\) spires, champ nul hors du tore. <span class="unit">\(\mathrm{T}\)</span></div></div>
+<div class="frow"><div class="fx">\(B_z=\dfrac{\mu_0I}{2R}\sin^3\alpha=\dfrac{\mu_0IR^2}{2(R^2+z^2)^{3/2}}\)</div><div class="fd"><span class="nm">Spire circulaire sur son axe</span>. Au centre : \(\frac{\mu_0I}{2R}\). <span class="unit">\(\mathrm{T}\)</span></div></div>
+</section>
+<!-- F4:FIN -->
 <section class="fgroup" id="f-express">
 <h2>Version express</h2>
 <div class="express">
@@ -199,6 +218,15 @@
 <div class="ei"><span class="nm">Énergie</span><span class="vl">\(W=\frac12CU^2=\frac{Q^2}{2C}\)</span></div>
 </div>
 <!-- F3EXP:FIN -->
+<!-- F4EXP:DEBUT -->
+<div class="eg"><h4>Magnétisme</h4>
+<div class="ei"><span class="nm">Lorentz</span><span class="vl">\(\vec f=q(\vec E+\vec v\wedge\vec B)\)</span></div>
+<div class="ei"><span class="nm">Rayon</span><span class="vl">\(r=\frac{mv}{|q|B}\)</span></div>
+<div class="ei"><span class="nm">Biot-Savart</span><span class="vl">\(\mathrm{d}\vec B=\frac{\mu_0}{4\pi}\frac{I\mathrm{d}\vec l\wedge\overrightarrow{PM}}{PM^3}\)</span></div>
+<div class="ei"><span class="nm">Fil infini</span><span class="vl">\(B=\frac{\mu_0I}{2\pi r}\)</span></div>
+<div class="ei"><span class="nm">\(\mu_0\)</span><span class="vl">\(4\pi\times10^{-7}\)</span></div>
+</div>
+<!-- F4EXP:FIN -->
 <div class="eg"><h4>Charges</h4>
 <div class="ei"><span class="nm">\(\lambda\)</span><span class="vl">\(\frac{C}{m}\,\cdot \,Q=\int \lambda \,\mathrm{d}l\)</span></div>
 <div class="ei"><span class="nm">\(\sigma\)</span><span class="vl">\(\frac{C}{m^{2}}\,\cdot \,Q=\iint \sigma \,\mathrm{d}S\)</span></div>
